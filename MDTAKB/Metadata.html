@@ -1,0 +1,1941 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Metadata</title>
+    <script
+      type="module"
+      src="https://js.arcgis.com/calcite-components/1.4.1/calcite.esm.js"
+    ></script>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://js.arcgis.com/calcite-components/1.4.1/calcite.css"
+    />
+  </head>
+  
+  <body>
+    <h1>Purpose</h1>
+    <p>Descriptive information about datasets is called metadata. When care is taken to provide detailed metadata on organizational datasets, MDTA GIS users have the necessary information available to evaluate the most appropriate datasets for the intended purpose.  An item's metadata may include information about how accurate and recent the data is, restrictions associated with using and sharing the data, important processes in its life cycle such as generalizing features, and so on.</p>
+    <p>This page describes how to edit and view metadata in ArcGIS Pro desktop software, and view metadata in MDTA's ArcGIS Portal website. Metadata should be completed for each feature class and table in an enterprise geodatabase within MDTA's ArcGIS Enterprise system.</p>
+    <p>Click <a href="https://gist.mdta.maryland.gov/mdtaarcgis/home/item.html?id=627315de48d54528a1202be56a14a21c" target="_blank">here</a> to view and download the XML Metatdata Template to use.</p>
+    <!--Begin Sections-->
+    <calcite-tabs>
+        <calcite-tab-nav slot="title-group">
+            <calcite-tab-title selected>
+                Prep for Metadata
+            </calcite-tab-title>
+            <calcite-tab-title>Importing a Metadata Template</calcite-tab-title>
+            <calcite-tab-title>Metadata Recommendation</calcite-tab-title>
+            <calcite-tab-title>Editing Metadata</calcite-tab-title>
+            <calcite-tab-title>Viewing Metadata</calcite-tab-title>
+            <calcite-tab-title>Metadata Sample</calcite-tab-title>
+            <calcite-tab-title>Metadata Required Mapping</calcite-tab-title>
+        </calcite-tab-nav>
+        <calcite-tab selected>
+            <calcite-notice icon="information" open>
+                <div slot="message">
+                        <!--Begin Table-->
+    <table width="100%">
+        <tbody>
+        <tr>
+        <td width="50%" style="vertical-align: top;">
+                   <p>The following two steps are recommended prior to working with GIS datasets and their metadata.</p>
+                      <!-- Begin Section -->
+                      <h3>Setting Metadata Style in ArcGIS Pro</h3>
+                      <p>MDTA has standardized on the ISO 19115/19139 metadata standard. Although this standard will be used, it is not mandatory to enter all the ISO metadata requirements to be considered “valid” by the ArcGIS software. Thus, after entering metadata, a user will still likely see multiple red “x” marks in ArcGIS Pro on sections where it deems metadata is insufficient (see Figure 1). This is acceptable so long as the MDTA recommended metadata (specified in this document) is populated. </p>
+                      <p>To edit or view ArcGIS metadata in the ISO format, ArcGIS Pro (version 2.5+) must first be configured. Perform the following steps:</p>
+                      <ol>
+                        <li>Open ArcGIS Pro.</li>
+                        <li>Click on the Project tab. (Figure 2)</li>
+                        <li>Click on Options on the left-hand pane.</li>
+                        <li>In the Options popup, click on Metadata, then select ISO 19139. (Figure 3)</li>
+                        <li>Click OK.</li>
+                      </ol>
+                      <p><b><i>Tip:</i></b> Use the following link to access ESRI’s help page for ISO metadata <a href="https://pro.arcgis.com/en/pro-app/help/metadata/create-iso-19115-and-iso-19139-metadata.htm#ESRI_SECTION1_8CCE88639C1C491E8F2EB9F64253C8E8" target="_blank">Esri Help Page</a></p>
+                      <!-- End Section -->
+                                    <!-- Begin Section -->
+                      <h3>Disable Geoprocessing History in Metadata</h3>
+                      <p>To avoid cluttering a feature class’s metadata with each geoprocessing operation performed, disable the <i>Write geoprocessing operations to dataset metadata</i> option in ArcGIS Pro as follows:</p>
+                      <ol>
+                        <li>Open ArcGIS Pro</li>
+                        <li>Click on the Project tab (Figure 4)</li>
+                        <li>Click on Options on the left-hand pane.</li>
+                        <li>In the Options popup, click on Geoprocessing, then uncheck <i>Write geoprocessing operations to dataset metadata</i>. (Figure 5)</li>
+                        <li>Click OK.</li>
+                        <li>Continue with any geoprocessing, editing, or mapping of the datasets.</li>
+                      </ol>
+                        <p><b><i>Tip:</i></b> see <a href="https://pro.arcgis.com/en/pro-app/help/analysis/geoprocessing/basics/geoprocessing-history.htm#ESRI_SECTION1_30E40D263E3D4C08B3655DCA3BE1E243" target="_blank">Esri's help page</a> for more details.</p>
+                      <!-- End Section -->
+        </td>
+        <td style="text-align: right;" width="50%">
+          <table width="100%">
+        <tbody>
+          <tr>
+          <td style="text:align: right" width="50%">
+        <figure><img src="https://mdtagisdstore.mdta.ad.mdot.mdstate/MDTAGISDataShare/GISHub/Images/Metadata/MetaFig1.png" alt="Figure 1: Metadata Editor Warnings" width="50%" height="50%" />
+        <figcaption>Figure 1: Metadata Editor Warnings</figcaption>
+        </figure>
+        </td>
+        </tr>
+        <tr>
+        <td style="text-align:right" width="50%">
+        <figure><img src="https://mdtagisdstore.mdta.ad.mdot.mdstate/MDTAGISDataShare/GISHub/Images/Metadata/MetaFig2.png" alt="Figure 2: In ArcGIS Pro select the Project tab" width="50%" height="50%" />
+        <figcaption>Figure 2: In ArcGIS Pro select the Project tab</figcaption>
+        </figure>
+        </td>
+         </tr>
+          <tr>
+        <td style="text-align: right;" width="50%">
+        <figure><img src="https://mdtagisdstore.mdta.ad.mdot.mdstate/MDTAGISDataShare/GISHub/Images/Metadata/MetaFig3.png" alt="Figure 3: Setting ArcGIS Pro's metadata style" width="50%" height="50%" />
+        <figcaption>Figure 3: Setting ArcGIS Pro's metadata style</figcaption>
+        </figure>
+        </td>
+        </tr>
+          <tr>
+        <tr>
+        <td style="text-align: right;" width="50%">
+        <figure><img src="https://mdtagisdstore.mdta.ad.mdot.mdstate/MDTAGISDataShare/GISHub/Images/Metadata/MetaFig4.png" alt="Figure 4: In ArcGIS Pro select the Project tab" width="50%" height="50%" />
+        <figcaption>Figure 4: In ArcGIS Pro select the Project tab</figcaption>
+        </figure>
+        </td>
+         </tr>
+            <tr>
+        <td style="text-align: right;" width="50%">
+        <figure><img src="https://mdtagisdstore.mdta.ad.mdot.mdstate/MDTAGISDataShare/GISHub/Images/Metadata/MetaFig5.png" alt="Figure 5: Disable logging of geoprocessing operations" width="50%" height="50%" />
+        <figcaption>Figure 5: Disable logging of geoprocessing operations</figcaption>
+        </figure>
+        </td>
+         </tr>
+            </tbody></table>
+        
+        
+        </tbody>
+        </table>
+        <!--End Table-->
+                </div>
+            </calcite-notice>
+        </calcite-tab>
+        <calcite-tab>
+            <calcite-notice icon="information" open>
+                <div slot="message">
+                    <!--Begin Table-->
+                    <table width="100%">
+                        <tbody>
+                        <tr>
+                        <td width="50%" style="vertical-align: top;">
+                          <h3>
+                            MDTA's Template
+                          </h3>
+                                        <p>To provide a starting point and to ensure consistent use limitations are applied across all datasets, the MDTA metadata template should be applied before populating metadata on a feature class. Applying a template after beginning to populate the target feature class’s metadata will cause it to be overwritten.</p>
+                                      <p><b><i>Tip:</i></b> see <a href="https://pro.arcgis.com/en/pro-app/help/metadata/best-practices-for-editing-metadata.htm#ESRI_SECTION1_CBEEC645902D40788F69C54C4DC8A471" target="_blank">Esri's help page</a> for step-by-step instructions to apply a metadata template.</p>
+                                      <p>MDTA's standard template can be obtained <a href="https://mdotgov.sharepoint.com/sites/MDTAGIS/Shared Documents/370 e-GIS Implementation/User Guides/Metadata/MDTA_ArcGIS_Metadata_Template.xml" target="_blank">here.</a></p> <!-- link needs update -->
+                                      <p><b><i>Tip:</i></b> at ArcGIS Pro 2.5, when importing the MDTA metadata template, in <i>The type of metadata to import</i> drop down list, select <i>Discover the type for me</i>. Otherwise an error may be thrown.  See Figure 6.</p>
+                                      <!-- end section -->
+                                      <!-- begin section -->
+                                      <h3>Copying Metadata</h3>
+                                      <p>To ease the effort of entering metadata, metadata can be copied from one feature class with existing metadata to another. See ESRI help for details on <a href="https://pro.arcgis.com/en/pro-app/help/metadata/copy-or-import-metadata-to-an-item.htm" target="_blank">copying metadata</a>.</p>
+                                      <!-- end section -->
+                          </td>
+                        <td style="text-align: right;" width="50%">
+                        <figure>
+                        <img src="https://mdtagisdstore.mdta.ad.mdot.mdstate/MDTAGISDataShare/GISHub/Images/Metadata/MetaFig6.png" alt="Figure 6: Metadata import type" width="75%" height="75%">
+                        <figcaption>Figure 6: Metadata import type</figcaption>
+                        </figure>
+                        </td>
+                        </tr>
+                        </tbody>
+                        </table>
+                    <!--End Table-->
+                </div>
+            </calcite-notice>
+        </calcite-tab>
+        <calcite-tab>
+            <calcite-notice icon="information" open>
+                <div slot="message">
+                    <p>The following table provides a list of MDTA’s required metadata elements that need to be populated, the hierarchical location of this information in ArcGIS Pro (2.5+) metadata, whether this information is auto-populated by the software or requires manual population, and a description and example of the metadata element. The editing metadata section of this document will show how to access the metadata editor in ArcGIS Pro and how to populate these elements. A complete example is shown in the appendix.   </p>
+              <!-- begin table -->
+<div align="center">
+	<table class="MsoNormalTable" style="width: 708.0pt; border-collapse: collapse; mso-yfti-tbllook: 1184; mso-padding-left-alt: 5.4pt; mso-padding-right-alt: 5.4pt;" border="0" width="944" cellspacing="0" cellpadding="0">
+		<tbody>
+			<tr style="mso-yfti-irow: 0; mso-yfti-firstrow: yes; height: 15.0pt;">
+				<td style="width: 109.85pt; background: #4472C4; padding: .75pt 5.4pt .75pt 5.4pt; height: 15.0pt;" valign="bottom" width="146">
+					<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;">
+						<strong>
+							<span style="mso-ascii-font-family: Calibri; mso-fareast-font-family: 'Times New Roman'; mso-hansi-font-family: Calibri; mso-bidi-font-family: Calibri; color: white;">
+								Need
+							</span>
+						</strong>
+					</p>
+				</td>
+				<td style="width: 226.6pt; background: #4472C4; padding: .75pt 5.4pt .75pt 5.4pt; height: 15.0pt;" valign="bottom" width="302">
+					<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;">
+						<strong>
+							<span style="mso-ascii-font-family: Calibri; mso-fareast-font-family: 'Times New Roman'; mso-hansi-font-family: Calibri; mso-bidi-font-family: Calibri; color: white;">
+								Description
+							</span>
+						</strong>
+					</p>
+				</td>
+				<td style="width: 114.9pt; background: #4472C4; padding: .75pt 5.4pt .75pt 5.4pt; height: 15.0pt;" valign="bottom" width="153">
+					<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;">
+						<strong>
+							<span style="mso-ascii-font-family: Calibri; mso-fareast-font-family: 'Times New Roman'; mso-hansi-font-family: Calibri; mso-bidi-font-family: Calibri; color: white;">
+								Example
+							</span>
+						</strong>
+					</p>
+				</td>
+				<td style="width: 164.75pt; background: #4472C4; padding: .75pt 5.4pt .75pt 5.4pt; height: 15.0pt;" valign="bottom" width="220">
+					<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;">
+						<strong>
+							<span style="mso-ascii-font-family: Calibri; mso-fareast-font-family: 'Times New Roman'; mso-hansi-font-family: Calibri; mso-bidi-font-family: Calibri; color: white;">
+								ArcGIS Metadata Location
+							</span>
+						</strong>
+					</p>
+				</td>
+				<td style="width: 91.9pt; background: #4472C4; padding: .75pt 5.4pt .75pt 5.4pt; height: 15.0pt;" valign="bottom" width="123">
+					<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;">
+						<strong>
+							<span style="mso-ascii-font-family: Calibri; mso-fareast-font-family: 'Times New Roman'; mso-hansi-font-family: Calibri; mso-bidi-font-family: Calibri; color: white;">
+								Auto-populated
+							</span>
+						</strong>
+					</p>
+				</td>
+			</tr>
+			<tr style="mso-yfti-irow: 1; height: 15.0pt;">
+				<td style="width: 109.85pt; background: #B4C6E7; padding: .75pt 5.4pt .75pt 5.4pt; height: 15.0pt;" valign="bottom" width="146">
+					<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;">
+						<strong>
+							<span style="mso-ascii-font-family: Calibri; mso-fareast-font-family: 'Times New Roman'; mso-hansi-font-family: Calibri; mso-bidi-font-family: Calibri; color: black;">
+								Title
+							</span>
+						</strong>
+					</p>
+				</td>
+				<td style="width: 226.6pt; background: #B4C6E7; padding: .75pt 5.4pt .75pt 5.4pt; height: 15.0pt;" valign="bottom" width="302">
+					<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;">
+						<span style="mso-ascii-font-family: Calibri; mso-fareast-font-family: 'Times New Roman'; mso-hansi-font-family: Calibri; mso-bidi-font-family: Calibri; color: black;">
+							Short descriptive name of dataset
+						</span>
+					</p>
+				</td>
+				<td style="width: 114.9pt; background: #B4C6E7; padding: .75pt 5.4pt .75pt 5.4pt; height: 15.0pt;" valign="bottom" width="153">
+					<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;">
+						<span style="mso-ascii-font-family: Calibri; mso-fareast-font-family: 'Times New Roman'; mso-hansi-font-family: Calibri; mso-bidi-font-family: Calibri; color: black;">
+							Street Centerlines
+						</span>
+					</p>
+				</td>
+				<td style="width: 164.75pt; background: #B4C6E7; padding: .75pt 5.4pt .75pt 5.4pt; height: 15.0pt;" valign="bottom" width="220">
+					<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;">
+						<span style="mso-ascii-font-family: Calibri; mso-fareast-font-family: 'Times New Roman'; mso-hansi-font-family: Calibri; mso-bidi-font-family: Calibri; color: black;">
+							Overview &gt; Title
+						</span>
+					</p>
+				</td>
+				<td style="width: 91.9pt; background: #B4C6E7; padding: .75pt 5.4pt .75pt 5.4pt; height: 15.0pt;" valign="bottom" width="123">
+					<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;">
+						<span style="mso-ascii-font-family: Calibri; mso-fareast-font-family: 'Times New Roman'; mso-hansi-font-family: Calibri; mso-bidi-font-family: Calibri; color: black;">
+							No
+						</span>
+					</p>
+				</td>
+			</tr>
+			<tr style="mso-yfti-irow: 2; height: 15.0pt;">
+				<td style="width: 109.85pt; background: #D9E1F2; padding: .75pt 5.4pt .75pt 5.4pt; height: 15.0pt;" valign="bottom" width="146">
+					<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;">
+						<strong>
+							<span style="mso-ascii-font-family: Calibri; mso-fareast-font-family: 'Times New Roman'; mso-hansi-font-family: Calibri; mso-bidi-font-family: Calibri; color: black;">
+								Tags
+							</span>
+						</strong>
+					</p>
+				</td>
+				<td style="width: 226.6pt; background: #D9E1F2; padding: .75pt 5.4pt .75pt 5.4pt; height: 15.0pt;" valign="bottom" width="302">
+					<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;">
+						<span style="mso-ascii-font-family: Calibri; mso-fareast-font-family: 'Times New Roman'; mso-hansi-font-family: Calibri; mso-bidi-font-family: Calibri; color: black;">
+							Searchable tags for metadata
+						</span>
+					</p>
+				</td>
+				<td style="width: 114.9pt; background: #D9E1F2; padding: .75pt 5.4pt .75pt 5.4pt; height: 15.0pt;" valign="bottom" width="153">
+					<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;">
+						<span style="mso-ascii-font-family: Calibri; mso-fareast-font-family: 'Times New Roman'; mso-hansi-font-family: Calibri; mso-bidi-font-family: Calibri; color: black;">
+							its, signs
+						</span>
+					</p>
+				</td>
+				<td style="width: 164.75pt; background: #D9E1F2; padding: .75pt 5.4pt .75pt 5.4pt; height: 15.0pt;" valign="bottom" width="220">
+					<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;">
+						<span style="mso-ascii-font-family: Calibri; mso-fareast-font-family: 'Times New Roman'; mso-hansi-font-family: Calibri; mso-bidi-font-family: Calibri; color: black;">
+							Overview &gt; Tags
+						</span>
+					</p>
+				</td>
+				<td style="width: 91.9pt; background: #D9E1F2; padding: .75pt 5.4pt .75pt 5.4pt; height: 15.0pt;" valign="bottom" width="123">
+					<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;">
+						<span style="mso-ascii-font-family: Calibri; mso-fareast-font-family: 'Times New Roman'; mso-hansi-font-family: Calibri; mso-bidi-font-family: Calibri; color: black;">
+							No
+						</span>
+					</p>
+				</td>
+			</tr>
+			<tr style="mso-yfti-irow: 3; height: 15.0pt;">
+				<td style="width: 109.85pt; background: #B4C6E7; padding: .75pt 5.4pt .75pt 5.4pt; height: 15.0pt;" valign="bottom" width="146">
+					<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;">
+						<strong>
+							<span style="mso-ascii-font-family: Calibri; mso-fareast-font-family: 'Times New Roman'; mso-hansi-font-family: Calibri; mso-bidi-font-family: Calibri; color: black;">
+								Description
+							</span>
+						</strong>
+					</p>
+				</td>
+				<td style="width: 226.6pt; background: #B4C6E7; padding: .75pt 5.4pt .75pt 5.4pt; height: 15.0pt;" valign="bottom" width="302">
+					<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;">
+						<span style="mso-ascii-font-family: Calibri; mso-fareast-font-family: 'Times New Roman'; mso-hansi-font-family: Calibri; mso-bidi-font-family: Calibri; color: black;">
+							Description of data and purpose
+						</span>
+					</p>
+				</td>
+				<td style="width: 114.9pt; background: #B4C6E7; padding: .75pt 5.4pt .75pt 5.4pt; height: 15.0pt;" valign="bottom" width="153">
+					<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;">
+						<span style="mso-ascii-font-family: Calibri; mso-fareast-font-family: 'Times New Roman'; mso-hansi-font-family: Calibri; mso-bidi-font-family: Calibri; color: black;">
+							narrative
+						</span>
+					</p>
+				</td>
+				<td style="width: 164.75pt; background: #B4C6E7; padding: .75pt 5.4pt .75pt 5.4pt; height: 15.0pt;" valign="bottom" width="220">
+					<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;">
+						<span style="mso-ascii-font-family: Calibri; mso-fareast-font-family: 'Times New Roman'; mso-hansi-font-family: Calibri; mso-bidi-font-family: Calibri; color: black;">
+							Overview &gt; Description (Abstract)
+						</span>
+					</p>
+				</td>
+				<td style="width: 91.9pt; background: #B4C6E7; padding: .75pt 5.4pt .75pt 5.4pt; height: 15.0pt;" valign="bottom" width="123">
+					<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;">
+						<span style="mso-ascii-font-family: Calibri; mso-fareast-font-family: 'Times New Roman'; mso-hansi-font-family: Calibri; mso-bidi-font-family: Calibri; color: black;">
+							No
+						</span>
+					</p>
+				</td>
+			</tr>
+			<tr style="mso-yfti-irow: 4; height: 60.0pt;">
+				<td style="width: 109.85pt; background: #D9E1F2; padding: .75pt 5.4pt .75pt 5.4pt; height: 60.0pt;" valign="bottom" width="146">
+					<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;">
+						<strong>
+							<span style="mso-ascii-font-family: Calibri; mso-fareast-font-family: 'Times New Roman'; mso-hansi-font-family: Calibri; mso-bidi-font-family: Calibri; color: black;">
+								Use constraints
+							</span>
+						</strong>
+					</p>
+				</td>
+				<td style="width: 226.6pt; background: #D9E1F2; padding: .75pt 5.4pt .75pt 5.4pt; height: 60.0pt;" valign="bottom" width="302">
+					<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;">
+						<span style="mso-ascii-font-family: Calibri; mso-fareast-font-family: 'Times New Roman'; mso-hansi-font-family: Calibri; mso-bidi-font-family: Calibri; color: black;">
+							Boilerplate; any special security or concerns (e.g. Personally Identifiable Information restrictions)
+						</span>
+					</p>
+				</td>
+				<td style="width: 114.9pt; background: #D9E1F2; padding: .75pt 5.4pt .75pt 5.4pt; height: 60.0pt;" valign="bottom" width="153">
+					<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;">
+						<span style="mso-ascii-font-family: Calibri; mso-fareast-font-family: 'Times New Roman'; mso-hansi-font-family: Calibri; mso-bidi-font-family: Calibri; color: black;">
+							Boilerplate (see template) + special concerns
+						</span>
+					</p>
+				</td>
+				<td style="width: 164.75pt; background: #D9E1F2; padding: .75pt 5.4pt .75pt 5.4pt; height: 60.0pt;" valign="bottom" width="220">
+					<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;">
+						<span style="mso-ascii-font-family: Calibri; mso-fareast-font-family: 'Times New Roman'; mso-hansi-font-family: Calibri; mso-bidi-font-family: Calibri; color: black;">
+							Overview &gt; Use Limitation
+							<br />
+							 - or - Resource &gt; Constraints &gt; General, Legal, or Security Constraints
+						</span>
+					</p>
+				</td>
+				<td style="width: 91.9pt; background: #D9E1F2; padding: .75pt 5.4pt .75pt 5.4pt; height: 60.0pt;" valign="bottom" width="123">
+					<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;">
+						<span style="mso-ascii-font-family: Calibri; mso-fareast-font-family: 'Times New Roman'; mso-hansi-font-family: Calibri; mso-bidi-font-family: Calibri; color: black;">
+							No
+						</span>
+					</p>
+				</td>
+			</tr>
+			<tr style="mso-yfti-irow: 5; height: 15.0pt;">
+				<td style="width: 109.85pt; background: #B4C6E7; padding: .75pt 5.4pt .75pt 5.4pt; height: 15.0pt;" valign="bottom" width="146">
+					<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;">
+						<strong>
+							<span style="mso-ascii-font-family: Calibri; mso-fareast-font-family: 'Times New Roman'; mso-hansi-font-family: Calibri; mso-bidi-font-family: Calibri; color: black;">
+								Metadata update date
+							</span>
+						</strong>
+					</p>
+				</td>
+				<td style="width: 226.6pt; background: #B4C6E7; padding: .75pt 5.4pt .75pt 5.4pt; height: 15.0pt;" valign="bottom" width="302">
+					<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;">
+						<span style="mso-ascii-font-family: Calibri; mso-fareast-font-family: 'Times New Roman'; mso-hansi-font-family: Calibri; mso-bidi-font-family: Calibri; color: black;">
+							Last time metadata was updated
+						</span>
+					</p>
+				</td>
+				<td style="width: 114.9pt; background: #B4C6E7; padding: .75pt 5.4pt .75pt 5.4pt; height: 15.0pt;" valign="bottom" width="153">
+					<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;">
+						<span style="mso-ascii-font-family: Calibri; mso-fareast-font-family: 'Times New Roman'; mso-hansi-font-family: Calibri; mso-bidi-font-family: Calibri; color: black;">
+							2020-01-29
+						</span>
+					</p>
+				</td>
+				<td style="width: 164.75pt; background: #B4C6E7; padding: .75pt 5.4pt .75pt 5.4pt; height: 15.0pt;" valign="bottom" width="220">
+					<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;">
+						<span style="mso-ascii-font-family: Calibri; mso-fareast-font-family: 'Times New Roman'; mso-hansi-font-family: Calibri; mso-bidi-font-family: Calibri; color: black;">
+							Metadata &gt; Details &gt; Date Stamp
+						</span>
+					</p>
+				</td>
+				<td style="width: 91.9pt; background: #B4C6E7; padding: .75pt 5.4pt .75pt 5.4pt; height: 15.0pt;" valign="bottom" width="123">
+					<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;">
+						<span style="mso-ascii-font-family: Calibri; mso-fareast-font-family: 'Times New Roman'; mso-hansi-font-family: Calibri; mso-bidi-font-family: Calibri; color: black;">
+							Yes
+						</span>
+					</p>
+				</td>
+			</tr>
+			<tr style="mso-yfti-irow: 6; height: 30.0pt;">
+				<td style="width: 109.85pt; background: #D9E1F2; padding: .75pt 5.4pt .75pt 5.4pt; height: 30.0pt;" valign="bottom" width="146">
+					<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;">
+						<strong>
+							<span style="mso-ascii-font-family: Calibri; mso-fareast-font-family: 'Times New Roman'; mso-hansi-font-family: Calibri; mso-bidi-font-family: Calibri; color: black;">
+								Status
+							</span>
+						</strong>
+					</p>
+				</td>
+				<td style="width: 226.6pt; background: #D9E1F2; padding: .75pt 5.4pt .75pt 5.4pt; height: 30.0pt;" valign="bottom" width="302">
+					<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;">
+						<span style="mso-ascii-font-family: Calibri; mso-fareast-font-family: 'Times New Roman'; mso-hansi-font-family: Calibri; mso-bidi-font-family: Calibri; color: black;">
+							Whether dataset is complete, under construction, or outdated
+						</span>
+					</p>
+				</td>
+				<td style="width: 114.9pt; background: #D9E1F2; padding: .75pt 5.4pt .75pt 5.4pt; height: 30.0pt;" valign="bottom" width="153">
+					<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;">
+						<span style="mso-ascii-font-family: Calibri; mso-fareast-font-family: 'Times New Roman'; mso-hansi-font-family: Calibri; mso-bidi-font-family: Calibri; color: black;">
+							Under Development, On-Going, Completed
+						</span>
+					</p>
+				</td>
+				<td style="width: 164.75pt; background: #D9E1F2; padding: .75pt 5.4pt .75pt 5.4pt; height: 30.0pt;" valign="bottom" width="220">
+					<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;">
+						<span style="mso-ascii-font-family: Calibri; mso-fareast-font-family: 'Times New Roman'; mso-hansi-font-family: Calibri; mso-bidi-font-family: Calibri; color: black;">
+							Resource &gt; Details &gt; Status
+						</span>
+					</p>
+				</td>
+				<td style="width: 91.9pt; background: #D9E1F2; padding: .75pt 5.4pt .75pt 5.4pt; height: 30.0pt;" valign="bottom" width="123">
+					<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;">
+						<span style="mso-ascii-font-family: Calibri; mso-fareast-font-family: 'Times New Roman'; mso-hansi-font-family: Calibri; mso-bidi-font-family: Calibri; color: black;">
+							No
+						</span>
+					</p>
+				</td>
+			</tr>
+			<tr style="mso-yfti-irow: 7; height: 30.0pt;">
+				<td style="width: 109.85pt; background: #B4C6E7; padding: .75pt 5.4pt .75pt 5.4pt; height: 30.0pt;" valign="bottom" width="146">
+					<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;">
+						<strong>
+							<span style="mso-ascii-font-family: Calibri; mso-fareast-font-family: 'Times New Roman'; mso-hansi-font-family: Calibri; mso-bidi-font-family: Calibri; color: black;">
+								Data Owner
+							</span>
+						</strong>
+					</p>
+				</td>
+				<td style="width: 226.6pt; background: #B4C6E7; padding: .75pt 5.4pt .75pt 5.4pt; height: 30.0pt;" valign="bottom" width="302">
+					<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;">
+						<span style="mso-ascii-font-family: Calibri; mso-fareast-font-family: 'Times New Roman'; mso-hansi-font-family: Calibri; mso-bidi-font-family: Calibri; color: black;">
+							Department or discipline that assets belong to; include contact info and role
+						</span>
+					</p>
+				</td>
+				<td style="width: 114.9pt; background: #B4C6E7; padding: .75pt 5.4pt .75pt 5.4pt; height: 30.0pt;" valign="bottom" width="153">
+					<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;">
+						<span style="mso-ascii-font-family: Calibri; mso-fareast-font-family: 'Times New Roman'; mso-hansi-font-family: Calibri; mso-bidi-font-family: Calibri; color: black;">
+							Will Pines
+						</span>
+					</p>
+				</td>
+				<td style="width: 164.75pt; background: #B4C6E7; padding: .75pt 5.4pt .75pt 5.4pt; height: 30.0pt;" valign="bottom" width="220">
+					<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;">
+						<span style="mso-ascii-font-family: Calibri; mso-fareast-font-family: 'Times New Roman'; mso-hansi-font-family: Calibri; mso-bidi-font-family: Calibri; color: black;">
+							Resource &gt; Points of Contact
+							<br />
+							 Role = Owner
+						</span>
+					</p>
+				</td>
+				<td style="width: 91.9pt; background: #B4C6E7; padding: .75pt 5.4pt .75pt 5.4pt; height: 30.0pt;" valign="bottom" width="123">
+					<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;">
+						<span style="mso-ascii-font-family: Calibri; mso-fareast-font-family: 'Times New Roman'; mso-hansi-font-family: Calibri; mso-bidi-font-family: Calibri; color: black;">
+							No
+						</span>
+					</p>
+				</td>
+			</tr>
+			<tr style="mso-yfti-irow: 8; height: 46.5pt;">
+				<td style="width: 109.85pt; background: #D9E1F2; padding: .75pt 5.4pt .75pt 5.4pt; height: 46.5pt;" valign="bottom" width="146">
+					<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;">
+						<strong>
+							<span style="mso-ascii-font-family: Calibri; mso-fareast-font-family: 'Times New Roman'; mso-hansi-font-family: Calibri; mso-bidi-font-family: Calibri; color: black;">
+								Data Steward
+							</span>
+						</strong>
+					</p>
+				</td>
+				<td style="width: 226.6pt; background: #D9E1F2; padding: .75pt 5.4pt .75pt 5.4pt; height: 46.5pt;" valign="bottom" width="302">
+					<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;">
+						<span style="mso-ascii-font-family: Calibri; mso-fareast-font-family: 'Times New Roman'; mso-hansi-font-family: Calibri; mso-bidi-font-family: Calibri; color: black;">
+							Role responsible for data maintenance; include contact info and role
+						</span>
+					</p>
+				</td>
+				<td style="width: 114.9pt; background: #D9E1F2; padding: .75pt 5.4pt .75pt 5.4pt; height: 46.5pt;" valign="bottom" width="153">
+					<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;">
+						<span style="mso-ascii-font-family: Calibri; mso-fareast-font-family: 'Times New Roman'; mso-hansi-font-family: Calibri; mso-bidi-font-family: Calibri; color: black;">
+							John Privot
+						</span>
+					</p>
+				</td>
+				<td style="width: 164.75pt; background: #D9E1F2; padding: .75pt 5.4pt .75pt 5.4pt; height: 46.5pt;" valign="bottom" width="220">
+					<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;">
+						<span style="mso-ascii-font-family: Calibri; mso-fareast-font-family: 'Times New Roman'; mso-hansi-font-family: Calibri; mso-bidi-font-family: Calibri; color: black;">
+							Resource &gt; Points of Contact
+							<br />
+							 Role = Custodian
+							<br />
+							 If consultant: Position = Consultant
+						</span>
+					</p>
+				</td>
+				<td style="width: 91.9pt; background: #D9E1F2; padding: .75pt 5.4pt .75pt 5.4pt; height: 46.5pt;" valign="bottom" width="123">
+					<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;">
+						<span style="mso-ascii-font-family: Calibri; mso-fareast-font-family: 'Times New Roman'; mso-hansi-font-family: Calibri; mso-bidi-font-family: Calibri; color: black;">
+							No
+						</span>
+					</p>
+				</td>
+			</tr>
+			<tr style="mso-yfti-irow: 9; height: 30.0pt;">
+				<td style="width: 109.85pt; background: #B4C6E7; padding: .75pt 5.4pt .75pt 5.4pt; height: 30.0pt;" valign="bottom" width="146">
+					<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;">
+						<strong>
+							<span style="mso-ascii-font-family: Calibri; mso-fareast-font-family: 'Times New Roman'; mso-hansi-font-family: Calibri; mso-bidi-font-family: Calibri; color: black;">
+								Data maintenance frequency
+							</span>
+						</strong>
+					</p>
+				</td>
+				<td style="width: 226.6pt; background: #B4C6E7; padding: .75pt 5.4pt .75pt 5.4pt; height: 30.0pt;" valign="bottom" width="302">
+					<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;">
+						<span style="mso-ascii-font-family: Calibri; mso-fareast-font-family: 'Times New Roman'; mso-hansi-font-family: Calibri; mso-bidi-font-family: Calibri; color: black;">
+							Frequency of updates to the data
+						</span>
+					</p>
+				</td>
+				<td style="width: 114.9pt; background: #B4C6E7; padding: .75pt 5.4pt .75pt 5.4pt; height: 30.0pt;" valign="bottom" width="153">
+					<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;">
+						<span style="mso-ascii-font-family: Calibri; mso-fareast-font-family: 'Times New Roman'; mso-hansi-font-family: Calibri; mso-bidi-font-family: Calibri; color: black;">
+							Annually
+						</span>
+					</p>
+				</td>
+				<td style="width: 164.75pt; background: #B4C6E7; padding: .75pt 5.4pt .75pt 5.4pt; height: 30.0pt;" valign="bottom" width="220">
+					<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;">
+						<span style="mso-ascii-font-family: Calibri; mso-fareast-font-family: 'Times New Roman'; mso-hansi-font-family: Calibri; mso-bidi-font-family: Calibri; color: black;">
+							Resource &gt; Maintenance &gt; Update Frequency
+						</span>
+					</p>
+				</td>
+				<td style="width: 91.9pt; background: #B4C6E7; padding: .75pt 5.4pt .75pt 5.4pt; height: 30.0pt;" valign="bottom" width="123">
+					<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;">
+						<span style="mso-ascii-font-family: Calibri; mso-fareast-font-family: 'Times New Roman'; mso-hansi-font-family: Calibri; mso-bidi-font-family: Calibri; color: black;">
+							No
+						</span>
+					</p>
+				</td>
+			</tr>
+			<tr style="mso-yfti-irow: 10; height: 45.0pt;">
+				<td style="width: 109.85pt; background: #D9E1F2; padding: .75pt 5.4pt .75pt 5.4pt; height: 45.0pt;" valign="bottom" width="146">
+					<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;">
+						<strong>
+							<span style="mso-ascii-font-family: Calibri; mso-fareast-font-family: 'Times New Roman'; mso-hansi-font-family: Calibri; mso-bidi-font-family: Calibri; color: black;">
+								Data source and processing
+							</span>
+						</strong>
+					</p>
+				</td>
+				<td style="width: 226.6pt; background: #D9E1F2; padding: .75pt 5.4pt .75pt 5.4pt; height: 45.0pt;" valign="bottom" width="302">
+					<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;">
+						<span style="mso-ascii-font-family: Calibri; mso-fareast-font-family: 'Times New Roman'; mso-hansi-font-family: Calibri; mso-bidi-font-family: Calibri; color: black;">
+							Who produces data, how was it developed and processed, accuracy of spatial location and attributes
+						</span>
+					</p>
+				</td>
+				<td style="width: 114.9pt; background: #D9E1F2; padding: .75pt 5.4pt .75pt 5.4pt; height: 45.0pt;" valign="bottom" width="153">
+					<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;">
+						<span style="mso-ascii-font-family: Calibri; mso-fareast-font-family: 'Times New Roman'; mso-hansi-font-family: Calibri; mso-bidi-font-family: Calibri; color: black;">
+							Collected via mapping-grade GPS by contractors
+						</span>
+					</p>
+				</td>
+				<td style="width: 164.75pt; background: #D9E1F2; padding: .75pt 5.4pt .75pt 5.4pt; height: 45.0pt;" valign="bottom" width="220">
+					<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;">
+						<span style="mso-ascii-font-family: Calibri; mso-fareast-font-family: 'Times New Roman'; mso-hansi-font-family: Calibri; mso-bidi-font-family: Calibri; color: black;">
+							Resource &gt; Maintenance &gt; Maintenance Note
+						</span>
+					</p>
+				</td>
+				<td style="width: 91.9pt; background: #D9E1F2; padding: .75pt 5.4pt .75pt 5.4pt; height: 45.0pt;" valign="bottom" width="123">
+					<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;">
+						<span style="mso-ascii-font-family: Calibri; mso-fareast-font-family: 'Times New Roman'; mso-hansi-font-family: Calibri; mso-bidi-font-family: Calibri; color: black;">
+							No
+						</span>
+					</p>
+				</td>
+			</tr>
+			<tr style="mso-yfti-irow: 11; height: 30.0pt;">
+				<td style="width: 109.85pt; background: #B4C6E7; padding: .75pt 5.4pt .75pt 5.4pt; height: 30.0pt;" valign="bottom" width="146">
+					<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;">
+						<strong>
+							<span style="mso-ascii-font-family: Calibri; mso-fareast-font-family: 'Times New Roman'; mso-hansi-font-family: Calibri; mso-bidi-font-family: Calibri; color: black;">
+								Coordinate system
+							</span>
+						</strong>
+					</p>
+				</td>
+				<td style="width: 226.6pt; background: #B4C6E7; padding: .75pt 5.4pt .75pt 5.4pt; height: 30.0pt;" valign="bottom" width="302">
+					<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;">
+						<span style="mso-ascii-font-family: Calibri; mso-fareast-font-family: 'Times New Roman'; mso-hansi-font-family: Calibri; mso-bidi-font-family: Calibri; color: black;">
+							Datum and projection
+						</span>
+					</p>
+				</td>
+				<td style="width: 114.9pt; background: #B4C6E7; padding: .75pt 5.4pt .75pt 5.4pt; height: 30.0pt;" valign="bottom" width="153">
+					<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;">
+						<span style="mso-ascii-font-family: Calibri; mso-fareast-font-family: 'Times New Roman'; mso-hansi-font-family: Calibri; mso-bidi-font-family: Calibri; color: black;">
+							EPSG 2893 (MD State Plane)
+						</span>
+					</p>
+				</td>
+				<td style="width: 164.75pt; background: #B4C6E7; padding: .75pt 5.4pt .75pt 5.4pt; height: 30.0pt;" valign="bottom" width="220">
+					<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;">
+						<span style="mso-ascii-font-family: Calibri; mso-fareast-font-family: 'Times New Roman'; mso-hansi-font-family: Calibri; mso-bidi-font-family: Calibri; color: black;">
+							Resource &gt; Spatial Reference
+						</span>
+					</p>
+				</td>
+				<td style="width: 91.9pt; background: #B4C6E7; padding: .75pt 5.4pt .75pt 5.4pt; height: 30.0pt;" valign="bottom" width="123">
+					<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;">
+						<span style="mso-ascii-font-family: Calibri; mso-fareast-font-family: 'Times New Roman'; mso-hansi-font-family: Calibri; mso-bidi-font-family: Calibri; color: black;">
+							Yes
+						</span>
+					</p>
+				</td>
+			</tr>
+			<tr style="mso-yfti-irow: 12; height: 60.0pt;">
+				<td style="width: 109.85pt; background: #D9E1F2; padding: .75pt 5.4pt .75pt 5.4pt; height: 60.0pt;" valign="bottom" width="146">
+					<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;">
+						<strong>
+							<span style="mso-ascii-font-family: Calibri; mso-fareast-font-family: 'Times New Roman'; mso-hansi-font-family: Calibri; mso-bidi-font-family: Calibri; color: black;">
+								Accuracy
+							</span>
+						</strong>
+					</p>
+				</td>
+				<td style="width: 226.6pt; background: #D9E1F2; padding: .75pt 5.4pt .75pt 5.4pt; height: 60.0pt;" valign="bottom" width="302">
+					<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;">
+						<span style="mso-ascii-font-family: Calibri; mso-fareast-font-family: 'Times New Roman'; mso-hansi-font-family: Calibri; mso-bidi-font-family: Calibri; color: black;">
+							Spatial accuracy if available; attribute accuracy (where applicable)
+						</span>
+					</p>
+				</td>
+				<td style="width: 114.9pt; background: #D9E1F2; padding: .75pt 5.4pt .75pt 5.4pt; height: 60.0pt;" valign="bottom" width="153">
+					<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;">
+						<span style="mso-ascii-font-family: Calibri; mso-fareast-font-family: 'Times New Roman'; mso-hansi-font-family: Calibri; mso-bidi-font-family: Calibri; color: black;">
+							Attributes:field verified
+							<br />
+							 Features: +/- 1 meter
+						</span>
+					</p>
+				</td>
+				<td style="width: 164.75pt; background: #D9E1F2; padding: .75pt 5.4pt .75pt 5.4pt; height: 60.0pt;" valign="bottom" width="220">
+					<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;">
+						<span style="mso-ascii-font-family: Calibri; mso-fareast-font-family: 'Times New Roman'; mso-hansi-font-family: Calibri; mso-bidi-font-family: Calibri; color: black;">
+							Resource &gt; Quality &gt; Scope Level = Feature,
+							<br />
+							 Level Description &gt; Attributes, Features
+						</span>
+					</p>
+				</td>
+				<td style="width: 91.9pt; background: #D9E1F2; padding: .75pt 5.4pt .75pt 5.4pt; height: 60.0pt;" valign="bottom" width="123">
+					<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;">
+						<span style="mso-ascii-font-family: Calibri; mso-fareast-font-family: 'Times New Roman'; mso-hansi-font-family: Calibri; mso-bidi-font-family: Calibri; color: black;">
+							No
+						</span>
+					</p>
+				</td>
+			</tr>
+			<tr style="mso-yfti-irow: 13; mso-yfti-lastrow: yes; height: 60.0pt;">
+				<td style="width: 109.85pt; background: #B4C6E7; padding: .75pt 5.4pt .75pt 5.4pt; height: 60.0pt;" valign="bottom" width="146">
+					<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;">
+						<strong>
+							<span style="mso-ascii-font-family: Calibri; mso-fareast-font-family: 'Times New Roman'; mso-hansi-font-family: Calibri; mso-bidi-font-family: Calibri; color: black;">
+								Attribute dictionary
+							</span>
+						</strong>
+					</p>
+				</td>
+				<td style="width: 226.6pt; background: #B4C6E7; padding: .75pt 5.4pt .75pt 5.4pt; height: 60.0pt;" valign="bottom" width="302">
+					<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;">
+						<span style="mso-ascii-font-family: Calibri; mso-fareast-font-family: 'Times New Roman'; mso-hansi-font-family: Calibri; mso-bidi-font-family: Calibri; color: black;">
+							field names, descriptions, and data types
+						</span>
+					</p>
+				</td>
+				<td style="width: 114.9pt; background: #B4C6E7; padding: .75pt 5.4pt .75pt 5.4pt; height: 60.0pt;" valign="bottom" width="153">
+					<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;">
+						<span style="mso-ascii-font-family: Calibri; mso-fareast-font-family: 'Times New Roman'; mso-hansi-font-family: Calibri; mso-bidi-font-family: Calibri; color: black;">
+							AMPERAGE is used to record the electrical current in amps (amperes) of an asset.
+						</span>
+					</p>
+				</td>
+				<td style="width: 164.75pt; background: #B4C6E7; padding: .75pt 5.4pt .75pt 5.4pt; height: 60.0pt;" valign="bottom" width="220">
+					<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;">
+						<span style="mso-ascii-font-family: Calibri; mso-fareast-font-family: 'Times New Roman'; mso-hansi-font-family: Calibri; mso-bidi-font-family: Calibri; color: black;">
+							Resource &gt; Fields &gt; Entity and Attribute Information &gt; Details &gt; Attribute &gt; Definition
+						</span>
+					</p>
+				</td>
+				<td style="width: 91.9pt; background: #B4C6E7; padding: .75pt 5.4pt .75pt 5.4pt; height: 60.0pt;" valign="bottom" width="123">
+					<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;">
+						<span style="mso-ascii-font-family: Calibri; mso-fareast-font-family: 'Times New Roman'; mso-hansi-font-family: Calibri; mso-bidi-font-family: Calibri; color: black;">
+							Partial
+						</span>
+					</p>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<p>
+		Table 1: MDTA metadata elements
+	</p>
+</div>
+<!-- end table -->
+  </div>
+                </div>
+            </calcite-notice>
+        </calcite-tab>
+        <calcite-tab>
+            <calcite-notice icon="information" open>
+                <div slot="message">
+                    <!--Begin Table-->
+                    <table width="100%">
+                        <tbody>
+                        <tr>
+                        <td rowspan="3" width="50%" style="vertical-align: top;">
+                                        <p>To edit metadata in ArcGIS Pro:</p>
+                                      <ol>
+                                        <li>Open ArcGIS Pro (Version 2.5 +), and open or start a new project.</li>
+                                        <li>Open the Catalog pane.</li>
+                                        <ul>
+                                          <li><b>Important Note</b>: metadata can be created in layers in ArcGIS Pro projects, or on the layers in the geodatabase. MDTA metadata should be developed and stored in the geodatabase. So, be sure to select the layer from the Catalog pane database connection, not from the layers in the map.</li>
+                                        </ul>
+                                        <li>Navigate to the feature class of interest.</li>
+                                        <li>Right click on the item and select Edit Metadata. (Figure 7)</li>
+                                        <li>In the panes that open, navigate to the recommended metadata elements listed in the previous section (Table 1 above), click it, and enter the appropriate content.</li>
+                                        <li>Complete entry of information for each recommended metadata element (Table 1 above). (Figure 8)</li>
+                                        <li>Periodically, and upon completion, click the Save button in the Manage Metadata section of ArcGIS Pro’s menu ribbon. This will save edits to the geodatabase. (Figure 9)</li>
+                                      </ol>
+                          </td>
+                        <td style="text-align:right">
+                          <figure>
+                        <img src="https://mdtagisdstore.mdta.ad.mdot.mdstate/MDTAGISDataShare/GISHub/Images/Metadata/MetaFig7.png" alt="Figure 7: Open the metadata editor from ArcGIS Pro Catalog" width="50%" height="50%">
+                        <figcaption>Figure 7: Open the metadata editor from ArcGIS Pro Catalog</figcaption>
+                        </figure>
+                          </td>
+                        </tr>
+                              <tr>
+                                 <td style="text-align:right">
+                                <figure>
+                        <img src="https://mdtagisdstore.mdta.ad.mdot.mdstate/MDTAGISDataShare/GISHub/Images/Metadata/MetaFig8.png" alt="Figure 8: Metadata editor in ArcGIS Pro" width="50%" height="50%">
+                        <figcaption>Figure 8: Metadata editor in ArcGIS Pro</figcaption>
+                        </figure>
+                                </td>
+                            </tr>
+                              <tr>
+                                <td style="text-align:right">
+                                <figure>
+                        <img src="https://mdtagisdstore.mdta.ad.mdot.mdstate/MDTAGISDataShare/GISHub/Images/Metadata/MetaFig9.png" alt="Figure 9: Click Save to ensure your edits are saved to the geodatabase" width="50%" height="50%">
+                        <figcaption>Figure 9: Click Save to ensure your edits are saved to the geodatabase</figcaption>
+                        </figure>
+                                
+                                </td>
+                            </tr>
+                        </tbody>
+                        </table>
+                          </div>
+                          <div role="tabpanel" class="tab-pane" id="ViewMeta">
+                            <table width="100%">
+                        <tbody>
+                        <tr>
+                        <td style="vertical-align:top;" rowspan="3" width="50%">
+                        <h3>ArcGIS Portal</h3>
+                                      <p>Metadata populated for a feature class within an enterprise geodatabase can be viewed in MDTA's ArcGIS Portal following the publication of the feature class as a feature layer. Feature layer metadata can be viewed without any GIS software by accessing MDTA's ArcGIS Portal using a web browser. To view feature layer metadata in MDTA's ArcGIS Portal, perform the following steps:</p>
+                                      <ol>
+                                        <li>Open a web browser and navigate to MDTA's ArcGIS Portal, and sign in. See the <a href="https://teams.microsoft.com/l/file/061FF331-2D46-474A-BD02-E975AB4DEA5A?tenantId=b38cd27c-57ca-4597-be28-22df43dd47f1&fileType=docx&objectUrl=https%3A%2F%2Fmdotgov.sharepoint.com%2Fsites%2FMDTAGIS%2FShared%20Documents%2F370%20e-GIS%20Implementation%2FUser%20Guides%2FPortal%20User%20Guide%2FArcGIS%20Portal%20Access%20Guide%20V2.docx&baseUrl=https%3A%2F%2Fmdotgov.sharepoint.com%2Fsites%2FMDTAGIS&serviceName=teams&threadId=19:769a1fef50b5413bac2f28de4afd25da@thread.skype&groupId=676ac84d-d125-4ee8-99ca-77f834d01a40" target="_blank">ArcGIS Portal Access Guide</a> for details on how to access MDTA's Portal site.</li>
+                                        <li>Search for or navigate to content item of interest. Click on the <u>Feature Layer</u> version of the item to go to its details. (Figure 10)</li>
+                                        <li>Within the feature layer, for the individual layer(s) of interest, click the Metadata button. (Figure 11)</li>
+                                        <li>The new browser window that opens contains the feature class metadata from the geodatabase. Anytime the feature class's metadata is edited in the geodatabase, the updates are reflected in this page. (Figure 12)</li>
+                                        <ul>
+                                          <li><b>Note</b>: as of ArcGIS Enterprise 10.7.1 not all metadata fields are viewable through Portal. Specifically, attribute-level metadata is not present.</li>
+                                        </ul>
+                                      </ol>
+                                      <!-- End Section -->
+                        </td>
+                        <td style="text-align: right;">
+                        <figure><img src="https://mdtagisdstore.mdta.ad.mdot.mdstate/MDTAGISDataShare/GISHub/Images/Metadata/MetaFig10.png" alt="Figure 10: Search in ArcGIS Portal based on title and tags for the layer of interest. Click the title to open for more details." width="50%" height="50%" />
+                        <figcaption>Figure 10: Search in ArcGIS Portal based on title and tags for the layer of interest. Click the title to open for more details.</figcaption>
+                        </figure>
+                        </td>
+                        </tr>
+                        <tr>
+                        <td style="text-align: right;">
+                        <figure><img src="https://mdtagisdstore.mdta.ad.mdot.mdstate/MDTAGISDataShare/GISHub/Images/Metadata/MetaFig11.png" alt="Figure 11: Find the individual layer of interest and click the Metadata button." width="50%" height="50%" />
+                        <figcaption>Figure 11: Find the individual layer of interest and click the Metadata button.</figcaption>
+                        </figure>
+                        </td>
+                        </tr>
+                        <tr>
+                        <td style="text-align: right;">
+                        <figure><img src="https://mdtagisdstore.mdta.ad.mdot.mdstate/MDTAGISDataShare/GISHub/Images/Metadata/MetaFig12.png" alt="Figure 12: Sample metadata on the web" width="50%" height="50%" />
+                        <figcaption>Figure 12: Sample metadata on the web</figcaption>
+                        </figure>
+                        </td>
+                        </tr>
+                        <tr>
+                        <td style="vertical-align:top;" rowspan="2" width="50%">
+                        <!-- Begin Section -->
+                                      <h3>ArcGIS Pro</h3>
+                                      <p>To view metadata in ArcGIS Pro:</p>
+                                      <ol>
+                                        <li>Ensure the metadata style is set to ISO as described in the above section Setting Metadata Style in ArcGIS Pro. Otherwise, not all the metadata elements will be displayed.</li>
+                                        <li>Open the Catalog pane.</li>
+                                        <li>Navigate to the feature class of interest.</li>
+                                        <li>Right click on the item and select View Metadata. (Figure 13)</li>
+                                        <li>The metadata will be viewable in the Catalog pane. (Figure 14)</li>
+                                      </ol>
+                        </td>
+                        <td style="text-align: right;">
+                        <figure><img src="https://mdtagisdstore.mdta.ad.mdot.mdstate/MDTAGISDataShare/GISHub/Images/Metadata/MetaFig13.png" alt="Figure 13: Open the metadata viewer from ArcGIS Pro Catalog" width="50%" height="50%" />
+                        <figcaption>Figure 13: Open the metadata viewer from ArcGIS Pro Catalog</figcaption>
+                        </figure>
+                        </td>
+                        </tr>
+                        <tr>
+                        <td style="text-align: right;">
+                        <figure><img src="https://mdtagisdstore.mdta.ad.mdot.mdstate/MDTAGISDataShare/GISHub/Images/Metadata/MetaFig14.png" alt="Figure 14: Sample metadata viewed in ArcGIS Pro" width="50%" height="50%" />
+                        <figcaption>Figure 14: Sample metadata viewed in ArcGIS Pro</figcaption>
+                        </figure>
+                        </td>
+                        </tr>
+                        </tbody>
+                        </table>
+                    <!--End Table-->
+                </div>
+            </calcite-notice>
+        </calcite-tab>
+        <calcite-tab>
+            <calcite-notice icon="information" open>
+                <div slot="message">
+                   <!--Begin Table-->
+                   <table width="100%">
+                    <tbody>
+                    <tr>
+                    <td style="vertical-align:top;" rowspan="3" width="50%">
+                    <h3>ArcGIS Portal</h3>
+                                  <p>Metadata populated for a feature class within an enterprise geodatabase can be viewed in MDTA's ArcGIS Portal following the publication of the feature class as a feature layer. Feature layer metadata can be viewed without any GIS software by accessing MDTA's ArcGIS Portal using a web browser. To view feature layer metadata in MDTA's ArcGIS Portal, perform the following steps:</p>
+                                  <ol>
+                                    <li>Open a web browser and navigate to MDTA's ArcGIS Portal, and sign in. See the <a href="https://teams.microsoft.com/l/file/061FF331-2D46-474A-BD02-E975AB4DEA5A?tenantId=b38cd27c-57ca-4597-be28-22df43dd47f1&fileType=docx&objectUrl=https%3A%2F%2Fmdotgov.sharepoint.com%2Fsites%2FMDTAGIS%2FShared%20Documents%2F370%20e-GIS%20Implementation%2FUser%20Guides%2FPortal%20User%20Guide%2FArcGIS%20Portal%20Access%20Guide%20V2.docx&baseUrl=https%3A%2F%2Fmdotgov.sharepoint.com%2Fsites%2FMDTAGIS&serviceName=teams&threadId=19:769a1fef50b5413bac2f28de4afd25da@thread.skype&groupId=676ac84d-d125-4ee8-99ca-77f834d01a40" target="_blank">ArcGIS Portal Access Guide</a> for details on how to access MDTA's Portal site.</li>
+                                    <li>Search for or navigate to content item of interest. Click on the <u>Feature Layer</u> version of the item to go to its details. (Figure 10)</li>
+                                    <li>Within the feature layer, for the individual layer(s) of interest, click the Metadata button. (Figure 11)</li>
+                                    <li>The new browser window that opens contains the feature class's metadata from the geodatabase. Anytime the feature class metadata is edited in the geodatabase, the updates are reflected in this page. (Figure 12)</li>
+                                    <ul>
+                                      <li><b>Note</b>: as of ArcGIS Enterprise 10.7.1 not all metadata fields are viewable through Portal. Specifically, attribute-level metadata is not present.</li>
+                                    </ul>
+                                  </ol>
+
+                    <!-- Begin Section -->
+                                  <h3>ArcGIS Pro</h3>
+                                  <p>To view metadata in ArcGIS Pro:</p>
+                                  <ol>
+                                    <li>Ensure the metadata style is set to ISO as described in the above section Setting Metadata Style in ArcGIS Pro. Otherwise, not all the metadata elements will be displayed.</li>
+                                    <li>Open the Catalog pane.</li>
+                                    <li>Navigate to the feature class of interest.</li>
+                                    <li>Right click on the item and select View Metadata. (Figure 13)</li>
+                                    <li>The metadata will be viewable in the Catalog pane. (Figure 14)</li>
+                                  </ol>
+                    </td>
+                    <td style="text-align: right;">
+                    <figure><img src="https://gist.mdta.maryland.gov/mdtaarcgis/sharing/rest/content/items/f8d983b2360840b09bf833901f049345/data" alt="Figure 13: Open the metadata viewer from ArcGIS Pro Catalog" width="50%" height="50%" />
+                    <figcaption>Figure 13: Open the metadata viewer from ArcGIS Pro Catalog</figcaption>
+                    </figure>
+                    </td>
+                    </tr>
+                    <tr>
+                    <td style="text-align: right;">
+                    <figure><img src="https://gist.mdta.maryland.gov/mdtaarcgis/sharing/rest/content/items/c13972723f674ab982695e07679742cf/data" alt="Figure 14: Sample metadata viewed in ArcGIS Pro" width="50%" height="50%" />
+                    <figcaption>Figure 14: Sample metadata viewed in ArcGIS Pro</figcaption>
+                    </figure>
+                    </td>
+                    </tr>
+                    </tbody>
+                    </table>
+                   <!--End Table-->
+                </div>
+            </calcite-notice>
+        </calcite-tab>
+        <calcite-tab>
+            <calcite-notice icon="information" open>
+                <div slot="message">
+                    <p>Example used: Intelligent Transportation Systems Devices.  Can be modified to suit other devices/features.</p>
+                    <!-- Begin Sections-->
+                    <calcite-card>
+                        <span slot="title">Type</span>
+                        <span slot="subtitle">
+                            <p>Displays the type of feature</p>
+                            <p>Enterprise Geodatabase Feature Class</p>
+                        </span>
+                    </calcite-card>
+                    <calcite-card>
+                        <span slot="title">Tags</span>
+                        <span slot="subtitle">
+                            <p>Displays the tags for the feature.  Tags are used to assist in searching for specific feature or a group of associated features</p>
+                            <p>ITS, Acoustic Cable Sensor, Automated Lane Closure Devices, Automatic Traffic Recorder, Closed Circuit Camera, Dynamic Message Sign, Fog Horn, Highway Advisory Radio, Lane Control Signal, License Plate Reader, Over Height Detection System, Remote Traffic Sensor, Road Weather Information Station, SHAZAM Sign, Speed Sensor, Toll Rate Sign, Travel and Toll Information Sign, Travel-Time Monitoring System, Virtual Weigh Station, Hazard Beacon, Fog Detector</p>
+                        </span>
+                    </calcite-card>
+                    <calcite-card>
+                        <span slot="title">Summary</span>
+                        <span slot="subtitle">
+                            <p>An abstract of the feature's description.  Summaries should be provided although oftentimes left blank.</p>
+                            <p>There is no summary for this item.</p>
+                        </span>
+                    </calcite-card>
+                    <calcite-card>
+                        <span slot="title">Description</span>
+                        <span slot="subtitle">
+                            <p>A more detailed narrative of the feature.</p>
+                            <p>A geospatial data layer of features representing Intelligent Transportation Systems devices maintained by the Maryland Transportation Authority (MDTA). Intelligent Transportation Systems (ITS):  these networks support roadway ITS devices managed through the Coordinated Highways Action Response Team (CHART) Advanced Transportation Management System (ATMS), including Closed-Circuit Television (CCTV), Dynamic Message Sign (DMS), Toll Rate Signs (TRS), Highway Advisory Radio (HAR), Roadway Weather Information System (RWIS), and vehicle detection. CHART servers are located on the Maryland Department of Transportation (MDOT) enterprise network with local CHART web server and operator workstations at the main Authority Operations Center (AOC) central facility at 2330 Broening Hwy.  In addition, the MDTA employs stopped vehicle detection using video analytics, and has several travel time reader sites which deposit data into the CHART database and is combined with other travel time data from INRIX to support the dissemination of travel time information to DMSs throughout the State of Maryland. (Source: 2019 MDTA Intelligent Transportation Systems Strategic Plan)</p>
+                        </span>
+                    </calcite-card>
+                    <calcite-card>
+                        <span slot="title">Credits</span>
+                        <span slot="subtitle">
+                            <p>Typically highlights any external individual(s)/organizations who curated the data.  If the source is interal (MDTA), this is commonly left blank.</p>
+                            <p>There are no credits for this item.</p>
+                        </span>
+                    </calcite-card>
+                    <calcite-card>
+                        <span slot="title">Use Limitations</span>
+                        <span slot="subtitle">
+                            <p>Acts as a disclaimer and/or indicates any limitations to the editing, sharing, and/or display of the feature.</p>
+                            <p>This data can be used by recipients for GIS purposes, subject to the Use Constraints in the following disclaimer: While every reasonable effort has been made to provide complete and accurate information and to produce high-quality map data, Maryland Transportation Authority ("MDTA") provides this information with no guarantees of its accuracy, correctness, or completeness, and any conclusions drawn from such information are done at the sole risk and the responsibility of the user. MDTA makes no and disclaims all express and implied warranties relating to the material, including but not limited to warranties of merchantability, integration, title, and fitness for a particular purpose; this data is provided "as is". These location drawings and information contained therein are not survey quality, are not legally recorded, and are not intended to be used for surveying, engineering, or site-specific analysis. MDTA GIS data is for MDTA use ONLY; should any MDTA GIS data need to be distributed outside the agency, a GIS License Agreement must be signed by the Executive Secretary or approved by the Board of Members, as per MDTA Legal compliance dated May 23, 2012.</p>
+                        </span>
+                    </calcite-card>
+                    <calcite-card>
+                        <span slot="title">Extent</span>
+                        <span slot="subtitle">
+                            <p><b>West</b> -78.389889</p>
+                            <p><b>East</b> -75.032120</p>
+                            <p><b>North</b> 39.747499</p>
+                            <p><b>South</b> 38.330560</p>
+                        </span>
+                    </calcite-card>
+                    <calcite-card>
+                        <span slot="title">Scale Range</span>
+                        <span slot="subtitle">
+                            <p>Displays the minimum and maximum scale/zoom level the feature will display at.</p>
+                            <p><b>Maximum (zoomed in)</b> 1:5,000</p>
+                            <p><b>Minimum (zoomed out)</b> 1:150,000,000</p>
+                        </span>
+                    </calcite-card>
+                    <calcite-card>
+                        <span slot="title">Topics and Keywords</span>
+                        <span slot="subtitle">
+                            <p>Displays content type and if the data has been exported as resource description.</p>
+                            <p><b>Content type</b> &hArr; Downloadable Data</p>
+                            <p><b>Export to FGDC CSDGM XML format as Resource Description</b> No</p>
+                        </span>
+                    </calcite-card>
+                    <calcite-card>
+                        <span slot="title">Citations</span>
+                        <span slot="subtitle">
+                            <p>Displays citations in the form of a title and presentation formats.</p>
+                            <p><b>Title</b> Intelligent Transportation Systems Devices</p>
+                            <p><b>Presentation formats</b> &hArr; digital map</p>
+                        </span>
+                    </calcite-card>
+                    <calcite-card>
+                        <span slot="title">Resource Details</span>
+                        
+                        <span slot="subtitle">
+                            <p>Displays dataset language(s), character type, status, spatial representation type, the environment the data was processed within, and the ArcGIS item properties.</p>
+                            <p><b>Dataset languages</b> &hArr; English (UNITED STATES)</p>
+                            <p><b>Dataset character</b> &hArr;utf8 - 8 bit UCS Transfer Format</p>
+                            <p><b>Status</b> on-going</p>
+                            <p><b>Spatial representation type</b> &hArr; Vector</p>
+                            <p><b>Processing environment</b> &hArr; Microsoft Windows 10 Version 10.0 (Build 17763) ; Esri ArcGIS 12.4.0.19948</p>
+                            <!--Subsections-->
+                        <calcite-card>
+                            <span slot="title">ArcGIS Item Properties</span>
+                            <span slot="subtitle">
+                                <p>Displays the name, location, version, and access protocol of the SDE geodatabase or file geodatabase.</p>
+                                <p><b>Name</b> &hArr; ITS_Assets.OEC_ITS.ITSDevice</p>
+                                <p><b>Location</b> &hArr; Server=MDTAGISSQL19D; Service=sde:sqlserver:MDTAGISSQL19D; Database=ITS_Assets; </p>
+                                <p><b>Version</b>&hArr;sde.DEFAULT</p>
+                                <p><b>Access protocol</b> &hArr; ArcSDE Connection</p>
+
+                            
+                        </calcite-card>
+                        <!--End Subsections-->
+                        </span>
+                    </calcite-card>
+                    <calcite-card>
+                        <span slot="title">Extents</span>
+                        <span slot="subtitle">
+                            <p>Displays more detailed information about the feature's extent - including vertical extent, coordinate system extents, and searching extents.</p>
+                            <calcite-card>
+                                <span slot="title">Vertical Extents</span>
+                                <span slot="subtitle">
+                                    <p>Displays vertical extents, if assigned (usually for 3D features).</p>
+                                    <p>Vertical Extent</p>
+                                    <p><b>Minimum Value</b> &hArr; 0.000000</p>
+                                    <p><b>Maximum Value</b> &hArr; 0.000000</p>
+                                    <p>Extent</p>
+                                    <p>Geographic Extent</p>
+                                    <p>Bounding Rectangle</p>
+                                    <p>Extent Type</p>
+                                </span>
+                            </calcite-card>
+                            <calcite-card>
+                                <span slot="title">Extent Used for Searching</span>
+                                <span slot="subtitle">
+                                    <p>Displays the extents used for searching.</p>
+                                    <p><b>West longitude</b> &hArr; -78.389889</p>
+                                    <p><b>East longitude</b> &hArr; -75.032120</p>
+                                    <p><b>North latitude</b> &hArr; 39.747499</p>
+                                    <p><b>South latitude</b> &hArr; 38.330560</p>
+                                    <p><b>Extent contains the resource</b> &hArr; Yes</p>
+                                </span>
+                            </calcite-card>
+                            <calcite-card>
+                                <span slot="title">Extent in the Item's Coordinate System</span>
+                                <span slot="subtitle">
+                                    <p>Displays the extents in the feature's assigned coordinate system.</p>
+                                    <p><b>West longitude</b> &hArr; 921451.435658</p>
+                                    <p><b>East longitude</b> &hArr; 1865807.825485</p>
+                                    <p><b>North latitude</b> &hArr; 247630.721855</p>
+                                    <p><b>South latitude</b> &hArr; 757856.371349</p>
+                                    <p><b>Extent contains the resource</b >&hArr; Yes</p>
+                                </span>
+                            </calcite-card>
+                        </span>
+                    </calcite-card>
+                    <calcite-card>
+                        <span slot="title">Resource Points of Contact</span>
+                        <span slot="subtitle">
+                            <p>Displays maintenance-related information such as update frequency and other requirements/instructions for maintaining the dataset</p>
+                            <p>Resource maintenance</p>
+                            <p><b>Update frequency</b> as needed</p>
+                            <h4>Other maintenance requirements</h4>
+                            <p>The source and processing of data edited prior to 2020 is unknown. For data edited 2020 and later, data sources vary and include as-built drawings, field inspections and verifications, and contract documents. See individual data records for date of last update, editor, and compilation source.</p>
+                        </span>
+                    </calcite-card>
+                    <calcite-card>
+                        <span slot="title">Resource Points of Contact</span>
+                        <span slot="subtitle">
+                            <p>Displays point of contact for the dataset.</p>
+                            <p><b>Point of contact</b> owner</p>
+                            <p><b>Individual's name</b> Kelly Harper</p>
+                            <p><b>Organization's name</b> Office of Engineering and Construction - Intelligent Transportation Systems</p>
+                            <p><b>Contact's position</b> ITS &amp; Electrical Manager</p>
+                            <p><i>Note: additional people can be added - such as data custodian, asset manager, and etc.</i></p>
+                        </span>
+                    </calcite-card>
+                    <calcite-card>
+                        <span slot="title">Resource Maintenance</span>
+                        <span slot="subtitle">
+                            <p>Displays resource maintenance information, if available.</p>
+                        </span>
+                    </calcite-card>
+                    <calcite-card>
+                        <span slot="title">Resource Constraints</span>
+                        <span slot="subtitle">
+                            <p>Displays any constraints or use regarding the dataset.</p>
+              
+                            <h4>Limitations of use</h4>
+                            <p>This data can be used by recipients for GIS purposes, subject to the Use Constraints in the following disclaimer: While every reasonable effort has been made to provide complete and accurate information and to produce high-quality map data, Maryland Transportation Authority ("MDTA") provides this information with no guarantees of its accuracy, correctness, or completeness, and any conclusions drawn from such information are done at the sole risk and the responsibility of the user. MDTA makes no and disclaims all express and implied warranties relating to the material, including but not limited to warranties of merchantability, integration, title, and fitness for a particular purpose; this data is provided "as is". These location drawings and information contained therein are not survey quality, are not legally recorded, and are not intended to be used for surveying, engineering, or site-specific analysis. MDTA GIS data is for MDTA use ONLY; should any MDTA GIS data need to be distributed outside the agency, a GIS License Agreement must be signed by the Executive Secretary or approved by the Board of Members, as per MDTA Legal compliance dated May 23, 2012.</p>
+                        </span>
+                    </calcite-card>
+                    <calcite-card>
+                        <span slot="title">Spatial Reference</span>
+                        <span slot="subtitle">
+                            <p>Displays all spatial reference information - including ArcGIS Coordinate System, Projected coordinate system, and Reference System Identifier</p>
+                            <!--Begin Subsections-->
+                            <calcite-card>
+                                <span slot="title">ArcGIS Coordinate System</span>
+                                <span slot="subtitle">
+                                    <p><b>Type</b> &hArr; Projected</p>
+                                    <p><b>Geographic coordinate reference</b> &hArr; GCS_North_American_1983_HARN</p>
+                                    <p><b>Projection</b> &hArr; NAD_1983_HARN_StatePlane_Maryland_FIPS_1900_Feet</p>
+                                    <p><b>Coordinate reference details</b> &hArr; </p>
+                                </span>
+                            </calcite-card>
+                            <calcite-card>
+                                <span slot="title">Projected Coordinate System</span>
+                                <span slot="subtitle">
+                                    <p><b>Well-known identifier</b> 2893</p>
+                                    <p><b>X origin</b> -120561100</p>
+                                    <p><b>Y origin</b> -95444400</p>
+                                    <p><b>XY scale</b> 3048.0060960121928</p>
+                                    <p><b>Z origin</b> -10000</p>
+                                    <p><b>Z scale</b> 10000</p>
+                                    <p><b>M origin</b> -10000</p>
+                                    <p><b>M scale</b> -10000</p>
+                                    <p><b>XY tolerance</b> 0.0032808333333333331</p>
+                                    <p><b>Z tolerance</b> 0.001</p>
+                                    <p><b>M tolerance</b> 0.001</p>
+                                    <p><b>High precision</b> true</p>
+                                    <p><b>Latest well-known identifier</b> 2893</p>
+                                    <p><b>Well-known text</b> PROJCS["NAD_1983_HARN_StatePlane_Maryland_FIPS_1900_Feet",GEOGCS["GCS_North_American_1983_HARN",DATUM["D_North_American_1983_HARN",SPHEROID["GRS_1980",6378137.0,298.257222101]],PRIMEM["Greenwich",0.0],UNIT["Degree",0.0174532925199433]],PROJECTION["Lambert_Conformal_Conic"],PARAMETER["False_Easting",1312333.333333333],PARAMETER["False_Northing",0.0],PARAMETER["Central_Meridian",-77.0],PARAMETER["Standard_Parallel_1",38.3],PARAMETER["Standard_Parallel_2",39.45],PARAMETER["Latitude_Of_Origin",37.66666666666666],UNIT["Foot_US",0.3048006096012192],AUTHORITY["EPSG",2893]]</p>
+                                </span>
+                            </calcite-card>
+                            <calcite-card>
+                                <span slot="title">Reference System Identifier</span>
+                                <span slot="subtitle">
+                                    <p><b>Value</b> &hArr; 2893</p>
+                                    <p><b>Codespace</b> &hArr; EPSG</p>
+                                    <p><b>Version</b> &hArr; 6.13(9.0.0)</p>
+                                </span>
+                            </calcite-card>
+                            <!--End Subsections-->
+                        </span>
+                    </calcite-card>
+                    <calcite-card>
+                        <span slot="title">Spatial Data Properties</span>
+                        <span slot="subtitle">
+                            <p>Displays all spatial data properties for the dataset, including vector topology, geometric properties (name, type, number of records), and ArcGIS feature class properties (more detailed breakdown of feature class).</p>
+                            <!--Begin Sections-->
+                            <calcite-card>
+                                <span slot="title">Vector</span>
+                                <span slot="subtitle">
+                                    <p><b>Level of topology for this dataset</b> &hArr; geometry only</p>
+                                </span>
+                            </calcite-card>
+                            <calcite-card>
+                                <span slot="title">Geometric Objects</span>
+                                <span slot="subtitle">
+                                    <p><b>Feature class name</b> ITS_Assets.OEC_ITS.ITSDevice</p>
+                                    <p><b>Object type</b> &hArr; point</p>
+                                    <p><b>Object count</b> &hArr; 920</p>
+                                </span>
+                            </calcite-card>
+                            <calcite-card>
+                                <span slot="title">ArcGIS Feature Class Properties</span>
+                                <span slot="subtitle">
+                                    <p><b>Feature class name</b> &hArr; ITS_Assets.OEC_ITS.ITSDevice</p>
+                                    <p><b>Feature type</b> &hArr; Simple</p>
+                                    <p><b>Geometry type</b> &hArr; Point</p>
+                                    <p><b>Has topology</b> &hArr; FALSE</p>
+                                    <p><b>Feature count</b> &hArr; 920</p>
+                                    <p><b>Spatial index</b> &hArr; TRUE</p>
+                                    <p><b>Linear referencing</b> &hArr; TRUE</p>
+                                </span>
+                            </calcite-card>
+                            <!--End Sections-->
+                        </span>
+                    </calcite-card>
+                    <calcite-card>
+                        <span slot="title">Data Quality</span>
+                        <span slot="subtitle">
+                            <p>Describes the data quality of the feature class.  This includes scope and quality of information.</p>
+                            <!--Begin Sections-->
+                            <calcite-card>
+                                <span slot="title">Scope of Quality Information</span>
+                                <span slot="subtitle">
+                                    <p><b>Resource level</b> feature</p>
+                                </span>
+                            </calcite-card>
+                            <calcite-card>
+                                <span slot="title">Scope Description</span>
+                                <span slot="subtitle">
+                                    <p><b>Attributes</b> Known and verified, unless stated otherwise in the record.</p>
+                                    <p><b>Features</b> Spatial accuracy varies based on method of collection. See records for more details.</p>
+                                </span>
+                            </calcite-card>
+                            <!--End Sections-->
+                        </span>
+                    </calcite-card>
+                    <calcite-card>
+                        <span slot="title">Geoprocessing History</span>
+                        <span slot="subtitle">
+                            <p>Displays all geoprocessing tasks involving the data set.  As part of constructing MDTA Metadata, displaying of geoprocessing history is usually disabled and this section will be empty.</p>
+                        </span>
+                    </calcite-card>
+                    <calcite-card>
+                        <span slot="title">Distribution</span>
+                        <span slot="subtitle">
+                            <p>Describes the format by which the feature class is distributed.  Most likely to be either "Enterprise Geodatabase Feature Class" or, less likely, "File Geodatabase Feature Class"</p>
+                            <h4>Distribution format</h4>
+                            <p><b>Name</b> &hArr; Enterprise Geodatabase Feature Class</p>
+                        </span>
+                    </calcite-card>
+                    <calcite-card>
+                        <span slot="title">Fields</span>
+                        <span slot="subtitle">
+                            <p>This section of metadata breaks down the fields within the feature class.  If there are subtypes and/or domains, these would also be displayed within each field's description in the order Field (up to the Description descriptor) → Subtype → Domain → remainder of the field descriptors, if any.</p>
+                            <!--Begin sections-->
+                            <calcite-card>
+                                <span slot="title">Details for object (feature class)</span>
+                                <span slot="subtitle">
+                                    <p>ITS_Assets.OEC_ITS.ITSDevice will be an example of the header for this section.</p>
+                                    <p><b>Type</b> &hArr; Feature class</p>
+                                        <p><b>Number of Rows</b> &hArr; 920</p>
+                                </span>
+                            </calcite-card>
+                            <calcite-card>
+                                <span slot="title">Field Name</span>
+                                <span slot="subtitle">
+                                    <p><em>This section repeats the number of times cooresponding to the number of fields.</em></p>
+                                    <p>Each field will be outlined within this section with the following descriptors:</p>
+                                    <p><b>Alias</b> &hArr; descriptive name for field</p>
+                                    <p><b>Data type</b> &hArr; field data type - i.e. text, float, double, blob, and etc.</p>
+                                    <p><b>Width</b> &hArr; number of characters allowed</p>
+                                    <p><b>Precision</b> &hArr; (Numeric fields only) number of digits</p>
+                                    <p><b>Scale</b> &hArr; (Numeric float/double fields only) number of decimal places</p>
+                                    <p><b>Field description</b> &hArr; What the field represents</p>
+                                    <p><b>Description source</b> &hArr; Source of field description, such as MDTA or ESRI.  Not always displayed.</p>
+                                    <p><b>Description of values</b> &hArr; usually blank, if displayed at all.</p>
+                                </span>
+                            </calcite-card>
+                            <calcite-card>
+                                <span slot="title">Subtypes</span>
+                                <span slot="subtitle">
+                                    <p>If a subtype is assigned to a field, then the following descriptors will display with the field description.  <em>This section will repeat the number of times cooresponding to the number of subtypes.</em></p>
+                                    <p>Subtype information</p>
+                                    <p><b>Subtype name (Subtype Code)</b> &hArr; Displays the Subtype name for each subtype (the subtype code then follows in parentheses).</p>
+                                </span>
+                            </calcite-card>
+                            <calcite-card>
+                                <span slot="title">Domains</span>
+                                <span slot="subtitle">
+                                    <p>If a domain is assigned to a field, then the following descriptors will display with the field description.  <em>This section will repeat the number of times cooresponding to the number of subtypes.</em></p>
+                                    <p><b>Domain Name</b> &hArr; Name of the domain (i.e. Location)</p>
+                                    <p><b>Description</b> &hArr; Describes the domain (i.e. Location asset)</p>
+                                    <p><b>Type</b> &hArr; Type of domain (i.e. Coded value)</p>
+                                    <p><b>Merge rule</b> &hArr; Whether the domain still applies to the field when one or more records are merged - most times set as Default value.</p>
+                                    <p><b>Split rule</b> &hArr; Whether the domain still applies to the field when a record is split - most times set as Default Value.</p>
+                                </span>
+                            </calcite-card>
+                            <!--end sections-->
+                        </span>
+                    </calcite-card>
+                    <calcite-card>
+                        <span slot="title">Metadata Details</span>
+                        <span slot="subtitle">
+                            <p>Describes the details of the Metadata entry itself.</p>
+                            <p><b>Metadata language</b> &hArr; English (UNITED STATES)</p>
+                            <p><b>Metadata character set</b> utf8 - 8 bit UCS Transfer Format</p>
+                            <p><b>Scope of the data described by the metadata</b> &hArr; dataset</p>
+                            <p><b>Scope name</b> &hArr; dataset</p>
+                            <p><b>Last update</b> &hArr; 2020-03-12</p>
+                            <!--Begin Sections-->
+                            <calcite-card>
+                                <span slot="title">ArcGIS Metadata Properties</span>
+                                <span slot="subtitle">
+                                    <p><b>Metadata format</b> ArcGIS 1.0</p>
+                                    <p><b>Created in ArcGIS for the item</b> 2020-01-21  11:53:14</p>
+                                    <p><b>Last modified in ArcGIS for the item</b> 2020-03-12  11:31:39</p>
+                                </span>
+                            </calcite-card>
+                            <calcite-card>
+                                <span slot="title">Automatic Updates</span>
+                                <span slot="subtitle">
+                                    <p><b>Have been performed</b> yes</p>
+                                    <p><b>Last update</b> 2020-03-12  11:31:39</p>
+                                </span>
+                            </calcite-card>
+                            <!--End Sections-->
+                        </span>
+                    </calcite-card>
+                   
+                    <!-- end Sections-->
+
+                </div>
+            </calcite-notice>
+        </calcite-tab>
+        <calcite-tab>
+            <calcite-notice icon="information" open>
+                <div slot="message">
+                    <!--Begin Table-->
+<table class="MsoNormalTable" style="width: 11.0in; border-collapse: collapse;" border="0" width="1056" cellspacing="0" cellpadding="0">
+	<tbody>
+		<tr style="height: 15.0pt;">
+			<td style="width: 110.0pt; border-top: none; border-left: none; border-bottom: solid white 1.5pt; border-right: solid white 1.0pt; background: #4472C4; padding: 0in 5.4pt 0in 5.4pt; height: 15.0pt;" valign="bottom" width="147">
+				<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;">
+					<strong>
+						<span style="color: white;">
+							Need
+						</span>
+					</strong>
+				</p>
+			</td>
+			<td style="width: 227.0pt; border-top: none; border-left: none; border-bottom: solid white 1.5pt; border-right: solid white 1.0pt; background: #4472C4; padding: 0in 5.4pt 0in 5.4pt; height: 15.0pt;" valign="bottom" width="303">
+				<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;">
+					<strong>
+						<span style="color: white;">
+							Description
+						</span>
+					</strong>
+				</p>
+			</td>
+			<td style="width: 115.0pt; border-top: none; border-left: none; border-bottom: solid white 1.5pt; border-right: solid white 1.0pt; background: #4472C4; padding: 0in 5.4pt 0in 5.4pt; height: 15.0pt;" valign="bottom" width="153">
+				<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;">
+					<strong>
+						<span style="color: white;">
+							Example
+						</span>
+					</strong>
+				</p>
+			</td>
+			<td style="width: 165.0pt; border-top: none; border-left: none; border-bottom: solid white 1.5pt; border-right: solid white 1.0pt; background: #4472C4; padding: 0in 5.4pt 0in 5.4pt; height: 15.0pt;" valign="bottom" width="220">
+				<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;">
+					<strong>
+						<span style="color: white;">
+							ArcGIS Metadata Location
+						</span>
+					</strong>
+				</p>
+			</td>
+			<td style="width: 92.0pt; border-top: none; border-left: none; border-bottom: solid white 1.5pt; border-right: solid white 1.0pt; background: #4472C4; padding: 0in 5.4pt 0in 5.4pt; height: 15.0pt;" valign="bottom" width="123">
+				<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;">
+					<strong>
+						<span style="color: white;">
+							Auto-populated
+						</span>
+					</strong>
+				</p>
+			</td>
+			<td style="width: 83.0pt; border: none; border-bottom: solid white 1.5pt; background: #4472C4; padding: 0in 5.4pt 0in 5.4pt; height: 15.0pt;" valign="bottom" width="111">
+				<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;">
+					<strong>
+						<span style="color: white;">
+							Required
+						</span>
+					</strong>
+				</p>
+			</td>
+		</tr>
+		<tr style="height: 15.0pt;">
+			<td style="width: 110.0pt; border-top: none; border-left: none; border-bottom: solid white 1.0pt; border-right: solid white 1.0pt; background: #B4C6E7; padding: 0in 5.4pt 0in 5.4pt; height: 15.0pt;" valign="bottom" width="147">
+				<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;">
+					<span style="color: black;">
+						Title
+					</span>
+				</p>
+			</td>
+			<td style="width: 227.0pt; border-top: none; border-left: none; border-bottom: solid white 1.0pt; border-right: solid white 1.0pt; background: #B4C6E7; padding: 0in 5.4pt 0in 5.4pt; height: 15.0pt;" valign="bottom" width="303">
+				<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;">
+					<span style="color: black;">
+						Short descriptive name of dataset
+					</span>
+				</p>
+			</td>
+			<td style="width: 115.0pt; border-top: none; border-left: none; border-bottom: solid white 1.0pt; border-right: solid white 1.0pt; background: #B4C6E7; padding: 0in 5.4pt 0in 5.4pt; height: 15.0pt;" valign="bottom" width="153">
+				<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;">
+					<span style="color: black;">
+						Street Centerlines
+					</span>
+				</p>
+			</td>
+			<td style="width: 165.0pt; border-top: none; border-left: none; border-bottom: solid white 1.0pt; border-right: solid white 1.0pt; background: #B4C6E7; padding: 0in 5.4pt 0in 5.4pt; height: 15.0pt;" valign="bottom" width="220">
+				<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;">
+					<span style="color: black;">
+						Overview &gt; Title
+					</span>
+				</p>
+			</td>
+			<td style="width: 92.0pt; border-top: none; border-left: none; border-bottom: solid white 1.0pt; border-right: solid white 1.0pt; background: #B4C6E7; padding: 0in 5.4pt 0in 5.4pt; height: 15.0pt;" valign="bottom" width="123">
+				<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;">
+					<span style="color: black;">
+						No
+					</span>
+				</p>
+			</td>
+			<td style="width: 83.0pt; border: none; border-bottom: solid white 1.0pt; background: #B4C6E7; padding: 0in 5.4pt 0in 5.4pt; height: 15.0pt;" valign="bottom" width="111">
+				<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;">
+					<span style="color: black;">
+						Yes- MDTA
+					</span>
+				</p>
+			</td>
+		</tr>
+		<tr style="height: 15.0pt;">
+			<td style="width: 110.0pt; border-top: none; border-left: none; border-bottom: solid white 1.0pt; border-right: solid white 1.0pt; background: #D9E1F2; padding: 0in 5.4pt 0in 5.4pt; height: 15.0pt;" valign="bottom" width="147">
+				<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;">
+					<span style="color: black;">
+						Tags
+					</span>
+				</p>
+			</td>
+			<td style="width: 227.0pt; border-top: none; border-left: none; border-bottom: solid white 1.0pt; border-right: solid white 1.0pt; background: #D9E1F2; padding: 0in 5.4pt 0in 5.4pt; height: 15.0pt;" valign="bottom" width="303">
+				<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;">
+					<span style="color: black;">
+						Searchable tags for metadata
+					</span>
+				</p>
+			</td>
+			<td style="width: 115.0pt; border-top: none; border-left: none; border-bottom: solid white 1.0pt; border-right: solid white 1.0pt; background: #D9E1F2; padding: 0in 5.4pt 0in 5.4pt; height: 15.0pt;" valign="bottom" width="153">
+				<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;">
+					<span style="color: black;">
+						its,signs
+					</span>
+				</p>
+			</td>
+			<td style="width: 165.0pt; border-top: none; border-left: none; border-bottom: solid white 1.0pt; border-right: solid white 1.0pt; background: #D9E1F2; padding: 0in 5.4pt 0in 5.4pt; height: 15.0pt;" valign="bottom" width="220">
+				<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;">
+					<span style="color: black;">
+						Overview &gt; Tags
+					</span>
+				</p>
+			</td>
+			<td style="width: 92.0pt; border-top: none; border-left: none; border-bottom: solid white 1.0pt; border-right: solid white 1.0pt; background: #D9E1F2; padding: 0in 5.4pt 0in 5.4pt; height: 15.0pt;" valign="bottom" width="123">
+				<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;">
+					<span style="color: black;">
+						No
+					</span>
+				</p>
+			</td>
+			<td style="width: 83.0pt; border: none; border-bottom: solid white 1.0pt; background: #D9E1F2; padding: 0in 5.4pt 0in 5.4pt; height: 15.0pt;" valign="bottom" width="111">
+				<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;">
+					<span style="color: black;">
+						Optional- MDTA
+					</span>
+				</p>
+			</td>
+		</tr>
+		<tr style="height: 15.0pt;">
+			<td style="width: 110.0pt; border-top: none; border-left: none; border-bottom: solid white 1.0pt; border-right: solid white 1.0pt; background: #B4C6E7; padding: 0in 5.4pt 0in 5.4pt; height: 15.0pt;" valign="bottom" width="147">
+				<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;">
+					<span style="color: black;">
+						Description
+					</span>
+				</p>
+			</td>
+			<td style="width: 227.0pt; border-top: none; border-left: none; border-bottom: solid white 1.0pt; border-right: solid white 1.0pt; background: #B4C6E7; padding: 0in 5.4pt 0in 5.4pt; height: 15.0pt;" valign="bottom" width="303">
+				<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;">
+					<span style="color: black;">
+						Description of data and purpose
+					</span>
+				</p>
+			</td>
+			<td style="width: 115.0pt; border-top: none; border-left: none; border-bottom: solid white 1.0pt; border-right: solid white 1.0pt; background: #B4C6E7; padding: 0in 5.4pt 0in 5.4pt; height: 15.0pt;" valign="bottom" width="153">
+				<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;">
+					<span style="color: black;">
+						narrative
+					</span>
+				</p>
+			</td>
+			<td style="width: 165.0pt; border-top: none; border-left: none; border-bottom: solid white 1.0pt; border-right: solid white 1.0pt; background: #B4C6E7; padding: 0in 5.4pt 0in 5.4pt; height: 15.0pt;" valign="bottom" width="220">
+				<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;">
+					<span style="color: black;">
+						Overview &gt; Description (Abstract)
+					</span>
+				</p>
+			</td>
+			<td style="width: 92.0pt; border-top: none; border-left: none; border-bottom: solid white 1.0pt; border-right: solid white 1.0pt; background: #B4C6E7; padding: 0in 5.4pt 0in 5.4pt; height: 15.0pt;" valign="bottom" width="123">
+				<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;">
+					<span style="color: black;">
+						No
+					</span>
+				</p>
+			</td>
+			<td style="width: 83.0pt; border: none; border-bottom: solid white 1.0pt; background: #B4C6E7; padding: 0in 5.4pt 0in 5.4pt; height: 15.0pt;" valign="bottom" width="111">
+				<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;">
+					<span style="color: black;">
+						Yes- MDTA
+					</span>
+				</p>
+			</td>
+		</tr>
+		<tr style="height: 60.0pt;">
+			<td style="width: 110.0pt; border-top: none; border-left: none; border-bottom: solid white 1.0pt; border-right: solid white 1.0pt; background: #D9E1F2; padding: 0in 5.4pt 0in 5.4pt; height: 60.0pt;" valign="bottom" width="147">
+				<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;">
+					<span style="color: black;">
+						Use constraints
+					</span>
+				</p>
+			</td>
+			<td style="width: 227.0pt; border-top: none; border-left: none; border-bottom: solid white 1.0pt; border-right: solid white 1.0pt; background: #D9E1F2; padding: 0in 5.4pt 0in 5.4pt; height: 60.0pt;" valign="bottom" width="303">
+				<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;">
+					<span style="color: black;">
+						Boilerplate; any special security or concerns (e.g. Personally Identifiable Information restrictions)
+					</span>
+				</p>
+			</td>
+			<td style="width: 115.0pt; border-top: none; border-left: none; border-bottom: solid white 1.0pt; border-right: solid white 1.0pt; background: #D9E1F2; padding: 0in 5.4pt 0in 5.4pt; height: 60.0pt;" valign="bottom" width="153">
+				<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;">
+					<span style="color: black;">
+						Boilerplate (see template) + special concerns
+					</span>
+				</p>
+			</td>
+			<td style="width: 165.0pt; border-top: none; border-left: none; border-bottom: solid white 1.0pt; border-right: solid white 1.0pt; background: #D9E1F2; padding: 0in 5.4pt 0in 5.4pt; height: 60.0pt;" valign="bottom" width="220">
+				<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;">
+					<span style="color: black;">
+						Overview &gt; Use Limitation
+						<br />
+						 - or - Resource &gt; Contraints &gt; General, Legal, or Security Constraints
+					</span>
+				</p>
+			</td>
+			<td style="width: 92.0pt; border-top: none; border-left: none; border-bottom: solid white 1.0pt; border-right: solid white 1.0pt; background: #D9E1F2; padding: 0in 5.4pt 0in 5.4pt; height: 60.0pt;" valign="bottom" width="123">
+				<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;">
+					<span style="color: black;">
+						No
+					</span>
+				</p>
+			</td>
+			<td style="width: 83.0pt; border: none; border-bottom: solid white 1.0pt; background: #D9E1F2; padding: 0in 5.4pt 0in 5.4pt; height: 60.0pt;" valign="bottom" width="111">
+				<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;">
+					<span style="color: black;">
+						Yes- MDTA
+					</span>
+				</p>
+			</td>
+		</tr>
+		<tr style="height: 15.0pt;">
+			<td style="width: 110.0pt; border-top: none; border-left: none; border-bottom: solid white 1.0pt; border-right: solid white 1.0pt; background: #B4C6E7; padding: 0in 5.4pt 0in 5.4pt; height: 15.0pt;" valign="bottom" width="147">
+				<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;">
+					<span style="color: black;">
+						Metadata update date
+					</span>
+				</p>
+			</td>
+			<td style="width: 227.0pt; border-top: none; border-left: none; border-bottom: solid white 1.0pt; border-right: solid white 1.0pt; background: #B4C6E7; padding: 0in 5.4pt 0in 5.4pt; height: 15.0pt;" valign="bottom" width="303">
+				<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;">
+					<span style="color: black;">
+						Last time metadata was updated
+					</span>
+				</p>
+			</td>
+			<td style="width: 115.0pt; border-top: none; border-left: none; border-bottom: solid white 1.0pt; border-right: solid white 1.0pt; background: #B4C6E7; padding: 0in 5.4pt 0in 5.4pt; height: 15.0pt;" valign="bottom" width="153">
+				<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;">
+					<span style="color: black;">
+						2020-01-29
+					</span>
+				</p>
+			</td>
+			<td style="width: 165.0pt; border-top: none; border-left: none; border-bottom: solid white 1.0pt; border-right: solid white 1.0pt; background: #B4C6E7; padding: 0in 5.4pt 0in 5.4pt; height: 15.0pt;" valign="bottom" width="220">
+				<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;">
+					<span style="color: black;">
+						Metadata &gt; Details &gt; Date Stamp
+					</span>
+				</p>
+			</td>
+			<td style="width: 92.0pt; border-top: none; border-left: none; border-bottom: solid white 1.0pt; border-right: solid white 1.0pt; background: #B4C6E7; padding: 0in 5.4pt 0in 5.4pt; height: 15.0pt;" valign="bottom" width="123">
+				<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;">
+					<span style="color: black;">
+						Yes
+					</span>
+				</p>
+			</td>
+			<td style="width: 83.0pt; border: none; border-bottom: solid white 1.0pt; background: #B4C6E7; padding: 0in 5.4pt 0in 5.4pt; height: 15.0pt;" valign="bottom" width="111">
+				<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;">
+					<span style="color: black;">
+						Yes- MDTA
+					</span>
+				</p>
+			</td>
+		</tr>
+		<tr style="height: 30.0pt;">
+			<td style="width: 110.0pt; border-top: none; border-left: none; border-bottom: solid white 1.0pt; border-right: solid white 1.0pt; background: #D9E1F2; padding: 0in 5.4pt 0in 5.4pt; height: 30.0pt;" valign="bottom" width="147">
+				<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;">
+					<span style="color: black;">
+						Status
+					</span>
+				</p>
+			</td>
+			<td style="width: 227.0pt; border-top: none; border-left: none; border-bottom: solid white 1.0pt; border-right: solid white 1.0pt; background: #D9E1F2; padding: 0in 5.4pt 0in 5.4pt; height: 30.0pt;" valign="bottom" width="303">
+				<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;">
+					<span style="color: black;">
+						Whether dataset is complete, under construction, or outdated
+					</span>
+				</p>
+			</td>
+			<td style="width: 115.0pt; border-top: none; border-left: none; border-bottom: solid white 1.0pt; border-right: solid white 1.0pt; background: #D9E1F2; padding: 0in 5.4pt 0in 5.4pt; height: 30.0pt;" valign="bottom" width="153">
+				<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;">
+					<span style="color: black;">
+						Under Development, On Going, Completed
+					</span>
+				</p>
+			</td>
+			<td style="width: 165.0pt; border-top: none; border-left: none; border-bottom: solid white 1.0pt; border-right: solid white 1.0pt; background: #D9E1F2; padding: 0in 5.4pt 0in 5.4pt; height: 30.0pt;" valign="bottom" width="220">
+				<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;">
+					<span style="color: black;">
+						Resource &gt; Details &gt; Status
+					</span>
+				</p>
+			</td>
+			<td style="width: 92.0pt; border-top: none; border-left: none; border-bottom: solid white 1.0pt; border-right: solid white 1.0pt; background: #D9E1F2; padding: 0in 5.4pt 0in 5.4pt; height: 30.0pt;" valign="bottom" width="123">
+				<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;">
+					<span style="color: black;">
+						No
+					</span>
+				</p>
+			</td>
+			<td style="width: 83.0pt; border: none; border-bottom: solid white 1.0pt; background: #D9E1F2; padding: 0in 5.4pt 0in 5.4pt; height: 30.0pt;" valign="bottom" width="111">
+				<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;">
+					<span style="color: black;">
+						Optional- MDTA
+					</span>
+				</p>
+			</td>
+		</tr>
+		<tr style="height: 30.0pt;">
+			<td style="width: 110.0pt; border-top: none; border-left: none; border-bottom: solid white 1.0pt; border-right: solid white 1.0pt; background: #B4C6E7; padding: 0in 5.4pt 0in 5.4pt; height: 30.0pt;" valign="bottom" width="147">
+				<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;">
+					<span style="color: black;">
+						Data Owner
+					</span>
+				</p>
+			</td>
+			<td style="width: 227.0pt; border-top: none; border-left: none; border-bottom: solid white 1.0pt; border-right: solid white 1.0pt; background: #B4C6E7; padding: 0in 5.4pt 0in 5.4pt; height: 30.0pt;" valign="bottom" width="303">
+				<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;">
+					<span style="color: black;">
+						Department or discipline that assets belong to; include contact info and role
+					</span>
+				</p>
+			</td>
+			<td style="width: 115.0pt; border-top: none; border-left: none; border-bottom: solid white 1.0pt; border-right: solid white 1.0pt; background: #B4C6E7; padding: 0in 5.4pt 0in 5.4pt; height: 30.0pt;" valign="bottom" width="153">
+				<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;">
+					<span style="color: black;">
+						Will Pines
+					</span>
+				</p>
+			</td>
+			<td style="width: 165.0pt; border-top: none; border-left: none; border-bottom: solid white 1.0pt; border-right: solid white 1.0pt; background: #B4C6E7; padding: 0in 5.4pt 0in 5.4pt; height: 30.0pt;" valign="bottom" width="220">
+				<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;">
+					<span style="color: black;">
+						Resource &gt; Points of Contact
+						<br />
+						 Role = Owner
+					</span>
+				</p>
+			</td>
+			<td style="width: 92.0pt; border-top: none; border-left: none; border-bottom: solid white 1.0pt; border-right: solid white 1.0pt; background: #B4C6E7; padding: 0in 5.4pt 0in 5.4pt; height: 30.0pt;" valign="bottom" width="123">
+				<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;">
+					<span style="color: black;">
+						No
+					</span>
+				</p>
+			</td>
+			<td style="width: 83.0pt; border: none; border-bottom: solid white 1.0pt; background: #B4C6E7; padding: 0in 5.4pt 0in 5.4pt; height: 30.0pt;" valign="bottom" width="111">
+				<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;">
+					<span style="color: black;">
+						Yes- MDTA
+					</span>
+				</p>
+			</td>
+		</tr>
+		<tr style="height: 46.5pt;">
+			<td style="width: 110.0pt; border-top: none; border-left: none; border-bottom: solid white 1.0pt; border-right: solid white 1.0pt; background: #D9E1F2; padding: 0in 5.4pt 0in 5.4pt; height: 46.5pt;" valign="bottom" width="147">
+				<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;">
+					<span style="color: black;">
+						Data Steward
+					</span>
+				</p>
+			</td>
+			<td style="width: 227.0pt; border-top: none; border-left: none; border-bottom: solid white 1.0pt; border-right: solid white 1.0pt; background: #D9E1F2; padding: 0in 5.4pt 0in 5.4pt; height: 46.5pt;" valign="bottom" width="303">
+				<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;">
+					<span style="color: black;">
+						Role responsible for data maintenance; include contact info and role
+					</span>
+				</p>
+			</td>
+			<td style="width: 115.0pt; border-top: none; border-left: none; border-bottom: solid white 1.0pt; border-right: solid white 1.0pt; background: #D9E1F2; padding: 0in 5.4pt 0in 5.4pt; height: 46.5pt;" valign="bottom" width="153">
+				<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;">
+					<span style="color: black;">
+						John Privot
+					</span>
+				</p>
+			</td>
+			<td style="width: 165.0pt; border-top: none; border-left: none; border-bottom: solid white 1.0pt; border-right: solid white 1.0pt; background: #D9E1F2; padding: 0in 5.4pt 0in 5.4pt; height: 46.5pt;" valign="bottom" width="220">
+				<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;">
+					<span style="color: black;">
+						Resource &gt; Points of Contact
+						<br />
+						 Role = Custodian
+						<br />
+						 If consultant: Position = Consultant
+					</span>
+				</p>
+			</td>
+			<td style="width: 92.0pt; border-top: none; border-left: none; border-bottom: solid white 1.0pt; border-right: solid white 1.0pt; background: #D9E1F2; padding: 0in 5.4pt 0in 5.4pt; height: 46.5pt;" valign="bottom" width="123">
+				<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;">
+					<span style="color: black;">
+						No
+					</span>
+				</p>
+			</td>
+			<td style="width: 83.0pt; border: none; border-bottom: solid white 1.0pt; background: #D9E1F2; padding: 0in 5.4pt 0in 5.4pt; height: 46.5pt;" valign="bottom" width="111">
+				<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;">
+					<span style="color: black;">
+						Yes- MDTA
+					</span>
+				</p>
+			</td>
+		</tr>
+		<tr style="height: 30.0pt;">
+			<td style="width: 110.0pt; border-top: none; border-left: none; border-bottom: solid white 1.0pt; border-right: solid white 1.0pt; background: #B4C6E7; padding: 0in 5.4pt 0in 5.4pt; height: 30.0pt;" valign="bottom" width="147">
+				<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;">
+					<span style="color: black;">
+						Data maintenance frequency
+					</span>
+				</p>
+			</td>
+			<td style="width: 227.0pt; border-top: none; border-left: none; border-bottom: solid white 1.0pt; border-right: solid white 1.0pt; background: #B4C6E7; padding: 0in 5.4pt 0in 5.4pt; height: 30.0pt;" valign="bottom" width="303">
+				<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;">
+					<span style="color: black;">
+						Frequency of updates to the data
+					</span>
+				</p>
+			</td>
+			<td style="width: 115.0pt; border-top: none; border-left: none; border-bottom: solid white 1.0pt; border-right: solid white 1.0pt; background: #B4C6E7; padding: 0in 5.4pt 0in 5.4pt; height: 30.0pt;" valign="bottom" width="153">
+				<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;">
+					<span style="color: black;">
+						Annually
+					</span>
+				</p>
+			</td>
+			<td style="width: 165.0pt; border-top: none; border-left: none; border-bottom: solid white 1.0pt; border-right: solid white 1.0pt; background: #B4C6E7; padding: 0in 5.4pt 0in 5.4pt; height: 30.0pt;" valign="bottom" width="220">
+				<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;">
+					<span style="color: black;">
+						Resource &gt; Maintenance &gt; Update Frequency
+					</span>
+				</p>
+			</td>
+			<td style="width: 92.0pt; border-top: none; border-left: none; border-bottom: solid white 1.0pt; border-right: solid white 1.0pt; background: #B4C6E7; padding: 0in 5.4pt 0in 5.4pt; height: 30.0pt;" valign="bottom" width="123">
+				<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;">
+					<span style="color: black;">
+						No
+					</span>
+				</p>
+			</td>
+			<td style="width: 83.0pt; border: none; border-bottom: solid white 1.0pt; background: #B4C6E7; padding: 0in 5.4pt 0in 5.4pt; height: 30.0pt;" valign="bottom" width="111">
+				<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;">
+					<span style="color: black;">
+						Optional- MDTA
+					</span>
+				</p>
+			</td>
+		</tr>
+		<tr style="height: 45.0pt;">
+			<td style="width: 110.0pt; border-top: none; border-left: none; border-bottom: solid white 1.0pt; border-right: solid white 1.0pt; background: #D9E1F2; padding: 0in 5.4pt 0in 5.4pt; height: 45.0pt;" valign="bottom" width="147">
+				<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;">
+					<span style="color: black;">
+						Data source and processing
+					</span>
+				</p>
+			</td>
+			<td style="width: 227.0pt; border-top: none; border-left: none; border-bottom: solid white 1.0pt; border-right: solid white 1.0pt; background: #D9E1F2; padding: 0in 5.4pt 0in 5.4pt; height: 45.0pt;" valign="bottom" width="303">
+				<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;">
+					<span style="color: black;">
+						Who produces data, how was it developed and processed, accuracy of spatial location and attributes
+					</span>
+				</p>
+			</td>
+			<td style="width: 115.0pt; border-top: none; border-left: none; border-bottom: solid white 1.0pt; border-right: solid white 1.0pt; background: #D9E1F2; padding: 0in 5.4pt 0in 5.4pt; height: 45.0pt;" valign="bottom" width="153">
+				<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;">
+					<span style="color: black;">
+						Collected via mapping-grade GPS by contractors
+					</span>
+				</p>
+			</td>
+			<td style="width: 165.0pt; border-top: none; border-left: none; border-bottom: solid white 1.0pt; border-right: solid white 1.0pt; background: #D9E1F2; padding: 0in 5.4pt 0in 5.4pt; height: 45.0pt;" valign="bottom" width="220">
+				<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;">
+					<span style="color: black;">
+						Resource &gt; Maintenance &gt; Maintenance Note
+					</span>
+				</p>
+			</td>
+			<td style="width: 92.0pt; border-top: none; border-left: none; border-bottom: solid white 1.0pt; border-right: solid white 1.0pt; background: #D9E1F2; padding: 0in 5.4pt 0in 5.4pt; height: 45.0pt;" valign="bottom" width="123">
+				<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;">
+					<span style="color: black;">
+						No
+					</span>
+				</p>
+			</td>
+			<td style="width: 83.0pt; border: none; border-bottom: solid white 1.0pt; background: #D9E1F2; padding: 0in 5.4pt 0in 5.4pt; height: 45.0pt;" valign="bottom" width="111">
+				<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;">
+					<span style="color: black;">
+						Yes- MDTA
+					</span>
+				</p>
+			</td>
+		</tr>
+		<tr style="height: 30.0pt;">
+			<td style="width: 110.0pt; border-top: none; border-left: none; border-bottom: solid white 1.0pt; border-right: solid white 1.0pt; background: #B4C6E7; padding: 0in 5.4pt 0in 5.4pt; height: 30.0pt;" valign="bottom" width="147">
+				<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;">
+					<span style="color: black;">
+						Coordinate system
+					</span>
+				</p>
+			</td>
+			<td style="width: 227.0pt; border-top: none; border-left: none; border-bottom: solid white 1.0pt; border-right: solid white 1.0pt; background: #B4C6E7; padding: 0in 5.4pt 0in 5.4pt; height: 30.0pt;" valign="bottom" width="303">
+				<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;">
+					<span style="color: black;">
+						Datum and projection
+					</span>
+				</p>
+			</td>
+			<td style="width: 115.0pt; border-top: none; border-left: none; border-bottom: solid white 1.0pt; border-right: solid white 1.0pt; background: #B4C6E7; padding: 0in 5.4pt 0in 5.4pt; height: 30.0pt;" valign="bottom" width="153">
+				<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;">
+					<span style="color: black;">
+						EPSG 2893 (MD State Plane)
+					</span>
+				</p>
+			</td>
+			<td style="width: 165.0pt; border-top: none; border-left: none; border-bottom: solid white 1.0pt; border-right: solid white 1.0pt; background: #B4C6E7; padding: 0in 5.4pt 0in 5.4pt; height: 30.0pt;" valign="bottom" width="220">
+				<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;">
+					<span style="color: black;">
+						Resource &gt; Spatial Reference
+					</span>
+				</p>
+			</td>
+			<td style="width: 92.0pt; border-top: none; border-left: none; border-bottom: solid white 1.0pt; border-right: solid white 1.0pt; background: #B4C6E7; padding: 0in 5.4pt 0in 5.4pt; height: 30.0pt;" valign="bottom" width="123">
+				<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;">
+					<span style="color: black;">
+						Yes
+					</span>
+				</p>
+			</td>
+			<td style="width: 83.0pt; border: none; border-bottom: solid white 1.0pt; background: #B4C6E7; padding: 0in 5.4pt 0in 5.4pt; height: 30.0pt;" valign="bottom" width="111">
+				<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;">
+					<span style="color: black;">
+						Yes- ArcGIS / ISO
+					</span>
+				</p>
+			</td>
+		</tr>
+		<tr style="height: 60.0pt;">
+			<td style="width: 110.0pt; border-top: none; border-left: none; border-bottom: solid white 1.0pt; border-right: solid white 1.0pt; background: #D9E1F2; padding: 0in 5.4pt 0in 5.4pt; height: 60.0pt;" valign="bottom" width="147">
+				<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;">
+					<span style="color: black;">
+						Accuracy
+					</span>
+				</p>
+			</td>
+			<td style="width: 227.0pt; border-top: none; border-left: none; border-bottom: solid white 1.0pt; border-right: solid white 1.0pt; background: #D9E1F2; padding: 0in 5.4pt 0in 5.4pt; height: 60.0pt;" valign="bottom" width="303">
+				<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;">
+					<span style="color: black;">
+						Spatial accuracy if available; attribute accuracy (where applicable)
+					</span>
+				</p>
+			</td>
+			<td style="width: 115.0pt; border-top: none; border-left: none; border-bottom: solid white 1.0pt; border-right: solid white 1.0pt; background: #D9E1F2; padding: 0in 5.4pt 0in 5.4pt; height: 60.0pt;" valign="bottom" width="153">
+				<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;">
+					<span style="color: black;">
+						Attributes: field verified
+						<br />
+						 Features: +/- 1 meter
+					</span>
+				</p>
+			</td>
+			<td style="width: 165.0pt; border-top: none; border-left: none; border-bottom: solid white 1.0pt; border-right: solid white 1.0pt; background: #D9E1F2; padding: 0in 5.4pt 0in 5.4pt; height: 60.0pt;" valign="bottom" width="220">
+				<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;">
+					<span style="color: black;">
+						Resource &gt; Quality &gt; Scope Level = Feature,
+						<br />
+						 Level Description &gt; Attributes, Features
+					</span>
+				</p>
+			</td>
+			<td style="width: 92.0pt; border-top: none; border-left: none; border-bottom: solid white 1.0pt; border-right: solid white 1.0pt; background: #D9E1F2; padding: 0in 5.4pt 0in 5.4pt; height: 60.0pt;" valign="bottom" width="123">
+				<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;">
+					<span style="color: black;">
+						No
+					</span>
+				</p>
+			</td>
+			<td style="width: 83.0pt; border: none; border-bottom: solid white 1.0pt; background: #D9E1F2; padding: 0in 5.4pt 0in 5.4pt; height: 60.0pt;" valign="bottom" width="111">
+				<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;">
+					<span style="color: black;">
+						Optional- MDTA
+					</span>
+				</p>
+			</td>
+		</tr>
+		<tr style="height: 60.0pt;">
+			<td style="width: 110.0pt; border-top: none; border-left: none; border-bottom: solid white 1.0pt; border-right: solid white 1.0pt; background: #B4C6E7; padding: 0in 5.4pt 0in 5.4pt; height: 60.0pt;" valign="bottom" width="147">
+				<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;">
+					<span style="color: black;">
+						Attribute dictionary
+					</span>
+				</p>
+			</td>
+			<td style="width: 227.0pt; border-top: none; border-left: none; border-bottom: solid white 1.0pt; border-right: solid white 1.0pt; background: #B4C6E7; padding: 0in 5.4pt 0in 5.4pt; height: 60.0pt;" valign="bottom" width="303">
+				<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;">
+					<span style="color: black;">
+						field names, descriptions, and data types
+					</span>
+				</p>
+			</td>
+			<td style="width: 115.0pt; border-top: none; border-left: none; border-bottom: solid white 1.0pt; border-right: solid white 1.0pt; background: #B4C6E7; padding: 0in 5.4pt 0in 5.4pt; height: 60.0pt;" valign="bottom" width="153">
+				<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;">
+					<span style="color: black;">
+						AMPERAGE is used to record the electrical current in amps (amperes) of an asset.
+					</span>
+				</p>
+			</td>
+			<td style="width: 165.0pt; border-top: none; border-left: none; border-bottom: solid white 1.0pt; border-right: solid white 1.0pt; background: #B4C6E7; padding: 0in 5.4pt 0in 5.4pt; height: 60.0pt;" valign="bottom" width="220">
+				<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;">
+					<span style="color: black;">
+						Resource &gt; Fields &gt; Entity and Attribute Information &gt; Details &gt; Attribute &gt; Definition
+					</span>
+				</p>
+			</td>
+			<td style="width: 92.0pt; border-top: none; border-left: none; border-bottom: solid white 1.0pt; border-right: solid white 1.0pt; background: #B4C6E7; padding: 0in 5.4pt 0in 5.4pt; height: 60.0pt;" valign="bottom" width="123">
+				<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;">
+					<span style="color: black;">
+						Partial
+					</span>
+				</p>
+			</td>
+			<td style="width: 83.0pt; border: none; border-bottom: solid white 1.0pt; background: #B4C6E7; padding: 0in 5.4pt 0in 5.4pt; height: 60.0pt;" valign="bottom" width="111">
+				<p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;">
+					<span style="color: black;">
+						Yes- MDTA
+					</span>
+				</p>
+			</td>
+		</tr>
+	</tbody>
+</table>
+
+                    <!--End Table-->
+                </div>
+            </calcite-notice>
+        </calcite-tab>
+    </calcite-tabs>
+    <!--End Sections-->
+    </body>
+    </html>

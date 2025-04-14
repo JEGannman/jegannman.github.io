@@ -1,0 +1,1577 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>MDTA Enterprise GIS QA/QC</title>
+    <script
+      type="module"
+      src="https://js.arcgis.com/calcite-components/1.4.1/calcite.esm.js"
+    ></script>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://js.arcgis.com/calcite-components/1.4.1/calcite.css"
+    />
+  </head>
+  
+  <body>
+    <!--Tab Menu Navigation-->
+    <calcite-tabs>
+        <calcite-tab-nav slot="title-group">
+            <!--Tab Title Navigation Group-->
+            <calcite-tab-title selected>
+                Introduction
+            </calcite-tab-title>
+            <calcite-tab-title>Elements of Data Quality</calcite-tab-title>
+            <calcite-tab-title>Roles and Responsibilities</calcite-tab-title>
+            <calcite-tab-title>Tools and Resources</calcite-tab-title>
+            <calcite-tab-title>Protocols</calcite-tab-title>
+            <calcite-tab-title>Rules and Descriptions</calcite-tab-title>
+            <calcite-tab-title>ITS DB Attribution Rules</calcite-tab-title>
+        </calcite-tab-nav>
+        <!--End navigation group-->
+        <!--Panel - Introduction-->
+        <calcite-tab selected>
+            <calcite-notice icon="information" open>
+                <div slot="message">
+                    <h2>Introduction</h2>
+                    <p>Data quality directly affects the fitness of data for use in applications, for supporting decisions, and the accuracy of any reports utilizing the data<sup><a href="https://www.esri.com/content/dam/esrisites/en-us/about/events/media/UC-2019/technical-workshops/tw-6391-1016.pdf" target="_blank">1</a></sup>.  Data quality management involves the systematic and synergistic application of quality assurance (QA) and quality control (QC) protocols throughout the entire data lifecycle from creation to archival with the aim to maintain and improve overall data quality and usefulness.</p>
+                    <ul>
+                      <li><b>Quality Assurance</b>: Processes or methods to help prevent errors from being introduced into the data</li>
+                      <li><b>Quality Control</b>: Processes or tools to identify errors that are already in the data </li>
+                    </ul>
+                    <p>The Maryland Transportation Authority (MDTA) is committed to ensuring the quality of all Authority datasets and will implement quality management protocols for all data in the Enterprise Geographic Information System (GIS).</p>
+                    <p>This document represents a comprehensive QA/QC implementation guide and is relevant to anyone involved in editing or maintaining Enterprise GIS data.  The primary objectives of this guide are as follows:</p>
+                    <ul>
+                      <li>Identify the key elements of data quality and how they are addressed in this guide</li>
+                      <li>Describe the Enterprise GIS QA/QC roles and associated responsibilities</li>
+                      <li>Identify specific tools and resources to implement the QA/QC protocols</li>
+                      <li>Outline all Enterprise GIS quality assurance protocols</li>
+                      <li>Identify all Enterprise GIS quality control protocols</li>
+                      <li>Guide users to implement specific quality control checks and workflows</li>
+       
+                    </ul>
+                </div>
+            </calcite-notice>
+        </calcite-tab>
+        <!-- End Introduction panel-->
+        <!--Panel - Elements of Data Quality-->
+        <calcite-tab>
+            <calcite-notice icon="puzzle-piece" open>
+                <div slot="message">
+                    <h2>Elements of Data Quality</h2>
+                    <p>According to the ISO 19157:2013 Geographic Information - Data Quality standards, there are six key elements of data quality as shown below:</p>
+                    <!-- Begin Table -->
+                    
+                    <table style="margin-left: auto; margin-right: auto;" width="100%">
+      <tbody>
+      <tr style="height: 21px;">
+      <td style="height: 21px; width: 30%; vertical-align: middle; text-align: right;">Positional Accuracy</td>
+      <td style="height: 21px; width: 1%; text-align: center; vertical-align: middle;"><span style="font-size: 48px;">{</span></td>
+      <td style="height: 21px; width: 69%; background-color: #71a6db; border: 15px solid #ffffff; text-align: center; vertical-align: middle;"><span style="color: #ffffff;">The accuracy of the position of features within a spatial reference system</span></td>
+      </tr>
+      <tr style="height: 21px;">
+      <td style="height: 21px; width: 30%; vertical-align: middle; text-align: right;">Completeness</td>
+      <td style="height: 21px; width: 1%; text-align: center; vertical-align: middle;"><span style="font-size: 48px;">{</span></td>
+      <td style="height: 21px; width: 69%; background-color: #71a6db; border: 15px solid #ffffff; text-align: center; vertical-align: middle;"><span style="color: #ffffff;">The presence and absense of features, their attributes and relationships</span></td>
+      </tr>
+      <tr style="height: 21.5px;">
+      <td style="height: 21.5px; width: 30%; text-align: right; vertical-align: middle;">Temporal Quality</td>
+      <td style="height: 21.5px; width: 1%; text-align: center; vertical-align: middle;"><span style="font-size: 48px;">{</span></td>
+      <td style="height: 21.5px; width: 69%; background-color: #71a6db; border: 15px solid #ffffff; text-align: center; vertical-align: middle;"><span style="color: #ffffff;">The quality of the temporal attributes and temporal relationships of features</span>&nbsp;</td>
+      </tr>
+      <tr style="height: 21px;">
+      <td style="height: 21px; width: 30%; text-align: right; vertical-align: middle;">Thematic Accuracy</td>
+      <td style="height: 21px; width: 1%; text-align: center; vertical-align: middle;"><span style="font-size: 48px;">{</span></td>
+      <td style="height: 21px; width: 69%; background-color: #71a6db; border: 15px solid #ffffff; text-align: center; vertical-align: middle;"><span style="color: #ffffff;">Classification correctness related to features and their attributes</span></td>
+      </tr>
+      <tr style="height: 21px;">
+      <td style="height: 21px; width: 30%; text-align: right; vertical-align: middle;">Logical Consistency</td>
+      <td style="height: 21px; width: 1%; text-align: center; vertical-align: middle;"><span style="font-size: 48px;">{</span></td>
+      <td style="height: 21px; width: 69%; background-color: #71a6db; border: 15px solid #ffffff; text-align: center; vertical-align: middle;"><span style="color: #ffffff;">Adherence to logical rules of data structure, attribution and relationships (documented in data product specifications)</span></td>
+      </tr>
+      <tr style="height: 21px;">
+      <td style="height: 21px; width: 30%; text-align: right; vertical-align: middle;">Usability</td>
+      <td style="height: 21px; width: 1%; text-align: center; vertical-align: middle;"><span style="font-size: 48px;">{</span></td>
+      <td style="height: 21px; width: 69%; background-color: #71a6db; border: 15px solid #ffffff; text-align: center; vertical-align: middle;">&nbsp;<span style="color: #ffffff;">The data adhering to the user requirements for its intended use</span></td>
+      </tr>
+      </tbody>
+      </table>
+
+                    
+                    <p>Figure 2: Elements of Data Quality (ISO 19157:2013)<sup><a href="https://www.esri.com/content/dam/esrisites/en-us/about/events/media/UC-2019/technical-workshops/tw-6391-1016.pdf" target="_blank">2</a></sup></p>
+                    <!-- end Table -->
+                    <p>Table 1 describes how each of the six data quality elements are implemented / enforced within the MDTA Enterprise GIS system.</p>
+                    <!--Begin Table -->
+                    
+                    <table style="width: 100%; border: 1px solid blue; margin-left: auto; margin-right: auto;" border="1">
+      <tbody>
+      <tr>
+      <td style="width: 20%; border-bottom: 1px solid blue; border-right: none;"><strong>Positional Accuracy</strong></td>
+      <td style="width: 80%; text-align: center; vertical-align: middle;">
+        <!--Begin nested table-->
+      <table style="width: 100%; margin-bottom: auto; margin-top: auto;">
+      <tbody>
+      <tr style="height: 21.5px;">
+      <td style="height: 21.5px; text-align: left; border-bottom: 1px solid blue; border-left: none;">One spatial refernece used for all Enterprise GIS data</td>
+      </tr>
+      <tr style="height: 21px;">
+      <td style="height: 21.5px; text-align: left; border-bottom: 1px solid blue;">Geometry edits limited to GIS Professionals</td>
+      </tr>
+      <tr style="height: 21px;">
+      <td style="height: 21.5px; text-align: left; border-bottom: 1px solid blue;">Spatial quality control checks for relavant features</td>
+      </tr>
+      </tbody>
+      </table>
+      <!--End Nested Table-->
+      </td>
+      </tr>
+      <tr>
+      <td style="width: 20%; border-bottom: 1px solid blue; border-right: none;"><strong>Completeness</strong></td>
+      <td style="width: 80%; text-align: center; vertical-align: middle;">
+        <!--Begin Nested Table-->
+      <table style="width: 100%;">
+      <tbody>
+      <tr>
+      <td style="height: 21.5px; text-align: left; border-bottom: 1px solid blue;">Data migration standards</td>
+      </tr>
+      <tr>
+      <td style="height: 21.5px; text-align: left; border-bottom: 1px solid blue;">Use of attributet calculation rules for key attributes (ex. asset ids)</td>
+      </tr>
+      <tr>
+      <td style="height: 21.5px; text-align: left; border-bottom: 1px solid blue;">Attribute validation quality control checks</td>
+      </tr>
+      </tbody>
+      </table>
+      <!--End Nested Table-->
+      </td>
+      </tr>
+      <tr>
+      <td style="width: 20%; border-bottom: 1px solid blue; border-right: none;"><strong>Temporal Quality</strong></td>
+      <td style="width: 80%; text-align: center; vertical-align: middle;">
+        <!--Begin Nested Table-->
+      <table style="width: 100%;">
+      <tbody>
+      <tr>
+      <td style="height: 21.5px; text-align: left; border-bottom: 1px solid blue;">All dates stored as Date type attributes</td>
+      </tr>
+      <tr>
+      <td style="height: 21.5px; text-align: left; border-bottom: 1px solid blue;">Consistent use of editor tracking on all datasets</td>
+      </tr>
+      </tbody>
+      </table>
+      <!--End Nested Table-->
+      </td>
+      </tr>
+      <tr>
+      <td style="width: 20%; border-bottom: 1px solid blue; border-right: none;"><strong>Thematic Accuracy</strong></td>
+      <td style="width: 80%; text-align: center; vertical-align: middle;">
+        <!--Begin Nested Table-->
+      <table style="width: 100%;">
+      <tbody>
+      <tr>
+      <td style="height: 21.5px; text-align: left; border-bottom: 1px solid blue;">Logical grouping of similar features within datasets</td>
+      </tr>
+      <tr>
+      <td style="height: 21.5px; text-align: left; border-bottom: 1px solid blue;">Use of subtypes, domains, and default values</td>
+      </tr>
+      </tbody>
+      </table>
+      <!--End Nested Table-->
+      </td>
+      </tr>
+      <tr>
+      <td style="width: 20%; border-bottom: 1px solid blue; border-right: none;"><strong>Logical Consistency</strong></td>
+      <td style="width: 80%; text-align: center; vertical-align: middle;">
+        <!--Begin Nested Table-->
+      <table style="width: 100%; margin-left: auto; margin-right: auto;">
+      <tbody>
+      <tr style="height: 21px;">
+      <td style="height: 21px; text-align: left; border-bottom: 1px solid blue;">Data model design standards</td>
+      </tr>
+      <tr style="height: 21px;">
+      <td style="height: 21px; text-align: left; border-bottom: 1px solid blue;">Standard mimimum attribution standards</td>
+      </tr>
+      <tr style="height: 21px;">
+      <td style="height: 21px; text-align: left; border-bottom: 1px solid blue;">Use of relationship classes to model real-world connections between features</td>
+      </tr>
+      </tbody>
+      </table>
+      <!--End Nested Table-->
+      </td>
+      </tr>
+      <tr>
+      <td style="width: 20%; border-bottom: 1px solid blue; border-right: none;"><strong>Usability</strong></td>
+      <td style="width: 80%; text-align: center; vertical-align: middle;">
+        <!--Begin Nested Table-->
+      <table style="width: 100%; margin-left: auto; margin-right: auto;">
+      <tbody>
+      <tr>
+      <td style="height: 21.5px; text-align: left; border-bottom: 1px solid blue;">Metadata standards</td>
+      </tr>
+      <tr>
+      <td style="height: 21.5px; text-align: left; border-bottom: 1px solid blue;">Portal/feature service publishing standards</td>
+      </tr>
+      </tbody>
+      </table>
+      <!--End Nested Table-->
+      </td>
+      </tr>
+      </tbody>
+      </table>
+                    <p>Table 1: MDTA Enterprise GIS Data Quality Implementations</p>
+                    <!-- end table -->
+                </div>
+            </calcite-notice>
+        </calcite-tab>
+        <!-- End Elements of DQ panel-->
+        <!--Panel - Roles and Responsibilities-->
+        <calcite-tab>
+            <calcite-notice icon="workflow-diagram" open>
+                <div slot="message">
+                    <h2>Roles and Responsibilities</h2>
+                    <p>Although formal quality assurance configurations and quality control checks are traditionally completed by GIS editors, data quality is the responsibility of all MDTA Enterprise GIS users and editors. For example, users who cannot directly edit GIS data shall promptly notify GIS editors of any data errors or issues so that they may be corrected<sup>3</sup>. Figure 3 lists MDTA Enterprise GIS roles, their data quality management responsibilities and level of involvement. notify</p>      
+              
+                    <!-- Begin Table -->
+                    <table style="width: 100%; border: solid 1px blue;" border="1">
+           <tbody>
+           <tr style="height: 27px;">
+           <td style="border-bottom: 1px solid blue; border-radius: 10px 10px 0px 0px; width: 32.1002%; background-color: blue; text-align: center; height: 27px;"><span style="color: #ffffff;"><strong>GIS Technician/Editor</strong></span>&nbsp;</td>
+           <td style="width: 66.8998%; border-bottom: 1px solid blue; height: 27px;"><strong>QA/QC Implementation</strong></td>
+           </tr>
+           <tr style="height: 20px;">
+           <td style="width: 99%; height: 20px;" colspan="2">
+           <ul>
+           <li>Configure and maintain quality assurance measures</li>
+           <li>Configure and maintain quality control checks</li>
+           <li>Execute quality control checks and correct identified data issues</li>
+           </ul>
+           </td>
+           </tr>
+           <tr style="height: 27px;">
+           <td style="border-bottom: 1px solid blue; border-radius: 10px 10px 0px 0px; width: 32.1002%; background-color: blue; text-align: center; height: 26px;"><span style="color: #ffffff;"><strong>GIS Manager&nbsp;</strong></span></td>
+           <td style="width: 66.8998%; border-bottom: 1px solid blue; height: 26px;"><strong>QA/QC Oversight</strong></td>
+           </tr>
+           <tr style="height: 20px;">
+           <td style="width: 99%; height: 20px;" colspan="2">
+           <ul>
+           <li>Review and enforce QA/QC protocols and configurations</li>
+           <li>Documant QA/QC policies and report policies to GIS Technicians/Editors</li>
+           <li>Resolve QA/QC questions or issues and provide clarification</li>
+           </ul>
+           </td>
+           </tr>
+           <tr style="height: 27px;">
+           <td style="border-bottom: 1px solid blue; border-radius: 10px 10px 0px 0px; width: 32.1002%; background-color: blue; height: 27px; text-align: center;"><strong>&nbsp;<span style="color: #ffffff;">GIS Viewer/User</span></strong></td>
+           <td style="width: 66.8998%; border-bottom: 1px solid blue; height: 27px;"><strong>QA/QC Awareness</strong></td>
+           </tr>
+           <tr style="height: 20px;">
+           <td style="width: 99%; height: 20px;" colspan="2">
+           <ul>
+           <li>Notifiy GIS technicians and managers of errors or issues discovered while using Enterprise GIS data</li>
+           </ul>
+           </td>
+           </tr>
+           <tr style="height: 27px;">
+           <td style="border-bottom: 1px solid blue; border-radius: 10px 10px 0px 0px; width: 32.1002%; background-color: blue; height: 23px; text-align: center;">&nbsp;<strong><span style="color: #ffffff;">GIS Database Admin</span></strong></td>
+           <td style="width: 66.8998%; border-bottom: 1px solid blue; height: 23px;"><strong>Database Standards Implementation</strong></td>
+           </tr>
+           <tr style="height: 21px;">
+           <td style="width: 99%; height: 21px;" colspan="2">
+           <ul>
+           <li>Maintain and implement database and data model standards</li>
+           <li>Implement automated system level QA/QC models and tools</li>
+           </ul>
+           </td>
+           </tr>
+           </tbody>
+           </table>
+           
+           <p>Figure 3: Enterprise GIS QA/QC Roles and Responsibilities</p>
+           <!-- end table -->
+                         
+                         
+                         
+             
+             <footer><sup>3</sup>When available, GIS users shall utilize the data review / comment functionality built into GIS applications to document issues.</footer>
+                </div>
+            </calcite-notice>
+        </calcite-tab>
+        <!-- End Roles and Responsibilities panel-->
+        <!--Panel - Tools and Resources-->
+        <calcite-tab>
+            <calcite-notice icon="wrench" open>
+                <div slot="message">
+                    <h2>Tools and Resources</h2>
+                    <p>ArcGIS Pro software (version 2.8 or higher) is required to complete all MDTA Enterprise GIS QAQC tasks. The following sections describe how to access and edit specific QA/QC resources.</p>
+                        <!--Accordian Begin-->
+                        
+                        <calcite-accordion>
+                            <!--Section - Attribute Rules-->
+                            <calcite-accordion-item description="Attribute rules can be leveraged to auto-calculate or constrain attribute values during insert, update, or deletion of GIS records. Within the MDTA Enterprise GIS, attribute rules are primarily used to auto-calculate unique asset identifiers. Refer to the instructions below to access and edit or add new attribute rules." heading="Attribute Rules" icon-start="conditional-rules">
+                                <calcite-notice open>
+                                    <div slot="message">
+                                        <p>ArcGIS Pro software (version 2.8 or higher) is required to complete all MDTA Enterprise GIS QAQC tasks. The following sections describe how to access and edit specific QA/QC resources. </p>
+                                        <p>Attribute rules can be leveraged to auto-calculate or constrain attribute values during insert, update, or deletion of GIS records.  Within the MDTA Enterprise GIS, attribute rules are primarily used to auto-calculate unique asset identifiers. Refer to the instructions below to access and edit or add new attribute rules.</p>
+                                        <!--Stepper Code-->
+                                        <calcite-stepper numbered>
+                                            <calcite-stepper-item heading="Attribute Rules Step 1" selected>
+                                                <calcite-notice width="full" open>
+                                                    <div slot="title">
+                                                        <figure><img src="https://mdtagisdstore.mdta.ad.mdot.mdstate/MDTAGISDataShare/GISHub/Images/QAQC/QAQC01.png" alt="Attribute Rules Step 1: From within ArcGIS Pro, select a feature layer in the Table of Contents then select the Data tab" width="33%" height="33%" />
+                                                            <figcaption>Attribute Rules Step 1: From within ArcGIS Pro, select a feature layer in the Table of Contents then select the Data tab</figcaption>
+                                                            </figure>
+                                                    </div>
+                                                </calcite-notice>
+                                            </calcite-stepper-item>
+                                            <calcite-stepper-item heading="Attribute Rules Step 2">
+                                                <calcite-notice width="full" open>
+                                                    <div slot="title">
+                                                        <figure><img src="https://mdtagisdstore.mdta.ad.mdot.mdstate/MDTAGISDataShare/GISHub/Images/QAQC/QAQC02.png" alt="Attribute Rules Step 2: Within the Data tab, select Attribute Rules" width="33%" height="33%" />
+                                                            <figcaption>Attribute Rules Step 2: Within the Data tab, select Attribute Rules</figcaption>
+                                                            </figure>
+                                                    </div>
+                                                </calcite-notice>
+                                            </calcite-stepper-item>
+                                            <calcite-stepper-item heading="Attribute Rules Step 3">
+                                                <calcite-notice width="full" open>
+                                                    <div slot="title">
+                                                        <figure><img src="https://mdtagisdstore.mdta.ad.mdot.mdstate/MDTAGISDataShare/GISHub/Images/QAQC/QAQC03.png" alt="Attribute Rules Step 3: Within the Attribute Rules view, existing rules can be edited, or new rules can be added." width="33%" height="33%" />
+                                                            <figcaption>Attribute Rules Step 3: Within the Attribute Rules view, existing rules can be edited, or new rules can be added.</figcaption>
+                                                            </figure>
+                                                    </div>
+                                                </calcite-notice>
+                                            </calcite-stepper-item>
+                                        </calcite-stepper>
+                                        <!--End Stepper-->
+                                    </div>
+                                </calcite-notice>
+                            </calcite-accordion-item>
+                            <!--End Section-->
+                            <!--Section - Attribute Quality Control Checks-->
+                            <calcite-accordion-item icon-start="list-check" heading="Attribute Quality Control Checks" description="Quality control checks for standard Enterprise GIS attributes are configured as models in an ArcGIS Pro toolbox.">
+                                <calcite-notice open>
+                                    <div slot="message">
+                                        <!--Begin Stepper Code-->
+                                        <calcite-stepper numbered>
+                                            <calcite-stepper-item heading="Attribute QC Checks - Step 1:" selected>
+                                                <calcite-notice width="full" open>
+                                                    <div slot="title">
+                                                        <figure><img src="https://mdtagisdstore.mdta.ad.mdot.mdstate/MDTAGISDataShare/GISHub/Images/QAQC/QAQC04.png" alt="Attribute QC Checks Step 1: Add the Enterprise_GIS_QAQC_Toolbox to the Project toolboxes." width="33%" height="33%" />
+                                                            <figcaption>Attribute QC Checks Step 1: Add the Enterprise_GIS_QAQC_Toolbox to the Project toolboxes.</figcaption>
+                                                            </figure>
+                                                    </div>
+                                                </calcite-notice>
+                                            </calcite-stepper-item>
+                                            <calcite-stepper-item heading="Attribute QC Checks - Step 2:">
+                                                <calcite-notice width="full" open>
+                                                    <div slot="title">
+                                                        <figure><img src="https://mdtagisdstore.mdta.ad.mdot.mdstate/MDTAGISDataShare/GISHub/Images/QAQC/QAQC05.png" alt="Attribute QC Checks Step 2: Open the toolbox and then open the Attribute Checks toolset." width="33%" height="33%" />
+                                                            <figcaption>Attribute QC Checks Step 2: Open the toolbox and then open the Attribute Checks toolset.</figcaption>
+                                                            </figure>
+                                                    </div>
+                                                </calcite-notice>
+                                            </calcite-stepper-item>
+                                            <calcite-stepper-item heading="Attribute QC Checks - Step 3:">
+                                                <calcite-notice width="full" open>
+                                                    <div slot="title">
+                                                        <figure><img src="https://mdtagisdstore.mdta.ad.mdot.mdstate/MDTAGISDataShare/GISHub/Images/QAQC/QAQC06.png" alt="Attribute QC Checks Step 3: Double-click an attribute check model to open it and select an input layer from the map." width="33%" height="33%" />
+                                                        <figcaption>Attribute QC Checks Step 3: Double-click an attribute check model to open it and select an input layer from the map. .</figcaption>
+                                                        </figure>
+                                                    </div>
+                                                </calcite-notice>
+                                            </calcite-stepper-item>
+                                            <calcite-stepper-item heading="Attribute QC Checks - Step 4:">
+                                                <calcite-notice width="full" open>
+                                                    <div slot="title">
+                                                        <p>Attribute QC Checks Step 4: Select Run in the Geoprocessing window to run the model.</p>
+                                                    </div>
+                                                </calcite-notice>
+                                            </calcite-stepper-item>
+                                            <calcite-stepper-item heading="Attribute QC Checks - Step 5:">
+                                                <calcite-notice width="full" open>
+                                                    <div slot="title">
+                                                        <p>Attribute QC Checks Step 5: Review the selected records in the feature layer.</p>
+                                                    </div>
+                                                </calcite-notice>
+                                            </calcite-stepper-item>
+                                        </calcite-stepper>
+                                        <!--End Stepper-->
+                                    </div>
+                                </calcite-notice>
+                            </calcite-accordion-item>
+                            <!--End Section-->
+                        </calcite-accordion> 
+                        <!--End Accordian--> 
+                        </div>
+
+            </calcite-notice>
+        </calcite-tab>
+        <!-- End Tools and Resources panel-->
+        <!--Panel - Protocols-->
+        <calcite-tab>
+            <calcite-notice icon="register" open>
+                <div slot="message">
+                   <h2>Quality Assurance Protocols</h2>
+                    <p>Several quality assurance protocols are implemented within the MDTA Enterprise GIS system in order to ensure consistency and standardization across all GIS datasets and to reduce data entry errors. QA/QC reviewers shall evaluate all quality assurance protocols for each Enterprise GIS dataset to ensure they are correctly configured in accordance with all MDTA Enterprise GIS data and attribute standards and GIS best practice.</p>
+                    <!--Begin Accordian Sections-->
+                    <calcite-accordion>
+                        <!--Begin Section - MDTA Enterprise GIS Standards-->
+                        <calcite-accordion-item description="GIS data standards such as consistent attribute naming conventions, formatting rules and use of domains improves overall data quality and usefulness" heading="MDTA Enterprise GIS Standards" icon-start="data-check">
+                            <calcite-notice open>
+                                <div slot="message">
+                                    <!--Begin Table-->
+                                    <table width="100%">
+                                        <tbody>
+                                        <tr>
+                                        <td width="50%">
+                                                      <p>GIS data standards such as consistent attribute naming conventions, formatting rules and use of domains improves overall data quality and usefulness. MDTA's Office of Engineering Asset Management group maintains a GIS Standards Database with template feature classes for point, line, and polygon features as shown in Figure 4.</p>
+                                                      <p>These templates include all minimum standard and recommended attributes and should be used as a starting point for creating new asset feature classes in the MDTA Enterprise GIS standard format described within this site</p>
+                                                      <p>QA/QC reviewers shall ensure that all datasets included in the MDTA Enterprise GIS conform to the minimum standard data model and that any additional attribution conforms to attribute naming conventions and formatting rules. Additionally, when evaluating Enterprise GIS datasets, reviewers shall refer to the MDTA Enterprise GIS Data and Attribution Standards Guide and consider the following data model design questions:</p>
+                                                      <ul style="list-style-type: none;">
+                                                        <li>&#x2610; Are GlobalIDs enabled?</li>
+                                                        <li>&#x2610; Is Editor Tracking enabled?</li>
+                                                        <li>&#x2610; If the dataset is related to other datasets, are the relationship fields and relationship classes configured correctly?</li>
+                                                        <li>&#x2610; Are all minimum standard attributes included?</li>
+                                                        <li>&#x2610; Are any additional, feature-specific attributes appropriately configured based on attribute formatting standards?</li>
+                                                      </ul>
+                                        
+                                        </td>
+                                        <td style="text-align: right;" width="50%">
+                                        <figure>
+                                        <img src="https://mdtagisdstore.mdta.ad.mdot.mdstate/MDTAGISDataShare/GISHub/Images/QAQC/QAQCFigure04.png" alt="Figure 4: Standards Database Datasets" width="75%" height="75%">
+                                        <figcaption>Figure 4: Standards Database Datasets</figcaption>
+                                        </figure>
+                                        </td>
+                                        </tr>
+                                        
+                                        </tbody>
+                                        </table>
+                                        <!--End Table-->
+                                </div>
+                            </calcite-notice>
+                        </calcite-accordion-item>
+<!--End Section-->
+<!--Begin Section - Coordinate System Standards-->
+                        <calcite-accordion-item icon-start="globe" heading="Coordinate System Standards" description="Specifies the coordinate system to be used for MDTA GIS Data">
+                            <calcite-notice open>
+                                <div slot="message">
+                                    <p>All MDTA Enterprise GIS feature classes shall utilize the projected and geographic coordinate systems listed below:</p>
+                                    <ul>
+                                      <li><b>Projected Coordinate System</b>: NAD 1983 HARN StatePlane Maryland FIPS 1900 (US Feet)</li>
+                                      <li><b>Geographic Coordinate System</b>: NAD 1983 HARN</li>
+                                    </ul>
+                                </div>
+                            </calcite-notice>
+                        </calcite-accordion-item>
+                        <!--End Section-->
+<!--Begin Section - Dataset Naming Standards-->
+                        <calcite-accordion-item icon-start="data" heading="Dataset Naming Standards" description="Dataset naming standards are employed in the MDTA Enterprise GIS to ensure thematic accuracy and logical consistency">
+                            <calcite-notice open>
+                                <div slot="message">
+                                    <p>Dataset naming standards are employed in the MDTA Enterprise GIS to ensure thematic accuracy and logical consistency. QA/QC reviewers shall consider the following questions when reviewing new datasets added to the MDTA Enterprise GIS:</p>
+                                    <ul style="list-style-type: none;">
+                                      <li>&#x2610; Does the dataset conform to the naming convention standards listed in the MDTA Enterprise GIS Data and Attribution Standards Guide?</li>
+                                      <li>&#x2610; Does the dataset utilize the standard coordinate systems?</li>
+                                    
+                                    </ul>
+                                </div>
+                            </calcite-notice>
+                        </calcite-accordion-item>
+                        <!--End Section-->
+<!--Begin Section - Use of Subtypes-->
+                        <calcite-accordion-item description="Within the MDTA Enterprise GIS, subtypes are used to identify distinct groups of assets within a feature class in which multiple asset groups are combined" heading="Use of Subtypes" icon-start="list-show-all">
+                            <calcite-notice open>
+                                <div slot="message">
+                                    <p>Within the MDTA Enterprise GIS, subtypes are used to identify distinct groups of assets within a feature class in which multiple asset groups are combined. Specific subtype configurations are listed in Appendix A of the MDTA Enterprise GIS Data and Attribution Standards Guide.QA/QC reviewers shall refer to the Standards Guide when evaluating the following questions:</p>
+              <ul style="list-style-type: none;">
+                <li>&#x2610; Does the dataset include a subtype attribute (ex. ASSET GROUP)?</li>
+                <ul style="list-style-type: none;">
+                  <li>&#x2610; If yes, are the subtype values configured consistently and accurately based on the context and type of features in the dataset?</li>
+                </ul>
+              </ul>
+                                </div>
+                            </calcite-notice>
+                        </calcite-accordion-item>
+                        <!--End Section-->
+<!--Begin Section - Use of Domains-->
+                        <calcite-accordion-item icon-start="list-rectangle" heading="Use of Domains" description="Standard domains ensure data consistency and reduce user data entry errors">
+                            <calcite-notice open>
+                                <div slot="message">
+                                    <p>Standard domains ensure data consistency and reduce user data entry errors. The MDTA Enterprise GIS Standards Database includes several pre-configured standard domains which are listed in the MDTA Enterprise GIS Data and Attribution Standards Guide.</p>
+                                    <p>Each MDTA Enterprise GIS database and individual dataset must be reviewed to ensure that all domains are correctly configured and mapped to applicable attributes. QA/QC reviewers shall consider the following questions:</p>
+                                    <ul style="list-style-type: none;">
+                                      <li>&#x2610; Are the values for each domain correctly configured and consistent with Enterprise GIS standards?</li>
+                                      <li>&#x2610; Are domains correctly mapped to applicable attributes and subtypes?</li>
+                                      <li>&#x2610; Does an existing standard domain need to be updated with additional values to satisfy all attribution requirements?</li>
+                                      <li>&#x2610; Are there any additional, non-standard attributes that should use a domain?</li>
+                                      
+                                    </ul>
+                                </div>
+                            </calcite-notice>
+                        </calcite-accordion-item>
+                        <!--End Section-->
+<!--Begin Section - Use of Default Values-->
+                        <calcite-accordion-item icon-start="arrow-circle-down" heading="Use of Default Values" description="Default values are another key method for reducing data entry errors and improving overall attribute completeness">
+                            <calcite-notice open>
+                                <div slot="message">
+                                    <p>Default values are another key method for reducing data entry errors and improving overall attribute completeness. Default values populate automatically when a new feature is added to a dataset.  Because default values auto-populate, they should be used sparingly and are most appropriate for attributes for which specific information is not commonly available or for attributes that are typically the same across an entire dataset.  The Appendix within this site lists all default values currently specified within the MDTA Enterprise GIS system.</p>
+              <p>When evaluating existing default values or reviewing newly added attributes, QA/QC reviewers shall consider the following questions:</p>
+              <ul style="list-style-type: none;">
+                <li>&#x2610; Are default values configured according to the existing standards listed in the Appendix?</li>
+                <li>&#x2610; Are default values appropriate for a newly added attribute?  </li>
+                <ul style="list-style-type: none;">
+                  <li>&#x2610; If yes, is the default value specified appropriate?</li>
+                </ul>
+              </ul>
+                                </div>
+                            </calcite-notice>
+                        </calcite-accordion-item>
+                        <!--End Section-->
+<!--Begin Section - Attribute Rules-->
+                        <calcite-accordion-item icon-start="edit-attributes" heading="Attribute Rules" description="Attribute rules are user-defined rules that can be used to automatically populate attributes, restrict invalid edits during edit operations, and perform quality assurance checks on existing features">
+                            <calcite-notice open>
+                                <div slot="message">
+                                    <p>Attribute rules are user-defined rules that can be used to automatically populate attributes, restrict invalid edits during edit operations, and perform quality assurance checks on existing features<sup><a href="https://pro.arcgis.com/en/pro-app/help/data/geodatabases/overview/an-overview-of-attribute-rules.htm" target="_blank"></a></sup>.  The following three types of attribute rules can be configured:</p>
+                                    <ul>
+                                      <li><b>Immediate Calculation</b> - automatically populate attributes based on editing patterns.</li>
+                                      <li><b>Constraint</b> - control data entry by user-defined requirements.</li>
+                                      <li><b>Validation<sup>6</sup></b> - highlight errors in existing data.</li>
+                                    </ul>
+                                    <p>Immediate calculation attribute rules are primarily utilized within the MDTA Enterprise GIS to auto-calculate asset identifiers and auto-populate attributes based on specific values chosen for other attributes. For example, if the value chosen for the MOUNTING TYPE attribute is anything other than “Structure”, the STRUCTURE TYPE attribute will be automatically set to “Not Applicable”.  Constraint rules are not currently used but they may be appropriate for future datasets or attributes. Validation rules are also not currently used in the MDTA Enterprise GIS since none of the data is branch versioned. However, the implementation of validation rules should be considered if branch versioning is adopted in the future. All attribute rules currently configured in the MDTA Enterprise GIS are listed in the Appendix.</p>
+                                    <p>When evaluating attribute rule configurations, QA/QC reviewers shall consider the following:</p>
+                                    <ul style="list-style-type: none;">
+                                      <li>&#x2610; Are existing attribute rules configured according to the standards shown in the Appendix?</li>
+                                      <li>&#x2610; Are attribute rules appropriate for a newly added attribute?  </li>
+                                      <ul style="list-style-type: none;">
+                                        <li>&#x2610; If yes, what type of attribute rule is most appropriate?</li>
+                                      </ul>
+                                      <li>&#x2610; Do configured attribute rules perform as expected (i.e. deliver expected results)? </li>
+                                    </ul>
+                                    <footer><sup>6</sup>Validation rules are only usable if a dataset is configured as branch.</footer>
+                                </div>
+                            </calcite-notice>
+                        </calcite-accordion-item>
+                        <!--End Section-->
+                    </calcite-accordion>
+                    <!--End Accordian-->
+                </div>
+            </calcite-notice>
+        </calcite-tab>
+        <!-- End Protocols panel-->
+        <!--Panel - Rules and Description-->
+        <calcite-tab>
+            <calcite-notice icon="data-check" open>
+                <div slot="message">
+                    <!--begin Accordian-->
+                    <calcite-accordion>
+                        <!--Begin Section - Manual Attribute Checks-->
+                        <calcite-accordion-item description="When evaluating an Enterprise GIS dataset, QA/QC reviewers shall manually check each of the attributes to confirm that all values meet the attribute quality specifications as listed" heading="Manual Attribute Checks" icon-start="list-check-all">
+                            <calcite-notice open>
+                                <div slot="message">
+                                    <p>When evaluating an Enterprise GIS dataset, QA/QC reviewers shall manually check each of the attributes shown in Table 2 to confirm that all values meet the attribute quality specifications as listed.  Sorting within an attribute table and using the Select by Attributes geoprocessing tool are useful methods for quickly identifying attribute value errors. For datasets with 100 or less records, all records should be checked. For datasets with over 100 records, at least 20% of the records should be evaluated.</p>
+                                    <!-- Begin Table -->
+                      <table class="MsoTableGrid" style="width: 93.56%; margin-left: 30.35pt; border-collapse: collapse; border: none; mso-yfti-tbllook: 1184; mso-padding-alt: 0in 5.4pt 0in 5.4pt; mso-border-insideh: none; mso-border-insidev: none;" border="0" width="93%" cellspacing="0" cellpadding="0">
+                      <tbody>
+                      <tr style="mso-yfti-irow: 0; mso-yfti-firstrow: yes; height: .2in;">
+                      <td style="width: 22.62%; background: #1F3864; mso-background-themecolor: accent1; mso-background-themeshade: 128; padding: 0in 5.4pt 0in 5.4pt; height: .2in;" width="22%">
+                      <p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><strong><span style="font-size: 10.0pt; mso-bidi-font-family: Calibri; mso-bidi-theme-font: minor-latin; color: white; mso-themecolor: background1;">Attribute Alias</span></strong></p>
+                      </td>
+                      <td style="width: 38.3%; background: #1F3864; mso-background-themecolor: accent1; mso-background-themeshade: 128; padding: 0in 5.4pt 0in 5.4pt; height: .2in;" width="38%">
+                      <p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><strong><span style="font-size: 10.0pt; mso-bidi-font-family: Calibri; mso-bidi-theme-font: minor-latin; color: white; mso-themecolor: background1;">Attribute Quality Specification</span></strong></p>
+                      </td>
+                      <td style="width: 39.1%; background: #1F3864; mso-background-themecolor: accent1; mso-background-themeshade: 128; padding: 0in 5.4pt 0in 5.4pt; height: .2in;" width="39%">
+                      <p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><strong><span style="font-size: 10.0pt; mso-bidi-font-family: Calibri; mso-bidi-theme-font: minor-latin; color: white; mso-themecolor: background1;">QC Procedure</span></strong></p>
+                      </td>
+                      </tr>
+                      <tr style="mso-yfti-irow: 1; height: .2in;">
+                      <td style="width: 22.62%; border: none; border-bottom: solid #1F3864 1.0pt; mso-border-bottom-themecolor: accent1; mso-border-bottom-themeshade: 128; mso-border-bottom-alt: solid #1F3864 .25pt; background: white; mso-background-themecolor: background1; padding: 0in 5.4pt 0in 5.4pt; height: .2in;" width="22%">
+                      <p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><span style="font-size: 10.0pt; mso-bidi-font-family: Calibri; mso-bidi-theme-font: minor-latin; color: black; mso-color-alt: windowtext;">INSTALL DATE</span></p>
+                      </td>
+                      <td style="width: 38.3%; border: none; border-bottom: solid #1F3864 1.0pt; mso-border-bottom-themecolor: accent1; mso-border-bottom-themeshade: 128; mso-border-bottom-alt: solid #1F3864 .25pt; background: white; mso-background-themecolor: background1; padding: 0in 5.4pt 0in 5.4pt; height: .2in;" width="38%">
+                      <p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><span style="font-size: 10.0pt; mso-bidi-font-family: Calibri; mso-bidi-theme-font: minor-latin; color: black; mso-color-alt: windowtext;">Valid format is: MM/DD/YYYY</span></p>
+                      </td>
+                      <td style="width: 39.1%; border: none; border-bottom: solid #1F3864 1.0pt; mso-border-bottom-themecolor: accent1; mso-border-bottom-themeshade: 128; mso-border-bottom-alt: solid #1F3864 .25pt; background: white; mso-background-themecolor: background1; padding: 0in 5.4pt 0in 5.4pt; height: .2in;" width="39%">
+                      <p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><span style="font-size: 10.0pt; mso-bidi-font-family: Calibri; mso-bidi-theme-font: minor-latin;">&nbsp;</span></p>
+                      </td>
+                      </tr>
+                      <tr style="mso-yfti-irow: 2; height: .2in;">
+                      <td style="width: 22.62%; border: none; border-bottom: solid #1F3864 1.0pt; mso-border-bottom-themecolor: accent1; mso-border-bottom-themeshade: 128; mso-border-top-alt: solid #1F3864 .25pt; mso-border-top-themecolor: accent1; mso-border-top-themeshade: 128; mso-border-bottom-alt: solid #1F3864 .25pt; background: white; mso-background-themecolor: background1; padding: 0in 5.4pt 0in 5.4pt; height: .2in;" width="22%">
+                      <p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><span style="font-size: 10.0pt; mso-bidi-font-family: Calibri; mso-bidi-theme-font: minor-latin; color: black; mso-color-alt: windowtext;">RETIRE DATE</span></p>
+                      </td>
+                      <td style="width: 38.3%; border: none; border-bottom: solid #1F3864 1.0pt; mso-border-bottom-themecolor: accent1; mso-border-bottom-themeshade: 128; mso-border-top-alt: solid #1F3864 .25pt; mso-border-top-themecolor: accent1; mso-border-top-themeshade: 128; mso-border-bottom-alt: solid #1F3864 .25pt; background: white; mso-background-themecolor: background1; padding: 0in 5.4pt 0in 5.4pt; height: .2in;" width="38%">
+                      <p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><span style="font-size: 10.0pt; mso-bidi-font-family: Calibri; mso-bidi-theme-font: minor-latin; color: black; mso-color-alt: windowtext;">Valid format is: MM/DD/YYYY</span></p>
+                      </td>
+                      <td style="width: 39.1%; border: none; border-bottom: solid #1F3864 1.0pt; mso-border-bottom-themecolor: accent1; mso-border-bottom-themeshade: 128; mso-border-top-alt: solid #1F3864 .25pt; mso-border-top-themecolor: accent1; mso-border-top-themeshade: 128; mso-border-bottom-alt: solid #1F3864 .25pt; background: white; mso-background-themecolor: background1; padding: 0in 5.4pt 0in 5.4pt; height: .2in;" width="39%">
+                      <p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><span style="font-size: 10.0pt; mso-bidi-font-family: Calibri; mso-bidi-theme-font: minor-latin;">&nbsp;</span></p>
+                      </td>
+                      </tr>
+                      <tr style="mso-yfti-irow: 3; height: .2in;">
+                      <td style="width: 22.62%; border: none; border-bottom: solid #1F3864 1.0pt; mso-border-bottom-themecolor: accent1; mso-border-bottom-themeshade: 128; mso-border-top-alt: solid #1F3864 .25pt; mso-border-top-themecolor: accent1; mso-border-top-themeshade: 128; mso-border-bottom-alt: solid #1F3864 .25pt; background: white; mso-background-themecolor: background1; padding: 0in 5.4pt 0in 5.4pt; height: .2in;" width="22%">
+                      <p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><span style="font-size: 10.0pt; mso-bidi-font-family: Calibri; mso-bidi-theme-font: minor-latin; color: black; mso-color-alt: windowtext;">FIELD VERIFIED DATE</span></p>
+                      </td>
+                      <td style="width: 38.3%; border: none; border-bottom: solid #1F3864 1.0pt; mso-border-bottom-themecolor: accent1; mso-border-bottom-themeshade: 128; mso-border-top-alt: solid #1F3864 .25pt; mso-border-top-themecolor: accent1; mso-border-top-themeshade: 128; mso-border-bottom-alt: solid #1F3864 .25pt; background: white; mso-background-themecolor: background1; padding: 0in 5.4pt 0in 5.4pt; height: .2in;" width="38%">
+                      <p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><span style="font-size: 10.0pt; mso-bidi-font-family: Calibri; mso-bidi-theme-font: minor-latin; color: black; mso-color-alt: windowtext;">Valid format is: MM/DD/YYYY</span></p>
+                      </td>
+                      <td style="width: 39.1%; border: none; border-bottom: solid #1F3864 1.0pt; mso-border-bottom-themecolor: accent1; mso-border-bottom-themeshade: 128; mso-border-top-alt: solid #1F3864 .25pt; mso-border-top-themecolor: accent1; mso-border-top-themeshade: 128; mso-border-bottom-alt: solid #1F3864 .25pt; background: white; mso-background-themecolor: background1; padding: 0in 5.4pt 0in 5.4pt; height: .2in;" width="39%">
+                      <p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><span style="font-size: 10.0pt; mso-bidi-font-family: Calibri; mso-bidi-theme-font: minor-latin;">&nbsp;</span></p>
+                      </td>
+                      </tr>
+                      <tr style="mso-yfti-irow: 4; height: .2in;">
+                      <td style="width: 22.62%; border: none; mso-border-top-alt: solid #1F3864 .25pt; mso-border-top-themecolor: accent1; mso-border-top-themeshade: 128; background: white; mso-background-themecolor: background1; padding: 0in 5.4pt 0in 5.4pt; height: .2in;" width="22%">
+                      <p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><span style="font-size: 10.0pt; mso-bidi-font-family: Calibri; mso-bidi-theme-font: minor-latin; color: black; mso-color-alt: windowtext;">PLAN LINK</span></p>
+                      </td>
+                      <td style="width: 38.3%; border: none; border-bottom: solid #1F3864 2.25pt; mso-border-bottom-themecolor: accent1; mso-border-bottom-themeshade: 128; mso-border-top-alt: solid #1F3864 .25pt; mso-border-top-themecolor: accent1; mso-border-top-themeshade: 128; background: white; mso-background-themecolor: background1; padding: 0in 5.4pt 0in 5.4pt; height: .2in;" rowspan="5" width="38%">
+                      <p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><span style="font-size: 10.0pt; mso-bidi-font-family: Calibri; mso-bidi-theme-font: minor-latin; color: black; mso-color-alt: windowtext;">Attributes for links must contain only one hyperlink per record.</span></p>
+                      <p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><span style="font-size: 10.0pt; mso-bidi-font-family: Calibri; mso-bidi-theme-font: minor-latin;">&nbsp;</span></p>
+                      </td>
+                      <td style="width: 39.1%; border: none; border-bottom: solid #1F3864 2.25pt; mso-border-bottom-themecolor: accent1; mso-border-bottom-themeshade: 128; mso-border-top-alt: solid #1F3864 .25pt; mso-border-top-themecolor: accent1; mso-border-top-themeshade: 128; background: white; mso-background-themecolor: background1; padding: 0in 5.4pt 0in 5.4pt; height: .2in;" rowspan="5" width="39%">
+                      <p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><span style="font-size: 10.0pt; mso-bidi-font-family: Calibri; mso-bidi-theme-font: minor-latin; color: black; mso-color-alt: windowtext;">Manually spot check and sort records to confirm only one hyperlink per record. Verify that the value of &ldquo;No Link&rdquo; is used for all records that do not contain a hyperlink.</span></p>
+                      </td>
+                      </tr>
+                      <tr style="mso-yfti-irow: 5; height: .2in;">
+                      <td style="width: 22.62%; background: white; mso-background-themecolor: background1; padding: 0in 5.4pt 0in 5.4pt; height: .2in;" width="22%">
+                      <p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><span style="font-size: 10.0pt; mso-bidi-font-family: Calibri; mso-bidi-theme-font: minor-latin; color: black; mso-color-alt: windowtext;">PHOTO LINK</span></p>
+                      </td>
+                      </tr>
+                      <tr style="mso-yfti-irow: 6; height: .2in;">
+                      <td style="width: 22.62%; background: white; mso-background-themecolor: background1; padding: 0in 5.4pt 0in 5.4pt; height: .2in;" width="22%">
+                      <p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><span style="font-size: 10.0pt; mso-bidi-font-family: Calibri; mso-bidi-theme-font: minor-latin; color: black; mso-color-alt: windowtext;">FEED LINK</span></p>
+                      </td>
+                      </tr>
+                      <tr style="mso-yfti-irow: 7; height: .2in;">
+                      <td style="width: 22.62%; background: white; mso-background-themecolor: background1; padding: 0in 5.4pt 0in 5.4pt; height: .2in;" width="22%">
+                      <p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><span style="font-size: 10.0pt; mso-bidi-font-family: Calibri; mso-bidi-theme-font: minor-latin; color: black; mso-color-alt: windowtext;">FOLDER LINK</span></p>
+                      </td>
+                      </tr>
+                      <tr style="mso-yfti-irow: 8; mso-yfti-lastrow: yes; height: .2in;">
+                      <td style="width: 22.62%; border: none; border-bottom: solid #1F3864 2.25pt; mso-border-bottom-themecolor: accent1; mso-border-bottom-themeshade: 128; background: white; mso-background-themecolor: background1; padding: 0in 5.4pt 0in 5.4pt; height: .2in;" width="22%">
+                      <p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><span class="GramE"><span style="font-size: 10.0pt; mso-bidi-font-family: Calibri; mso-bidi-theme-font: minor-latin; color: black; mso-color-alt: windowtext;">OTHER</span></span><span style="font-size: 10.0pt; mso-bidi-font-family: Calibri; mso-bidi-theme-font: minor-latin; color: black; mso-color-alt: windowtext;"> LINK</span></p>
+                      </td>
+                      </tr>
+                      </tbody>
+                      </table>
+                      <p>Table 2: Manual Attribute QC Checks</p>
+                                    <!-- End Table -->
+                                </div>
+                            </calcite-notice>
+                        </calcite-accordion-item>
+                        <!--Begin Section - Model Based Attribute Validation Checks-->
+                        <calcite-accordion-item icon-start="list-check-all" heading="Model Based Attribute Validation Checks" description="Several model-based attribute validation checks have been developed that enable QA/QC reviewers to consistently validate the quality control rules listed in Table 3 for all minimum standard attributes">
+                            <calcite-notice open>
+                                <div slot="message">
+                                    <!--Begin Table-->
+                                    <table width="100%">
+                                        <tbody>
+                                        <tr>
+                                        <td rowspan="3" width="50%">
+                                        <p>As noted in Section IV, several model-based attribute validation checks have been developed that enable QA/QC reviewers to consistently validate the quality control rules listed in Table 3 for all minimum standard attributes.</p>
+                                        
+                                        <p>All the attribute validation models are contained within an ArcGIS Pro toolbox as shown in Figure 5 which can be accessed via the MDTA Enterprise GIS Portal. The models are easy to use as most only require one or two inputs as shown in Figure 6.</p>
+                                        
+                                        <p>QA/QC reviewers shall refer to the r listed in Table 3 and utilize the attribute vulesalidation models each time there are substantial changes to an Enterprise GIS feature layer such as the addition of new features or attribute edits.</p>
+                                        
+                                        </td>
+                                        <td style="text-align: right;" width="50%">
+                                        <figure>
+                                        <img src="https://mdtagisdstore.mdta.ad.mdot.mdstate/MDTAGISDataShare/GISHub/Images/QAQC/QAQCFigure05.png" alt="Figure 5: Enterprise GIS QAQC Toolbox" width="33%" height="33%">
+                                        <figcaption>Figure 5: Enterprise GIS QAQC Toolbox</figcaption>
+                                        </figure>
+                                        </td>
+                                        </tr>
+                                        <tr>
+                                          <td style="text-align: right;" width="50%">
+                                        <figure>
+                                        <img src="https://mdtagisdstore.mdta.ad.mdot.mdstate/MDTAGISDataShare/GISHub/Images/QAQC/QAQCFigure06.png" alt="Figure 6: Example QC Model Inputs" width="33%" height="33%">
+                                        <figcaption>Figure 6: Example QC Model Inputs</figcaption>
+                                        </figure>
+                                        </td>
+                                          </tr>
+                                        </tbody>
+                                        </table>
+                                        <!--End Table-->
+                                                      <!-- Begin Table -->
+                                                      
+                                        <table style="width: 100%;">
+                                        <tbody>
+                                        <tr style="border-bottom: 1px solid blue; height: 21px;">
+                                        <td style="width: 19.5351%; background-color: blue; height: 21px;"><strong><span style="color: #ffffff;">Attribute Alias</span></strong></td>
+                                        <td style="width: 38.4649%; background-color: blue; height: 21px;"><strong><span style="color: #ffffff;">Quality Control Rules</span></strong></td>
+                                        <td style="width: 38%; background-color: blue; height: 21px;"><strong><span style="color: #ffffff;">Attribute Validation Models</span></strong></td>
+                                        </tr>
+                                        <tr style="border-bottom: 1px solid blue; height: 71px;">
+                                        <td style="width: 19.5351%; height: 71px;">ASSET ID</td>
+                                        <td style="width: 38.4649%; height: 71px;">
+                                        <ol>
+                                        <li>ASSET ID must not be null</li>
+                                        <li>ASSET ID must be unique</li>
+                                        <li>ASSET ID must not be blank</li>
+                                        </ol>
+                                        </td>
+                                        <td style="width: 38%; height: 71px;">
+                                        <ol>
+                                        <li>ASSET ID is NULL</li>
+                                        <li>ASSET ID is Duplicated</li>
+                                        <li>ASSET ID is Blank</li>
+                                        </ol>
+                                        </td>
+                                        </tr>
+                                        <tr style="border-bottom: 1px solid blue; height: 31px;">
+                                        <td style="width: 19.5351%; height: 31px;">BARCODE</td>
+                                        <td style="width: 38.4649%; height: 31px;">
+                                        <ol>
+                                        <li>If BARCODE is empty, field must be NULL</li>
+                                        </ol>
+                                        </td>
+                                        <td style="width: 38%; height: 31px;">
+                                        <ol>
+                                        <li>BARCODE is Blank</li>
+                                        </ol>
+                                        </td>
+                                        </tr>
+                                        <tr style="border-bottom: 1px solid blue; height: 51px;">
+                                        <td style="width: 19.5351%; height: 51px;">FACILITY</td>
+                                        <td style="width: 38.4649%; height: 51px;">
+                                        <ol>
+                                        <li>FACILITY must not be NULL</li>
+                                        <li>FACILITY must be valid</li>
+                                        </ol>
+                                        </td>
+                                        <td style="width: 38%; height: 51px;">
+                                        <ol>
+                                        <li>FACILITY is NULL</li>
+                                        <li>FACILITY is NULL</li>
+                                        </ol>
+                                        </td>
+                                        </tr>
+                                        <tr style="border-bottom: 1px solid blue; height: 51px;">
+                                        <td style="width: 19.5351%; height: 51px;">LOCATION</td>
+                                        <td style="width: 38.4649%; height: 51px;">
+                                        <ol>
+                                        <li>LOCATION must not be NULL</li>
+                                        <li>LOCATION must be valid</li>
+                                        </ol>
+                                        </td>
+                                        <td style="width: 38%; height: 51px;">
+                                        <ol>
+                                        <li>LOCATION is NULL</li>
+                                        <li>LOCATION is not Valid</li>
+                                        </ol>
+                                        </td>
+                                        </tr>
+                                        <tr style="border-bottom: 1px solid blue; height: 51px;">
+                                        <td style="width: 19.5351%; height: 51px;">COUNTY</td>
+                                        <td style="width: 38.4649%; height: 51px;">
+                                        <ol>
+                                        <li>COUNTY must not be NULL</li>
+                                        <li>COUNTY must be valid</li>
+                                        </ol>
+                                        </td>
+                                        <td style="width: 38%; height: 51px;">
+                                        <ol>
+                                        <li>COUNTY is NULL</li>
+                                        <li>COUNTY is not Valid</li>
+                                        </ol>
+                                        </td>
+                                        </tr>
+                                        <tr style="border-bottom: 1px solid blue; height: 71px;">
+                                        <td style="width: 19.5351%; height: 71px;">ROUTE ID</td>
+                                        <td style="width: 38.4649%; height: 71px;">
+                                        <ol>
+                                        <li>ROUTE ID must not be NULL</li>
+                                        <li>ROUTE ID must match Maryland Centerline - Comprehensive ROUTE_RH values</li>
+                                        </ol>
+                                        </td>
+                                        <td style="width: 38%; height: 71px;">
+                                        <ol>
+                                        <li>ROUTE ID is NULL</li>
+                                        <li>ROUTE ID is not Valid</li>
+                                        </ol>
+                                        </td>
+                                        </tr>
+                                        <tr style="border-bottom: 1px solid blue; height: 71px;">
+                                        <td style="width: 19.5351%; height: 71px;">ROAD NAME</td>
+                                        <td style="width: 38.4649%; height: 71px;">
+                                        <ol>
+                                        <li>ROAD NAME must not be NULL</li>
+                                        <li>ROAD NAME must match Maryland Centerline - Comprehensive Road Name values</li>
+                                        </ol>
+                                        </td>
+                                        <td style="width: 38%; height: 71px;">
+                                        <ol>
+                                        <li>ROAD NAME is NULL</li>
+                                        <li>ROUTE ID is not Valid</li>
+                                        </ol>
+                                        </td>
+                                        </tr>
+                                        <tr style="border-bottom: 1px solid blue; height: 51px;">
+                                        <td style="width: 19.5351%; height: 51px;">ROAD DIRECTION</td>
+                                        <td style="width: 38.4649%; height: 51px;">
+                                        <ol>
+                                        <li>ROAD DIRECTION must not be NULL</li>
+                                        <li>ROAD DIRECTION must be valid</li>
+                                        </ol>
+                                        </td>
+                                        <td style="width: 38%; height: 51px;">
+                                        <ol>
+                                        <li>ROAD DIRECTION is NULL</li>
+                                        <li>ROAD DIRECTION is not Valid</li>
+                                        </ol>
+                                        </td>
+                                        </tr>
+                                        <tr style="border-bottom: 1px solid blue; height: 31px;">
+                                        <td style="width: 19.5351%; height: 31px;">SPUR</td>
+                                        <td style="width: 38.4649%; height: 31px;">
+                                        <ol>
+                                        <li>SPUR must not be NULL</li>
+                                        </ol>
+                                        </td>
+                                        <td style="width: 38%; height: 31px;">
+                                        <ol>
+                                        <li>Select where spur IS NULL</li>
+                                        </ol>
+                                        </td>
+                                        </tr>
+                                        <tr style="border-bottom: 1px solid blue; height: 31px;">
+                                        <td style="width: 19.5351%; height: 31px;">MILEPOINT</td>
+                                        <td style="width: 38.4649%; height: 31px;">
+                                        <ol>
+                                        <li>MILEPOINT must not be NULL</li>
+                                        </ol>
+                                        </td>
+                                        <td style="width: 38%; height: 31px;">
+                                        <ol>
+                                        <li>MILEPOINT is NULL</li>
+                                        </ol>
+                                        </td>
+                                        </tr>
+                                        <tr style="border-bottom: 1px solid blue; height: 31px;">
+                                        <td style="width: 19.5351%; height: 31px;">MILEPOINT_START</td>
+                                        <td style="width: 38.4649%; height: 31px;">
+                                        <ol>
+                                        <li>MILEPOINT_START must not be NULL</li>
+                                        </ol>
+                                        </td>
+                                        <td style="width: 38%; height: 31px;">
+                                        <ol>
+                                        <li>MILEPOINT_START is NULL</li>
+                                        </ol>
+                                        </td>
+                                        </tr>
+                                        <tr style="border-bottom: 1px solid blue; height: 31px;">
+                                        <td style="width: 19.5351%; height: 31px;">MILEPOINT_END</td>
+                                        <td style="width: 38.4649%; height: 31px;">
+                                        <ol>
+                                        <li>MILEPOINT_END must not be NULL</li>
+                                        </ol>
+                                        </td>
+                                        <td style="width: 38%; height: 31px;">
+                                        <ol>
+                                        <li>MILEPOINT_ENDis NULL</li>
+                                        </ol>
+                                        </td>
+                                        </tr>
+                                        <tr style="border-bottom: 1px solid blue; height: 31px;">
+                                        <td style="width: 19.5351%; height: 31px;">MILEMARKER</td>
+                                        <td style="width: 38.4649%; height: 31px;">
+                                        <ol>
+                                        <li>MILEMARKER must not be NULL</li>
+                                        </ol>
+                                        </td>
+                                        <td style="width: 38%; height: 31px;">
+                                        <ol>
+                                        <li>MILEMARKER is NULL</li>
+                                        </ol>
+                                        </td>
+                                        </tr>
+                                        <tr style="border-bottom: 1px solid blue; height: 31px;">
+                                        <td style="width: 19.5351%; height: 31px;">MILEMARKER START</td>
+                                        <td style="width: 38.4649%; height: 31px;">
+                                        <ol>
+                                        <li>MILEMARKER START must not be null</li>
+                                        </ol>
+                                        </td>
+                                        <td style="width: 38%; height: 31px;">
+                                        <ol>
+                                        <li>MILEMARKER START is NULL</li>
+                                        </ol>
+                                        </td>
+                                        </tr>
+                                        <tr style="border-bottom: 1px solid blue; height: 31px;">
+                                        <td style="width: 19.5351%; height: 31px;">MILEMARKER END</td>
+                                        <td style="width: 38.4649%; height: 31px;">
+                                        <ol>
+                                        <li>MILEMARKER END must not be null</li>
+                                        </ol>
+                                        </td>
+                                        <td style="width: 38%; height: 31px;">
+                                        <ol>
+                                        <li>MILEMARKER END is NULL</li>
+                                        </ol>
+                                        </td>
+                                        </tr>
+                                        <tr style="border-bottom: 1px solid blue; height: 31px;">
+                                        <td style="width: 19.5351%; height: 31px;">SERVICE STATUS</td>
+                                        <td style="width: 38.4649%; height: 31px;">
+                                        <ol>
+                                        <li>SERVICE STATUS must not be NULL</li>
+                                        </ol>
+                                        </td>
+                                        <td style="width: 38%; height: 31px;">
+                                        <ol>
+                                        <li>SERVICE STATUS is NULL</li>
+                                        </ol>
+                                        </td>
+                                        </tr>
+                                        <tr style="border-bottom: 1px solid blue; height: 31px;">
+                                        <td style="width: 19.5351%; height: 31px;">OWNER</td>
+                                        <td style="width: 38.4649%; height: 31px;">
+                                        <ol>
+                                        <li>OWNER must not be NULL</li>
+                                        <li>OWNER must be valid</li>
+                                        </ol>
+                                        </td>
+                                        <td style="width: 38%; height: 31px;">
+                                        <ol>
+                                        <li>OWNER is NULL</li>
+                                        <li>OWNER is not Valid</li>
+                                        </ol>
+                                        </td>
+                                        </tr>
+                                        <tr style="border-bottom: 1px solid blue; height: 31px;">
+                                        <td style="width: 19.5351%; height: 31px;">MAINTAINED BY</td>
+                                        <td style="width: 38.4649%; height: 31px;">
+                                        <ol>
+                                        <li>MAINTAINED BY must not be NULL</li>
+                                        </ol>
+                                        </td>
+                                        <td style="width: 38%; height: 31px;">
+                                        <ol>
+                                        <li>MAINTAINED BY is NULL</li>
+                                        </ol>
+                                        </td>
+                                        </tr>
+                                        <tr style="border-bottom: 1px solid blue; height: 31px;">
+                                        <td style="width: 19.5351%; height: 31px;">CONTRACT NUMBER</td>
+                                        <td style="width: 38.4649%; height: 31px;">
+                                        <ol>
+                                        <li>CONTRACT NUMBER must not be BLANK</li>
+                                        </ol>
+                                        </td>
+                                        <td style="width: 38%; height: 31px;">
+                                        <ol>
+                                        <li>CONTRACT NUMBER is BLANK</li>
+                                        </ol>
+                                        </td>
+                                        </tr>
+                                        <tr style="border-bottom: 1px solid blue; height: 31px;">
+                                        <td style="width: 19.5351%; height: 31px;">TASK NUMBER</td>
+                                        <td style="width: 38.4649%; height: 31px;">
+                                        <ol>
+                                        <li>TASK NUMBER must not be blank</li>
+                                        </ol>
+                                        </td>
+                                        <td style="width: 38%; height: 31px;">
+                                        <ol>
+                                        <li>TASK NUMBER is Blank</li>
+                                        </ol>
+                                        </td>
+                                        </tr>
+                                        <tr style="border-bottom: 1px solid blue; height: 31px;">
+                                        <td style="width: 19.5351%; height: 31px;">MANUFACTURER</td>
+                                        <td style="width: 38.4649%; height: 31px;">
+                                        <ol>
+                                        <li>MANUFACTURER must not be blank</li>
+                                        </ol>
+                                        </td>
+                                        <td style="width: 38%; height: 31px;">
+                                        <ol>
+                                        <li>MANUFACTURER is Blank</li>
+                                        </ol>
+                                        </td>
+                                        </tr>
+                                        <tr style="border-bottom: 1px solid blue; height: 31px;">
+                                        <td style="width: 19.5351%; height: 31px;">MODEL NUMBER</td>
+                                        <td style="width: 38.4649%; height: 31px;">
+                                        <ol>
+                                        <li>MODEL NUMBER must not be blank</li>
+                                        </ol>
+                                        </td>
+                                        <td style="width: 38%; height: 31px;">
+                                        <ol>
+                                        <li>MODEL NUMBER is Blank</li>
+                                        </ol>
+                                        </td>
+                                        </tr>
+                                        <tr style="border-bottom: 1px solid blue; height: 31px;">
+                                        <td style="width: 19.5351%; height: 31px;">SERIAL NUMBER</td>
+                                        <td style="width: 38.4649%; height: 31px;">
+                                        <ol>
+                                        <li>SERIAL NUMBER must not be blank</li>
+                                        </ol>
+                                        </td>
+                                        <td style="width: 38%; height: 31px;">
+                                        <ol>
+                                        <li>SERIAL NUMBER is Blank</li>
+                                        </ol>
+                                        </td>
+                                        </tr>
+                                        <tr style="border-bottom: 1px solid blue; height: 31px;">
+                                        <td style="width: 19.5351%; height: 31px;">PHASE</td>
+                                        <td style="width: 38.4649%; height: 31px;">
+                                        <ol>
+                                        <li>PHASE must be valid</li>
+                                        </ol>
+                                        </td>
+                                        <td style="width: 38%; height: 31px;">
+                                        <ol>
+                                        <li>PHASE is not Valid</li>
+                                        </ol>
+                                        </td>
+                                        </tr>
+                                        <tr style="border-bottom: 1px solid blue; height: 31px;">
+                                        <td style="width: 19.5351%; height: 31px;">AMPERAGE</td>
+                                        <td style="width: 38.4649%; height: 31px;">
+                                        <ol>
+                                        <li>AMPERAGE must not be 0</li>
+                                        </ol>
+                                        </td>
+                                        <td style="width: 38%; height: 31px;">
+                                        <ol>
+                                        <li>AMPERAGE is 0</li>
+                                        </ol>
+                                        </td>
+                                        </tr>
+                                        <tr style="border-bottom: 1px solid blue; height: 31px;">
+                                        <td style="width: 19.5351%; height: 31px;">VOLTAGE (V)</td>
+                                        <td style="width: 38.4649%; height: 31px;">
+                                        <ol>
+                                        <li>VOLTAGE must not be blank</li>
+                                        </ol>
+                                        </td>
+                                        <td style="width: 38%; height: 31px;">
+                                        <ol>
+                                        <li>VOLTAGE is Blank</li>
+                                        </ol>
+                                        </td>
+                                        </tr>
+                                        <tr style="border-bottom: 1px solid blue; height: 31px;">
+                                        <td style="width: 19.5351%; height: 31px;">WATTAGE (W)</td>
+                                        <td style="width: 38.4649%; height: 31px;">
+                                        <ol>
+                                        <li>WATTAGE must not be 0</li>
+                                        </ol>
+                                        </td>
+                                        <td style="width: 38%; height: 31px;">
+                                        <ol>
+                                        <li>WATTAGE is 0</li>
+                                        </ol>
+                                        </td>
+                                        </tr>
+                                        <tr style="border-bottom: 1px solid blue; height: 31px;">
+                                        <td style="width: 19.5351%; height: 31px;">ENCLOSURE RATING</td>
+                                        <td style="width: 38.4649%; height: 31px;">
+                                        <ol>
+                                        <li>ENCLOSURE RATING must not be blank</li>
+                                        </ol>
+                                        </td>
+                                        <td style="width: 38%; height: 31px;">
+                                        <ol>
+                                        <li>ENCLOSURE RATING is Blank</li>
+                                        </ol>
+                                        </td>
+                                        </tr>
+                                        <tr style="border-bottom: 1px solid blue; height: 21px;">
+                                        <td style="width: 19.5351%; height: 21px;">MOUNTING TYPE</td>
+                                        <td style="width: 38.4649%; height: 21px;">
+                                        <ol>
+                                        <li>MOUNTING TYPE must not be NULL</li>
+                                        <li>MOUNTING TYPE must be valid</li>
+                                        </ol>
+                                        </td>
+                                        <td style="width: 38%; height: 21px;">
+                                        <ol>
+                                        <li>MOUNTING TYPE is NULL</li>
+                                        <li>MOUNTING TYPE is not Valid</li>
+                                        </ol>
+                                        </td>
+                                        </tr>
+                                        <tr style="border-bottom: 1px solid blue; height: 21px;">
+                                        <td style="width: 19.5351%; height: 21px;">STRUCTURE TYPE</td>
+                                        <td style="width: 38.4649%; height: 21px;">
+                                        <ol>
+                                        <li>STRUCTURE TYPE must not be NULL</li>
+                                        <li>STRUCTURE TYPE must be valid</li>
+                                        </ol>
+                                        </td>
+                                        <td style="width: 38%; height: 21px;">
+                                        <ol>
+                                        <li>STRUCTURE TYPE is NULL</li>
+                                        <li>STRUCTURE TYPE is not Valid</li>
+                                        </ol>
+                                        </td>
+                                        </tr>
+                                        <tr style="border-bottom: 1px solid blue; height: 21px;">
+                                        <td style="width: 19.5351%; height: 21px;">INSTALLATION TYPE</td>
+                                        <td style="width: 38.4649%; height: 21px;">
+                                        <ol>
+                                        <li>INSTALLATION TYPE must not be NULL</li>
+                                        <li>INSTALLATION TYPE must be valid</li>
+                                        </ol>
+                                        </td>
+                                        <td style="width: 38%; height: 21px;">
+                                        <ol>
+                                        <li>INSTALLATION TYPE is NULL</li>
+                                        <li>INSTALLATION TYPE is not Valid</li>
+                                        </ol>
+                                        </td>
+                                        </tr>
+                                        <tr style="border-bottom: 1px solid blue; height: 21px;">
+                                        <td style="width: 19.5351%; height: 21px;">LINE MODE</td>
+                                        <td style="width: 38.4649%; height: 21px;">
+                                        <ol>
+                                        <li>LINE MODE must not be NULL</li>
+                                        <li>LINE MODE must be valid</li>
+                                        </ol>
+                                        </td>
+                                        <td style="width: 38%; height: 21px;">
+                                        <ol>
+                                        <li>LINE MODE is NULL</li>
+                                        <li>LINE MODE is not Valid</li>
+                                        </ol>
+                                        </td>
+                                        </tr>
+                                        <tr style="border-bottom: 1px solid blue; height: 21px;">
+                                        <td style="width: 19.5351%; height: 21px;">CIRCUIT NUMBER</td>
+                                        <td style="width: 38.4649%; height: 21px;">
+                                        <ol>
+                                        <li>CIRCUIT NUMBER must not be blank</li>
+                                        </ol>
+                                        </td>
+                                        <td style="width: 38%; height: 21px;">
+                                        <ol>
+                                        <li>CIRCUIT NUMBER is Blank</li>
+                                        </ol>
+                                        </td>
+                                        </tr>
+                                        <tr style="border-bottom: 1px solid blue; height: 21px;">
+                                        <td style="width: 19.5351%; height: 21px;">LEGACY ID</td>
+                                        <td style="width: 38.4649%; height: 21px;">
+                                        <ol>
+                                        <li>LEGACY ID must not be blank</li>
+                                        </ol>
+                                        </td>
+                                        <td style="width: 38%; height: 21px;">
+                                        <ol>
+                                        <li>LEGACY ID is Blank</li>
+                                        </ol>
+                                        </td>
+                                        </tr>
+                                        <tr style="border-bottom: 1px solid blue; height: 21px;">
+                                        <td style="width: 19.5351%; height: 21px;">FIELD VERIFIED BY</td>
+                                        <td style="width: 38.4649%; height: 21px;">
+                                        <ol>
+                                        <li>FIELD VERIFIED BY must not be blank</li>
+                                        </ol>
+                                        </td>
+                                        <td style="width: 38%; height: 21px;">
+                                        <ol>
+                                        <li>FIELD VERIFIED BY is Blank</li>
+                                        </ol>
+                                        </td>
+                                        </tr>
+                                        <tr style="border-bottom: 1px solid blue; height: 21.5px;">
+                                        <td style="width: 19.5351%; height: 21.5px;">COMPILATION SOURCE</td>
+                                        <td style="width: 38.4649%; height: 21.5px;">
+                                        <ol>
+                                        <li>COMPILATION SOURCE must not be blank</li>
+                                        </ol>
+                                        </td>
+                                        <td style="width: 38%; height: 21.5px;">
+                                        <ol>
+                                        <li>COMPILATION SOURCE is Blank</li>
+                                        </ol>
+                                        </td>
+                                        </tr>
+                                        <tr style="border-bottom: 1px solid blue; height: 21px;">
+                                        <td style="width: 19.5351%; height: 21px;">PLAN LINK</td>
+                                        <td style="width: 38.4649%; height: 21px;">
+                                        <ol>
+                                        <li>PLAN LINK must not be NULL</li>
+                                        </ol>
+                                        </td>
+                                        <td style="width: 38%; height: 21px;">
+                                        <ol>
+                                        <li>PLAN LINK is NULL</li>
+                                        </ol>
+                                        </td>
+                                        </tr>
+                                        <tr style="border-bottom: 1px solid blue; height: 21px;">
+                                        <td style="width: 19.5351%; height: 21px;">PLAN SHEET</td>
+                                        <td style="width: 38.4649%; height: 21px;">
+                                        <ol>
+                                        <li>PLAN SHEET must not be NULL</li>
+                                        </ol>
+                                        </td>
+                                        <td style="width: 38%; height: 21px;">
+                                        <ol>
+                                        <li>PLAN SHEET is NULL</li>
+                                        </ol>
+                                        </td>
+                                        </tr>
+                                        <tr style="border-bottom: 1px solid blue; height: 21px;">
+                                        <td style="width: 19.5351%; height: 21px;">PHOTO LINK</td>
+                                        <td style="width: 38.4649%; height: 21px;">
+                                        <ol>
+                                        <li>PHOTO LINK must not be NULL</li>
+                                        </ol>
+                                        </td>
+                                        <td style="width: 38%; height: 21px;">
+                                        <ol>
+                                        <li>PHOTO LINK is NULL</li>
+                                        </ol>
+                                        </td>
+                                        </tr>
+                                        <tr style="border-bottom: 1px solid blue; height: 21px;">
+                                        <td style="width: 19.5351%; height: 21px;">FEED LINK</td>
+                                        <td style="width: 38.4649%; height: 21px;">
+                                        <ol>
+                                        <li>FEED LINK must not be NULL</li>
+                                        </ol>
+                                        </td>
+                                        <td style="width: 38%; height: 21px;">
+                                        <ol>
+                                        <li>FEED LINK is NULL</li>
+                                        </ol>
+                                        </td>
+                                        </tr>
+                                        <tr style="border-bottom: 1px solid blue; height: 21px;">
+                                        <td style="width: 19.5351%; height: 21px;">FOLDER LINK</td>
+                                        <td style="width: 38.4649%; height: 21px;">
+                                        <ol>
+                                        <li>FOLDER LINK must not be NULL</li>
+                                        </ol>
+                                        </td>
+                                        <td style="width: 38%; height: 21px;">
+                                        <ol>
+                                        <li>FOLDER LINK is NULL</li>
+                                        </ol>
+                                        </td>
+                                        </tr>
+                                        <tr style="border-bottom: 1px solid blue; height: 21px;">
+                                        <td style="width: 19.5351%; height: 21px;">OTHER LINK</td>
+                                        <td style="width: 38.4649%; height: 21px;">
+                                        <ol>
+                                        <li>OTHER LINK must not be NULL</li>
+                                        </ol>
+                                        </td>
+                                        <td style="width: 38%; height: 21px;">
+                                        <ol>
+                                        <li>OTHER LINK is NULL</li>
+                                        </ol>
+                                        </td>
+                                        </tr>
+                                        <tr style="border-bottom: 1px solid blue; height: 21px;">
+                                        <td style="width: 19.5351%; height: 21px;">ASSET NOTES</td>
+                                        <td style="width: 38.4649%; height: 21px;">
+                                        <ol>
+                                        <li>ASSET NOTES must not be Blank</li>
+                                        </ol>
+                                        </td>
+                                        <td style="width: 38%; height: 21px;">
+                                        <ol>
+                                        <li>ASSET NOTES is Blank</li>
+                                        </ol>
+                                        </td>
+                                        </tr>
+                                        <tr style="border-bottom: 1px solid blue; height: 21px;">
+                                        <td style="width: 19.5351%; height: 21px;">LATITUDE</td>
+                                        <td style="width: 38.4649%; height: 21px;">
+                                        <ol>
+                                        <li>LATITUDE must not be NULL</li>
+                                        </ol>
+                                        </td>
+                                        <td style="width: 38%; height: 21px;">
+                                        <ol>
+                                        <li>LATITUDE is NULL</li>
+                                        </ol>
+                                        </td>
+                                        </tr>
+                                        <tr style="border-bottom: 1px solid blue; height: 21px;">
+                                        <td style="width: 19.5351%; height: 21px;">LONGITUDE</td>
+                                        <td style="width: 38.4649%; height: 21px;">
+                                        <ol>
+                                        <li>LONGITUDE must not be NULL</li>
+                                        </ol>
+                                        </td>
+                                        <td style="width: 38%; height: 21px;">
+                                        <ol>
+                                        <li>LONGITUDE is NULL</li>
+                                        </ol>
+                                        </td>
+                                        </tr>
+                                        </tbody>
+                                        </table>
+                                        <p>Table 3: Quality Control Rules and Associated Attribute Validation Models</p>
+                                        <!-- End Table -->
+                                </div>
+                            </calcite-notice>
+                        </calcite-accordion-item>
+                    </calcite-accordion>
+                    <!--End Accordian-->
+                </div>
+            </calcite-notice>
+        </calcite-tab>
+        <!-- End Rules and Description panel-->
+        <!--Panel - ITS DB Attribution Rules-->        
+        <calcite-tab>
+            <calcite-notice icon="data-check" open>
+                <div slot="message">
+                    <p>The following sections and associated tables list all attribute rules configured within each MDTA Enterprise GIS database.</p>
+                    <!-- Begin Table -->
+                              
+                <table class="MsoTableGrid" style="width: 100.0%; border-collapse: collapse; border: none; mso-yfti-tbllook: 1184; mso-padding-alt: 0in 5.4pt 0in 5.4pt; mso-border-insideh: none; mso-border-insidev: none;" border="0" width="100%" cellspacing="0" cellpadding="0">
+                <tbody>
+                <tr style="mso-yfti-irow: 0; mso-yfti-firstrow: yes; height: .2in;">
+                <td style="width: 14.38%; background: #1F3864; mso-background-themecolor: accent1; mso-background-themeshade: 128; padding: 0in 5.4pt 0in 5.4pt; height: .2in;" valign="top" width="14%">
+                <p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><strong><span style="font-size: 10.0pt; mso-bidi-font-family: Calibri; mso-bidi-theme-font: minor-latin; color: white; mso-themecolor: background1;">Feature Class</span></strong></p>
+                </td>
+                <td style="width: 12.18%; background: #1F3864; mso-background-themecolor: accent1; mso-background-themeshade: 128; padding: 0in 5.4pt 0in 5.4pt; height: .2in;" valign="top" width="12%">
+                <p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><strong><span style="font-size: 10.0pt; mso-bidi-font-family: Calibri; mso-bidi-theme-font: minor-latin; color: white; mso-themecolor: background1;">Rule Type</span></strong></p>
+                </td>
+                <td style="width: 23.3%; background: #1F3864; mso-background-themecolor: accent1; mso-background-themeshade: 128; padding: 0in 5.4pt 0in 5.4pt; height: .2in;" valign="top" width="23%">
+                <p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><strong><span style="font-size: 10.0pt; mso-bidi-font-family: Calibri; mso-bidi-theme-font: minor-latin; color: white; mso-themecolor: background1;">Rule Name</span></strong></p>
+                </td>
+                <td style="width: 15.92%; background: #1F3864; mso-background-themecolor: accent1; mso-background-themeshade: 128; padding: 0in 5.4pt 0in 5.4pt; height: .2in;" valign="top" width="15%">
+                <p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><strong><span style="font-size: 10.0pt; mso-bidi-font-family: Calibri; mso-bidi-theme-font: minor-latin; color: white; mso-themecolor: background1;">Attribute</span></strong></p>
+                </td>
+                <td style="width: 9.88%; background: #1F3864; mso-background-themecolor: accent1; mso-background-themeshade: 128; padding: 0in 5.4pt 0in 5.4pt; height: .2in;" valign="top" width="9%">
+                <p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><strong><span style="font-size: 10.0pt; mso-bidi-font-family: Calibri; mso-bidi-theme-font: minor-latin; color: white; mso-themecolor: background1;">Triggers</span></strong></p>
+                </td>
+                <td style="width: 24.34%; background: #1F3864; mso-background-themecolor: accent1; mso-background-themeshade: 128; padding: 0in 5.4pt 0in 5.4pt; height: .2in;" valign="top" width="24%">
+                <p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><strong><span style="font-size: 10.0pt; mso-bidi-font-family: Calibri; mso-bidi-theme-font: minor-latin; color: white; mso-themecolor: background1;">Code</span></strong></p>
+                </td>
+                </tr>
+                <tr style="mso-yfti-irow: 1; height: 36.4pt;">
+                <td style="width: 14.38%; border: none; border-bottom: solid #1F3864 2.25pt; mso-border-bottom-themecolor: accent1; mso-border-bottom-themeshade: 128; padding: 0in 5.4pt 0in 5.4pt; height: 36.4pt;" rowspan="2" width="14%">
+                <p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><span style="font-size: 10.0pt; mso-bidi-font-family: Calibri; mso-bidi-theme-font: minor-latin;">License Plate Readers</span></p>
+                </td>
+                <td style="width: 12.18%; border: none; border-bottom: solid #1F3864 2.25pt; mso-border-bottom-themecolor: accent1; mso-border-bottom-themeshade: 128; padding: 0in 5.4pt 0in 5.4pt; height: 36.4pt;" rowspan="2" width="12%">
+                <p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><span style="font-size: 10.0pt; mso-bidi-font-family: Calibri; mso-bidi-theme-font: minor-latin;">Immediate Calculation</span></p>
+                </td>
+                <td style="width: 23.3%; border: none; border-bottom: solid #1F3864 1.0pt; mso-border-bottom-themecolor: accent1; mso-border-bottom-themeshade: 128; mso-border-bottom-alt: solid #1F3864 .25pt; padding: 0in 5.4pt 0in 5.4pt; height: 36.4pt;" width="23%">
+                <p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><span style="font-size: 10.0pt; mso-bidi-font-family: Calibri; mso-bidi-theme-font: minor-latin;">LPR_ASSETID</span></p>
+                </td>
+                <td style="width: 15.92%; border: none; border-bottom: solid #1F3864 1.0pt; mso-border-bottom-themecolor: accent1; mso-border-bottom-themeshade: 128; mso-border-bottom-alt: solid #1F3864 .25pt; padding: 0in 5.4pt 0in 5.4pt; height: 36.4pt;" width="15%">
+                <p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><span class="SpellE"><span class="hljs-keyword"><span style="font-size: 10.0pt; mso-bidi-font-family: Calibri; mso-bidi-theme-font: minor-latin;">asset_id</span></span></span></p>
+                </td>
+                <td style="width: 9.88%; border: none; border-bottom: solid #1F3864 1.0pt; mso-border-bottom-themecolor: accent1; mso-border-bottom-themeshade: 128; mso-border-bottom-alt: solid #1F3864 .25pt; padding: 0in 5.4pt 0in 5.4pt; height: 36.4pt;" width="9%">
+                <p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><span class="hljs-keyword"><span style="font-size: 10.0pt; mso-bidi-font-family: Calibri; mso-bidi-theme-font: minor-latin;">Insert</span></span></p>
+                </td>
+                <td style="width: 24.34%; border: none; border-bottom: solid #1F3864 1.0pt; mso-border-bottom-themecolor: accent1; mso-border-bottom-themeshade: 128; mso-border-bottom-alt: solid #1F3864 .25pt; padding: 0in 5.4pt 0in 5.4pt; height: 36.4pt;" valign="top" width="24%">
+                <p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><span class="hljs-keyword"><span style="font-size: 10.0pt; mso-bidi-font-family: Calibri; mso-bidi-theme-font: minor-latin;">return</span></span> <span class="hljs-string"><span style="font-size: 10.0pt; mso-bidi-font-family: Calibri; mso-bidi-theme-font: minor-latin;">"LPR-"</span></span><span style="font-size: 10.0pt; mso-bidi-font-family: Calibri; mso-bidi-theme-font: minor-latin; color: black; mso-color-alt: windowtext; background: #F8F8F8;"> + <span class="SpellE">NextSequenceValue</span> (</span><span class="hljs-string"><span style="font-size: 10.0pt; mso-bidi-font-family: Calibri; mso-bidi-theme-font: minor-latin;">"<span class="SpellE">LPR_Sequence</span>"</span></span><span style="font-size: 10.0pt; mso-bidi-font-family: Calibri; mso-bidi-theme-font: minor-latin; color: black; mso-color-alt: windowtext; background: #F8F8F8;">)</span></p>
+                </td>
+                </tr>
+                <tr style="mso-yfti-irow: 2; height: 36.4pt;">
+                <td style="width: 23.3%; border: none; border-bottom: solid #1F3864 2.25pt; mso-border-bottom-themecolor: accent1; mso-border-bottom-themeshade: 128; mso-border-top-alt: solid #1F3864 .25pt; mso-border-top-themecolor: accent1; mso-border-top-themeshade: 128; padding: 0in 5.4pt 0in 5.4pt; height: 36.4pt;" width="23%">
+                <p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><span style="font-size: 10.0pt; mso-bidi-font-family: Calibri; mso-bidi-theme-font: minor-latin;">LPR_STRUCTURE_TYPE</span></p>
+                </td>
+                <td style="width: 15.92%; border: none; border-bottom: solid #1F3864 2.25pt; mso-border-bottom-themecolor: accent1; mso-border-bottom-themeshade: 128; mso-border-top-alt: solid #1F3864 .25pt; mso-border-top-themecolor: accent1; mso-border-top-themeshade: 128; padding: 0in 5.4pt 0in 5.4pt; height: 36.4pt;" width="15%">
+                <p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><span class="SpellE"><span class="hljs-keyword"><span style="font-size: 10.0pt; mso-bidi-font-family: Calibri; mso-bidi-theme-font: minor-latin;">structure_type</span></span></span></p>
+                </td>
+                <td style="width: 9.88%; border: none; border-bottom: solid #1F3864 2.25pt; mso-border-bottom-themecolor: accent1; mso-border-bottom-themeshade: 128; mso-border-top-alt: solid #1F3864 .25pt; mso-border-top-themecolor: accent1; mso-border-top-themeshade: 128; padding: 0in 5.4pt 0in 5.4pt; height: 36.4pt;" width="9%">
+                <p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><span class="hljs-keyword"><span style="font-size: 10.0pt; mso-bidi-font-family: Calibri; mso-bidi-theme-font: minor-latin;">Update</span></span></p>
+                </td>
+                <td style="width: 24.34%; border: none; border-bottom: solid #1F3864 2.25pt; mso-border-bottom-themecolor: accent1; mso-border-bottom-themeshade: 128; mso-border-top-alt: solid #1F3864 .25pt; mso-border-top-themecolor: accent1; mso-border-top-themeshade: 128; padding: 0in 5.4pt 0in 5.4pt; height: 36.4pt;" valign="top" width="24%">
+                <p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><span class="hljs-keyword"><span style="font-size: 10.0pt; mso-bidi-font-family: Calibri; mso-bidi-theme-font: minor-latin;">if ($<span class="SpellE"><span class="GramE">feature.mounting</span>_type</span> != "Structure")</span></span></p>
+                <p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><span class="hljs-keyword"><span style="font-size: 10.0pt; mso-bidi-font-family: Calibri; mso-bidi-theme-font: minor-latin;">return "Not Applicable"</span></span></p>
+                <p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><span class="hljs-keyword"><span style="font-size: 10.0pt; mso-bidi-font-family: Calibri; mso-bidi-theme-font: minor-latin;">else $<span class="SpellE"><span class="GramE">feature.structure</span>_type</span></span></span></p>
+                </td>
+                </tr>
+                <tr style="mso-yfti-irow: 3; height: 36.4pt;">
+                <td style="width: 14.38%; border: none; border-bottom: solid #1F3864 2.25pt; mso-border-bottom-themecolor: accent1; mso-border-bottom-themeshade: 128; mso-border-top-alt: solid #1F3864 2.25pt; mso-border-top-themecolor: accent1; mso-border-top-themeshade: 128; padding: 0in 5.4pt 0in 5.4pt; height: 36.4pt;" rowspan="2" width="14%">
+                <p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><span style="font-size: 10.0pt; mso-bidi-font-family: Calibri; mso-bidi-theme-font: minor-latin;">ITS Device</span></p>
+                </td>
+                <td style="width: 12.18%; border: none; border-bottom: solid #1F3864 2.25pt; mso-border-bottom-themecolor: accent1; mso-border-bottom-themeshade: 128; mso-border-top-alt: solid #1F3864 2.25pt; mso-border-top-themecolor: accent1; mso-border-top-themeshade: 128; padding: 0in 5.4pt 0in 5.4pt; height: 36.4pt;" rowspan="2" width="12%">
+                <p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><span style="font-size: 10.0pt; mso-bidi-font-family: Calibri; mso-bidi-theme-font: minor-latin;">Immediate Calculation</span></p>
+                </td>
+                <td style="width: 23.3%; border: none; border-bottom: solid #1F3864 1.0pt; mso-border-bottom-themecolor: accent1; mso-border-bottom-themeshade: 128; mso-border-top-alt: solid #1F3864 2.25pt; mso-border-top-themecolor: accent1; mso-border-top-themeshade: 128; mso-border-bottom-alt: solid #1F3864 .25pt; padding: 0in 5.4pt 0in 5.4pt; height: 36.4pt;" width="23%">
+                <p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><span style="font-size: 10.0pt; mso-bidi-font-family: Calibri; mso-bidi-theme-font: minor-latin;">ITSD_ASSETID</span></p>
+                </td>
+                <td style="width: 15.92%; border: none; border-bottom: solid #1F3864 1.0pt; mso-border-bottom-themecolor: accent1; mso-border-bottom-themeshade: 128; mso-border-top-alt: solid #1F3864 2.25pt; mso-border-top-themecolor: accent1; mso-border-top-themeshade: 128; mso-border-bottom-alt: solid #1F3864 .25pt; padding: 0in 5.4pt 0in 5.4pt; height: 36.4pt;" width="15%">
+                <p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><span class="SpellE"><span class="hljs-keyword"><span style="font-size: 10.0pt; mso-bidi-font-family: Calibri; mso-bidi-theme-font: minor-latin;">asset_id</span></span></span></p>
+                </td>
+                <td style="width: 9.88%; border: none; border-bottom: solid #1F3864 1.0pt; mso-border-bottom-themecolor: accent1; mso-border-bottom-themeshade: 128; mso-border-top-alt: solid #1F3864 2.25pt; mso-border-top-themecolor: accent1; mso-border-top-themeshade: 128; mso-border-bottom-alt: solid #1F3864 .25pt; padding: 0in 5.4pt 0in 5.4pt; height: 36.4pt;" width="9%">
+                <p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><span class="hljs-keyword"><span style="font-size: 10.0pt; mso-bidi-font-family: Calibri; mso-bidi-theme-font: minor-latin;">Insert</span></span></p>
+                </td>
+                <td style="width: 24.34%; border: none; border-bottom: solid #1F3864 1.0pt; mso-border-bottom-themecolor: accent1; mso-border-bottom-themeshade: 128; mso-border-top-alt: solid #1F3864 2.25pt; mso-border-top-themecolor: accent1; mso-border-top-themeshade: 128; mso-border-bottom-alt: solid #1F3864 .25pt; padding: 0in 5.4pt 0in 5.4pt; height: 36.4pt;" width="24%">
+                <p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><span class="hljs-keyword"><span style="font-size: 10.0pt; mso-bidi-font-family: Calibri; mso-bidi-theme-font: minor-latin;">return</span></span> <span class="hljs-string"><span style="font-size: 10.0pt; mso-bidi-font-family: Calibri; mso-bidi-theme-font: minor-latin;">"ITSD-"</span></span><span style="font-size: 10.0pt; mso-bidi-font-family: Calibri; mso-bidi-theme-font: minor-latin; color: black; mso-color-alt: windowtext; background: #F8F8F8;"> + <span class="SpellE">NextSequenceValue</span> (</span><span class="hljs-string"><span style="font-size: 10.0pt; mso-bidi-font-family: Calibri; mso-bidi-theme-font: minor-latin;">"<span class="SpellE">ITSD_Sequence</span>"</span></span><span style="font-size: 10.0pt; mso-bidi-font-family: Calibri; mso-bidi-theme-font: minor-latin; color: black; mso-color-alt: windowtext; background: #F8F8F8;">)</span></p>
+                </td>
+                </tr>
+                <tr style="mso-yfti-irow: 4; height: 36.4pt;">
+                <td style="width: 23.3%; border: none; border-bottom: solid #1F3864 2.25pt; mso-border-bottom-themecolor: accent1; mso-border-bottom-themeshade: 128; mso-border-top-alt: solid #1F3864 .25pt; mso-border-top-themecolor: accent1; mso-border-top-themeshade: 128; padding: 0in 5.4pt 0in 5.4pt; height: 36.4pt;" width="23%">
+                <p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><span style="font-size: 10.0pt; mso-bidi-font-family: Calibri; mso-bidi-theme-font: minor-latin;">ITSD_STRUCTURE_TYPE</span></p>
+                <p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><span style="font-size: 10.0pt; mso-bidi-font-family: Calibri; mso-bidi-theme-font: minor-latin;"></span></p>
+                </td>
+                <td style="width: 15.92%; border: none; border-bottom: solid #1F3864 2.25pt; mso-border-bottom-themecolor: accent1; mso-border-bottom-themeshade: 128; mso-border-top-alt: solid #1F3864 .25pt; mso-border-top-themecolor: accent1; mso-border-top-themeshade: 128; padding: 0in 5.4pt 0in 5.4pt; height: 36.4pt;" width="15%">
+                <p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><span class="SpellE"><span class="hljs-keyword"><span style="font-size: 10.0pt; mso-bidi-font-family: Calibri; mso-bidi-theme-font: minor-latin;">structure_type</span></span></span></p>
+                </td>
+                <td style="width: 9.88%; border: none; border-bottom: solid #1F3864 2.25pt; mso-border-bottom-themecolor: accent1; mso-border-bottom-themeshade: 128; mso-border-top-alt: solid #1F3864 .25pt; mso-border-top-themecolor: accent1; mso-border-top-themeshade: 128; padding: 0in 5.4pt 0in 5.4pt; height: 36.4pt;" width="9%">
+                <p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><span class="hljs-keyword"><span style="font-size: 10.0pt; mso-bidi-font-family: Calibri; mso-bidi-theme-font: minor-latin;">Update</span></span></p>
+                </td>
+                <td style="width: 24.34%; border: none; border-bottom: solid #1F3864 2.25pt; mso-border-bottom-themecolor: accent1; mso-border-bottom-themeshade: 128; mso-border-top-alt: solid #1F3864 .25pt; mso-border-top-themecolor: accent1; mso-border-top-themeshade: 128; padding: 0in 5.4pt 0in 5.4pt; height: 36.4pt;" width="24%">
+                <p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><span class="hljs-keyword"><span style="font-size: 10.0pt; mso-bidi-font-family: Calibri; mso-bidi-theme-font: minor-latin;">if ($<span class="SpellE"><span class="GramE">feature.mounting</span>_type</span> != "Structure")</span></span></p>
+                <p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><span class="hljs-keyword"><span style="font-size: 10.0pt; mso-bidi-font-family: Calibri; mso-bidi-theme-font: minor-latin;">return "Not Applicable"</span></span></p>
+                <p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><span class="hljs-keyword"><span style="font-size: 10.0pt; mso-bidi-font-family: Calibri; mso-bidi-theme-font: minor-latin;">else $<span class="SpellE"><span class="GramE">feature.structure</span>_type</span></span></span></p>
+                </td>
+                </tr>
+                <tr style="mso-yfti-irow: 5; height: 36.4pt;">
+                <td style="width: 14.38%; border: none; border-bottom: solid #1F3864 2.25pt; mso-border-bottom-themecolor: accent1; mso-border-bottom-themeshade: 128; mso-border-top-alt: solid #1F3864 2.25pt; mso-border-top-themecolor: accent1; mso-border-top-themeshade: 128; padding: 0in 5.4pt 0in 5.4pt; height: 36.4pt;" rowspan="2" width="14%">
+                <p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><span style="font-size: 10.0pt; mso-bidi-font-family: Calibri; mso-bidi-theme-font: minor-latin;">Electric Device</span></p>
+                </td>
+                <td style="width: 12.18%; border: none; border-bottom: solid #1F3864 2.25pt; mso-border-bottom-themecolor: accent1; mso-border-bottom-themeshade: 128; mso-border-top-alt: solid #1F3864 2.25pt; mso-border-top-themecolor: accent1; mso-border-top-themeshade: 128; padding: 0in 5.4pt 0in 5.4pt; height: 36.4pt;" rowspan="2" width="12%">
+                <p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><span style="font-size: 10.0pt; mso-bidi-font-family: Calibri; mso-bidi-theme-font: minor-latin;">Immediate Calculation</span></p>
+                </td>
+                <td style="width: 23.3%; border: none; border-bottom: solid #1F3864 1.0pt; mso-border-bottom-themecolor: accent1; mso-border-bottom-themeshade: 128; mso-border-top-alt: solid #1F3864 2.25pt; mso-border-top-themecolor: accent1; mso-border-top-themeshade: 128; mso-border-bottom-alt: solid #1F3864 .25pt; padding: 0in 5.4pt 0in 5.4pt; height: 36.4pt;" width="23%">
+                <p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><span style="font-size: 10.0pt; mso-bidi-font-family: Calibri; mso-bidi-theme-font: minor-latin;">ELED_ASSETID</span></p>
+                </td>
+                <td style="width: 15.92%; border: none; border-bottom: solid #1F3864 1.0pt; mso-border-bottom-themecolor: accent1; mso-border-bottom-themeshade: 128; mso-border-top-alt: solid #1F3864 2.25pt; mso-border-top-themecolor: accent1; mso-border-top-themeshade: 128; mso-border-bottom-alt: solid #1F3864 .25pt; padding: 0in 5.4pt 0in 5.4pt; height: 36.4pt;" width="15%">
+                <p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><span class="SpellE"><span class="hljs-keyword"><span style="font-size: 10.0pt; mso-bidi-font-family: Calibri; mso-bidi-theme-font: minor-latin;">asset_id</span></span></span></p>
+                </td>
+                <td style="width: 9.88%; border: none; border-bottom: solid #1F3864 1.0pt; mso-border-bottom-themecolor: accent1; mso-border-bottom-themeshade: 128; mso-border-top-alt: solid #1F3864 2.25pt; mso-border-top-themecolor: accent1; mso-border-top-themeshade: 128; mso-border-bottom-alt: solid #1F3864 .25pt; padding: 0in 5.4pt 0in 5.4pt; height: 36.4pt;" width="9%">
+                <p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><span class="hljs-keyword"><span style="font-size: 10.0pt; mso-bidi-font-family: Calibri; mso-bidi-theme-font: minor-latin;">Insert</span></span></p>
+                </td>
+                <td style="width: 24.34%; border: none; border-bottom: solid #1F3864 1.0pt; mso-border-bottom-themecolor: accent1; mso-border-bottom-themeshade: 128; mso-border-top-alt: solid #1F3864 2.25pt; mso-border-top-themecolor: accent1; mso-border-top-themeshade: 128; mso-border-bottom-alt: solid #1F3864 .25pt; padding: 0in 5.4pt 0in 5.4pt; height: 36.4pt;" width="24%">
+                <p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><span class="hljs-keyword"><span style="font-size: 10.0pt; mso-bidi-font-family: Calibri; mso-bidi-theme-font: minor-latin;">return</span></span> <span class="hljs-string"><span style="font-size: 10.0pt; mso-bidi-font-family: Calibri; mso-bidi-theme-font: minor-latin;">"ELED-"</span></span><span style="font-size: 10.0pt; mso-bidi-font-family: Calibri; mso-bidi-theme-font: minor-latin; color: black; mso-color-alt: windowtext; background: #F8F8F8;"> + <span class="SpellE">NextSequenceValue</span> (</span><span class="hljs-string"><span style="font-size: 10.0pt; mso-bidi-font-family: Calibri; mso-bidi-theme-font: minor-latin;">"<span class="SpellE">ELED_Sequence</span>"</span></span><span style="font-size: 10.0pt; mso-bidi-font-family: Calibri; mso-bidi-theme-font: minor-latin; color: black; mso-color-alt: windowtext; background: #F8F8F8;">)</span></p>
+                </td>
+                </tr>
+                <tr style="mso-yfti-irow: 6; height: 36.4pt;">
+                <td style="width: 23.3%; border: none; border-bottom: solid #1F3864 2.25pt; mso-border-bottom-themecolor: accent1; mso-border-bottom-themeshade: 128; mso-border-top-alt: solid #1F3864 .25pt; mso-border-top-themecolor: accent1; mso-border-top-themeshade: 128; padding: 0in 5.4pt 0in 5.4pt; height: 36.4pt;" width="23%">
+                <p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><span style="font-size: 10.0pt; mso-bidi-font-family: Calibri; mso-bidi-theme-font: minor-latin;">ELED_STRUCTURE_TYPE</span></p>
+                </td>
+                <td style="width: 15.92%; border: none; border-bottom: solid #1F3864 2.25pt; mso-border-bottom-themecolor: accent1; mso-border-bottom-themeshade: 128; mso-border-top-alt: solid #1F3864 .25pt; mso-border-top-themecolor: accent1; mso-border-top-themeshade: 128; padding: 0in 5.4pt 0in 5.4pt; height: 36.4pt;" width="15%">
+                <p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><span class="SpellE"><span class="hljs-keyword"><span style="font-size: 10.0pt; mso-bidi-font-family: Calibri; mso-bidi-theme-font: minor-latin;">structure_type</span></span></span></p>
+                </td>
+                <td style="width: 9.88%; border: none; border-bottom: solid #1F3864 2.25pt; mso-border-bottom-themecolor: accent1; mso-border-bottom-themeshade: 128; mso-border-top-alt: solid #1F3864 .25pt; mso-border-top-themecolor: accent1; mso-border-top-themeshade: 128; padding: 0in 5.4pt 0in 5.4pt; height: 36.4pt;" width="9%">
+                <p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><span class="hljs-keyword"><span style="font-size: 10.0pt; mso-bidi-font-family: Calibri; mso-bidi-theme-font: minor-latin;">Update</span></span></p>
+                </td>
+                <td style="width: 24.34%; border: none; border-bottom: solid #1F3864 2.25pt; mso-border-bottom-themecolor: accent1; mso-border-bottom-themeshade: 128; mso-border-top-alt: solid #1F3864 .25pt; mso-border-top-themecolor: accent1; mso-border-top-themeshade: 128; padding: 0in 5.4pt 0in 5.4pt; height: 36.4pt;" width="24%">
+                <p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><span class="hljs-keyword"><span style="font-size: 10.0pt; mso-bidi-font-family: Calibri; mso-bidi-theme-font: minor-latin;">if ($<span class="SpellE"><span class="GramE">feature.mounting</span>_type</span> != "Structure")</span></span></p>
+                <p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><span class="hljs-keyword"><span style="font-size: 10.0pt; mso-bidi-font-family: Calibri; mso-bidi-theme-font: minor-latin;">return "Not Applicable"</span></span></p>
+                <p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><span class="hljs-keyword"><span style="font-size: 10.0pt; mso-bidi-font-family: Calibri; mso-bidi-theme-font: minor-latin;">else $<span class="SpellE"><span class="GramE">feature.structure</span>_type</span></span></span></p>
+                </td>
+                </tr>
+                <tr style="mso-yfti-irow: 7; height: 24.4pt;">
+                <td style="width: 14.38%; border: none; border-bottom: solid #1F3864 2.25pt; mso-border-bottom-themecolor: accent1; mso-border-bottom-themeshade: 128; mso-border-top-alt: solid #1F3864 2.25pt; mso-border-top-themecolor: accent1; mso-border-top-themeshade: 128; padding: 0in 5.4pt 0in 5.4pt; height: 24.4pt;" width="14%">
+                <p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><span style="font-size: 10.0pt; mso-bidi-font-family: Calibri; mso-bidi-theme-font: minor-latin;">ITS Line</span></p>
+                </td>
+                <td style="width: 12.18%; border: none; border-bottom: solid #1F3864 2.25pt; mso-border-bottom-themecolor: accent1; mso-border-bottom-themeshade: 128; mso-border-top-alt: solid #1F3864 2.25pt; mso-border-top-themecolor: accent1; mso-border-top-themeshade: 128; padding: 0in 5.4pt 0in 5.4pt; height: 24.4pt;" width="12%">
+                <p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><span style="font-size: 10.0pt; mso-bidi-font-family: Calibri; mso-bidi-theme-font: minor-latin;">Immediate Calculation</span></p>
+                </td>
+                <td style="width: 23.3%; border: none; border-bottom: solid #1F3864 2.25pt; mso-border-bottom-themecolor: accent1; mso-border-bottom-themeshade: 128; mso-border-top-alt: solid #1F3864 2.25pt; mso-border-top-themecolor: accent1; mso-border-top-themeshade: 128; padding: 0in 5.4pt 0in 5.4pt; height: 24.4pt;" width="23%">
+                <p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><span style="font-size: 10.0pt; mso-bidi-font-family: Calibri; mso-bidi-theme-font: minor-latin;">ITSL_ASSETID</span></p>
+                </td>
+                <td style="width: 15.92%; border: none; border-bottom: solid #1F3864 2.25pt; mso-border-bottom-themecolor: accent1; mso-border-bottom-themeshade: 128; mso-border-top-alt: solid #1F3864 2.25pt; mso-border-top-themecolor: accent1; mso-border-top-themeshade: 128; padding: 0in 5.4pt 0in 5.4pt; height: 24.4pt;" width="15%">
+                <p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><span class="SpellE"><span class="hljs-keyword"><span style="font-size: 10.0pt; mso-bidi-font-family: Calibri; mso-bidi-theme-font: minor-latin;">asset_id</span></span></span></p>
+                </td>
+                <td style="width: 9.88%; border: none; border-bottom: solid #1F3864 2.25pt; mso-border-bottom-themecolor: accent1; mso-border-bottom-themeshade: 128; mso-border-top-alt: solid #1F3864 2.25pt; mso-border-top-themecolor: accent1; mso-border-top-themeshade: 128; padding: 0in 5.4pt 0in 5.4pt; height: 24.4pt;" width="9%">
+                <p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><span class="hljs-keyword"><span style="font-size: 10.0pt; mso-bidi-font-family: Calibri; mso-bidi-theme-font: minor-latin;">Insert</span></span></p>
+                </td>
+                <td style="width: 24.34%; border: none; border-bottom: solid #1F3864 2.25pt; mso-border-bottom-themecolor: accent1; mso-border-bottom-themeshade: 128; mso-border-top-alt: solid #1F3864 2.25pt; mso-border-top-themecolor: accent1; mso-border-top-themeshade: 128; padding: 0in 5.4pt 0in 5.4pt; height: 24.4pt;" width="24%">
+                <p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><span class="hljs-keyword"><span style="font-size: 10.0pt; mso-bidi-font-family: Calibri; mso-bidi-theme-font: minor-latin;">return</span></span> <span class="hljs-string"><span style="font-size: 10.0pt; mso-bidi-font-family: Calibri; mso-bidi-theme-font: minor-latin;">"ITSL-"</span></span><span style="font-size: 10.0pt; mso-bidi-font-family: Calibri; mso-bidi-theme-font: minor-latin; color: black; mso-color-alt: windowtext; background: #F8F8F8;"> + <span class="SpellE">NextSequenceValue</span> (</span><span class="hljs-string"><span style="font-size: 10.0pt; mso-bidi-font-family: Calibri; mso-bidi-theme-font: minor-latin;">"<span class="SpellE">ITSL_Sequence</span>"</span></span><span style="font-size: 10.0pt; mso-bidi-font-family: Calibri; mso-bidi-theme-font: minor-latin; color: black; mso-color-alt: windowtext; background: #F8F8F8;">)</span></p>
+                </td>
+                </tr>
+                <tr style="mso-yfti-irow: 8; height: 36.4pt;">
+                <td style="width: 14.38%; border: none; border-bottom: solid #1F3864 2.25pt; mso-border-bottom-themecolor: accent1; mso-border-bottom-themeshade: 128; mso-border-top-alt: solid #1F3864 2.25pt; mso-border-top-themecolor: accent1; mso-border-top-themeshade: 128; padding: 0in 5.4pt 0in 5.4pt; height: 36.4pt;" width="14%">
+                <p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><span style="font-size: 10.0pt; mso-bidi-font-family: Calibri; mso-bidi-theme-font: minor-latin;">Electric Line</span></p>
+                </td>
+                <td style="width: 12.18%; border: none; border-bottom: solid #1F3864 2.25pt; mso-border-bottom-themecolor: accent1; mso-border-bottom-themeshade: 128; mso-border-top-alt: solid #1F3864 2.25pt; mso-border-top-themecolor: accent1; mso-border-top-themeshade: 128; padding: 0in 5.4pt 0in 5.4pt; height: 36.4pt;" width="12%">
+                <p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><span style="font-size: 10.0pt; mso-bidi-font-family: Calibri; mso-bidi-theme-font: minor-latin;">Immediate Calculation</span></p>
+                </td>
+                <td style="width: 23.3%; border: none; border-bottom: solid #1F3864 2.25pt; mso-border-bottom-themecolor: accent1; mso-border-bottom-themeshade: 128; mso-border-top-alt: solid #1F3864 2.25pt; mso-border-top-themecolor: accent1; mso-border-top-themeshade: 128; padding: 0in 5.4pt 0in 5.4pt; height: 36.4pt;" width="23%">
+                <p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><span style="font-size: 10.0pt; mso-bidi-font-family: Calibri; mso-bidi-theme-font: minor-latin;">ELEL_ASSETID</span></p>
+                </td>
+                <td style="width: 15.92%; border: none; border-bottom: solid #1F3864 2.25pt; mso-border-bottom-themecolor: accent1; mso-border-bottom-themeshade: 128; mso-border-top-alt: solid #1F3864 2.25pt; mso-border-top-themecolor: accent1; mso-border-top-themeshade: 128; padding: 0in 5.4pt 0in 5.4pt; height: 36.4pt;" width="15%">
+                <p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><span class="SpellE"><span class="hljs-keyword"><span style="font-size: 10.0pt; mso-bidi-font-family: Calibri; mso-bidi-theme-font: minor-latin;">asset_id</span></span></span></p>
+                </td>
+                <td style="width: 9.88%; border: none; border-bottom: solid #1F3864 2.25pt; mso-border-bottom-themecolor: accent1; mso-border-bottom-themeshade: 128; mso-border-top-alt: solid #1F3864 2.25pt; mso-border-top-themecolor: accent1; mso-border-top-themeshade: 128; padding: 0in 5.4pt 0in 5.4pt; height: 36.4pt;" width="9%">
+                <p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><span class="hljs-keyword"><span style="font-size: 10.0pt; mso-bidi-font-family: Calibri; mso-bidi-theme-font: minor-latin;">Insert</span></span></p>
+                </td>
+                <td style="width: 24.34%; border: none; border-bottom: solid #1F3864 2.25pt; mso-border-bottom-themecolor: accent1; mso-border-bottom-themeshade: 128; mso-border-top-alt: solid #1F3864 2.25pt; mso-border-top-themecolor: accent1; mso-border-top-themeshade: 128; padding: 0in 5.4pt 0in 5.4pt; height: 36.4pt;" width="24%">
+                <p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><span class="hljs-keyword"><span style="font-size: 10.0pt; mso-bidi-font-family: Calibri; mso-bidi-theme-font: minor-latin;">return</span></span> <span class="hljs-string"><span style="font-size: 10.0pt; mso-bidi-font-family: Calibri; mso-bidi-theme-font: minor-latin;">"ELEL-"</span></span><span style="font-size: 10.0pt; mso-bidi-font-family: Calibri; mso-bidi-theme-font: minor-latin; color: black; mso-color-alt: windowtext; background: #F8F8F8;"> + <span class="SpellE">NextSequenceValue</span> (</span><span class="hljs-string"><span style="font-size: 10.0pt; mso-bidi-font-family: Calibri; mso-bidi-theme-font: minor-latin;">"<span class="SpellE">ELEL_Sequence</span>"</span></span><span style="font-size: 10.0pt; mso-bidi-font-family: Calibri; mso-bidi-theme-font: minor-latin; color: black; mso-color-alt: windowtext; background: #F8F8F8;">)</span></p>
+                </td>
+                </tr>
+                <tr style="mso-yfti-irow: 9; height: 36.4pt;">
+                <td style="width: 14.38%; border: none; border-bottom: solid #1F3864 2.25pt; mso-border-bottom-themecolor: accent1; mso-border-bottom-themeshade: 128; mso-border-top-alt: solid #1F3864 2.25pt; mso-border-top-themecolor: accent1; mso-border-top-themeshade: 128; padding: 0in 5.4pt 0in 5.4pt; height: 36.4pt;" width="14%">
+                <p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><span style="font-size: 10.0pt; mso-bidi-font-family: Calibri; mso-bidi-theme-font: minor-latin;">Structure Junction</span></p>
+                </td>
+                <td style="width: 12.18%; border: none; border-bottom: solid #1F3864 2.25pt; mso-border-bottom-themecolor: accent1; mso-border-bottom-themeshade: 128; mso-border-top-alt: solid #1F3864 2.25pt; mso-border-top-themecolor: accent1; mso-border-top-themeshade: 128; padding: 0in 5.4pt 0in 5.4pt; height: 36.4pt;" width="12%">
+                <p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><span style="font-size: 10.0pt; mso-bidi-font-family: Calibri; mso-bidi-theme-font: minor-latin;">Immediate Calculation</span></p>
+                </td>
+                <td style="width: 23.3%; border: none; border-bottom: solid #1F3864 2.25pt; mso-border-bottom-themecolor: accent1; mso-border-bottom-themeshade: 128; mso-border-top-alt: solid #1F3864 2.25pt; mso-border-top-themecolor: accent1; mso-border-top-themeshade: 128; padding: 0in 5.4pt 0in 5.4pt; height: 36.4pt;" width="23%">
+                <p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><span style="font-size: 10.0pt; mso-bidi-font-family: Calibri; mso-bidi-theme-font: minor-latin;">STRJ_ASSETID</span></p>
+                </td>
+                <td style="width: 15.92%; border: none; border-bottom: solid #1F3864 2.25pt; mso-border-bottom-themecolor: accent1; mso-border-bottom-themeshade: 128; mso-border-top-alt: solid #1F3864 2.25pt; mso-border-top-themecolor: accent1; mso-border-top-themeshade: 128; padding: 0in 5.4pt 0in 5.4pt; height: 36.4pt;" width="15%">
+                <p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><span class="SpellE"><span class="hljs-keyword"><span style="font-size: 10.0pt; mso-bidi-font-family: Calibri; mso-bidi-theme-font: minor-latin;">asset_id</span></span></span></p>
+                </td>
+                <td style="width: 9.88%; border: none; border-bottom: solid #1F3864 2.25pt; mso-border-bottom-themecolor: accent1; mso-border-bottom-themeshade: 128; mso-border-top-alt: solid #1F3864 2.25pt; mso-border-top-themecolor: accent1; mso-border-top-themeshade: 128; padding: 0in 5.4pt 0in 5.4pt; height: 36.4pt;" width="9%">
+                <p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><span class="hljs-keyword"><span style="font-size: 10.0pt; mso-bidi-font-family: Calibri; mso-bidi-theme-font: minor-latin;">Insert</span></span></p>
+                </td>
+                <td style="width: 24.34%; border: none; border-bottom: solid #1F3864 2.25pt; mso-border-bottom-themecolor: accent1; mso-border-bottom-themeshade: 128; mso-border-top-alt: solid #1F3864 2.25pt; mso-border-top-themecolor: accent1; mso-border-top-themeshade: 128; padding: 0in 5.4pt 0in 5.4pt; height: 36.4pt;" width="24%">
+                <p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><span class="hljs-keyword"><span style="font-size: 10.0pt; mso-bidi-font-family: Calibri; mso-bidi-theme-font: minor-latin;">return</span></span> <span class="hljs-string"><span style="font-size: 10.0pt; mso-bidi-font-family: Calibri; mso-bidi-theme-font: minor-latin;">"STRJ-"</span></span><span style="font-size: 10.0pt; mso-bidi-font-family: Calibri; mso-bidi-theme-font: minor-latin; color: black; mso-color-alt: windowtext; background: #F8F8F8;"> + <span class="SpellE">NextSequenceValue</span> (</span><span class="hljs-string"><span style="font-size: 10.0pt; mso-bidi-font-family: Calibri; mso-bidi-theme-font: minor-latin;">"<span class="SpellE">STRJ_Sequence</span>"</span></span><span style="font-size: 10.0pt; mso-bidi-font-family: Calibri; mso-bidi-theme-font: minor-latin; color: black; mso-color-alt: windowtext; background: #F8F8F8;">)</span></p>
+                </td>
+                </tr>
+                <tr style="mso-yfti-irow: 10; height: 36.4pt;">
+                <td style="width: 14.38%; border: none; border-bottom: solid #1F3864 2.25pt; mso-border-bottom-themecolor: accent1; mso-border-bottom-themeshade: 128; mso-border-top-alt: solid #1F3864 2.25pt; mso-border-top-themecolor: accent1; mso-border-top-themeshade: 128; padding: 0in 5.4pt 0in 5.4pt; height: 36.4pt;" width="14%">
+                <p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><span style="font-size: 10.0pt; mso-bidi-font-family: Calibri; mso-bidi-theme-font: minor-latin;">Structure Line</span></p>
+                </td>
+                <td style="width: 12.18%; border: none; border-bottom: solid #1F3864 2.25pt; mso-border-bottom-themecolor: accent1; mso-border-bottom-themeshade: 128; mso-border-top-alt: solid #1F3864 2.25pt; mso-border-top-themecolor: accent1; mso-border-top-themeshade: 128; padding: 0in 5.4pt 0in 5.4pt; height: 36.4pt;" width="12%">
+                <p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><span style="font-size: 10.0pt; mso-bidi-font-family: Calibri; mso-bidi-theme-font: minor-latin;">Immediate Calculation</span></p>
+                </td>
+                <td style="width: 23.3%; border: none; border-bottom: solid #1F3864 2.25pt; mso-border-bottom-themecolor: accent1; mso-border-bottom-themeshade: 128; mso-border-top-alt: solid #1F3864 2.25pt; mso-border-top-themecolor: accent1; mso-border-top-themeshade: 128; padding: 0in 5.4pt 0in 5.4pt; height: 36.4pt;" width="23%">
+                <p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><span style="font-size: 10.0pt; mso-bidi-font-family: Calibri; mso-bidi-theme-font: minor-latin;">STRL_ASSETID</span></p>
+                </td>
+                <td style="width: 15.92%; border: none; border-bottom: solid #1F3864 2.25pt; mso-border-bottom-themecolor: accent1; mso-border-bottom-themeshade: 128; mso-border-top-alt: solid #1F3864 2.25pt; mso-border-top-themecolor: accent1; mso-border-top-themeshade: 128; padding: 0in 5.4pt 0in 5.4pt; height: 36.4pt;" width="15%">
+                <p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><span class="SpellE"><span class="hljs-keyword"><span style="font-size: 10.0pt; mso-bidi-font-family: Calibri; mso-bidi-theme-font: minor-latin;">asset_id</span></span></span></p>
+                </td>
+                <td style="width: 9.88%; border: none; border-bottom: solid #1F3864 2.25pt; mso-border-bottom-themecolor: accent1; mso-border-bottom-themeshade: 128; mso-border-top-alt: solid #1F3864 2.25pt; mso-border-top-themecolor: accent1; mso-border-top-themeshade: 128; padding: 0in 5.4pt 0in 5.4pt; height: 36.4pt;" width="9%">
+                <p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><span class="hljs-keyword"><span style="font-size: 10.0pt; mso-bidi-font-family: Calibri; mso-bidi-theme-font: minor-latin;">Insert</span></span></p>
+                </td>
+                <td style="width: 24.34%; border: none; border-bottom: solid #1F3864 2.25pt; mso-border-bottom-themecolor: accent1; mso-border-bottom-themeshade: 128; mso-border-top-alt: solid #1F3864 2.25pt; mso-border-top-themecolor: accent1; mso-border-top-themeshade: 128; padding: 0in 5.4pt 0in 5.4pt; height: 36.4pt;" width="24%">
+                <p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><span class="hljs-keyword"><span style="font-size: 10.0pt; mso-bidi-font-family: Calibri; mso-bidi-theme-font: minor-latin;">return</span></span> <span class="hljs-string"><span style="font-size: 10.0pt; mso-bidi-font-family: Calibri; mso-bidi-theme-font: minor-latin;">"</span></span><span style="font-size: 10.0pt; mso-bidi-font-family: Calibri; mso-bidi-theme-font: minor-latin;"> STRL<span class="hljs-string">-"</span><span style="color: black; mso-color-alt: windowtext; background: #F8F8F8;"> + <span class="SpellE">NextSequenceValue</span> (</span><span class="hljs-string">"</span><span class="SpellE">STRL<span class="hljs-string">_Sequence</span></span><span class="hljs-string">"</span><span style="color: black; mso-color-alt: windowtext; background: #F8F8F8;">)</span></span></p>
+                </td>
+                </tr>
+                <tr style="mso-yfti-irow: 11; mso-yfti-lastrow: yes; height: 36.9pt;">
+                <td style="width: 14.38%; border: none; border-bottom: solid #1F3864 2.25pt; mso-border-bottom-themecolor: accent1; mso-border-bottom-themeshade: 128; mso-border-top-alt: solid #1F3864 2.25pt; mso-border-top-themecolor: accent1; mso-border-top-themeshade: 128; padding: 0in 5.4pt 0in 5.4pt; height: 36.9pt;" width="14%">
+                <p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><span style="font-size: 10.0pt; mso-bidi-font-family: Calibri; mso-bidi-theme-font: minor-latin;">Structure Boundary</span></p>
+                </td>
+                <td style="width: 12.18%; border: none; border-bottom: solid #1F3864 2.25pt; mso-border-bottom-themecolor: accent1; mso-border-bottom-themeshade: 128; mso-border-top-alt: solid #1F3864 2.25pt; mso-border-top-themecolor: accent1; mso-border-top-themeshade: 128; padding: 0in 5.4pt 0in 5.4pt; height: 36.9pt;" width="12%">
+                <p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><span style="font-size: 10.0pt; mso-bidi-font-family: Calibri; mso-bidi-theme-font: minor-latin;">Immediate Calculation</span></p>
+                </td>
+                <td style="width: 23.3%; border: none; border-bottom: solid #1F3864 2.25pt; mso-border-bottom-themecolor: accent1; mso-border-bottom-themeshade: 128; mso-border-top-alt: solid #1F3864 2.25pt; mso-border-top-themecolor: accent1; mso-border-top-themeshade: 128; padding: 0in 5.4pt 0in 5.4pt; height: 36.9pt;" width="23%">
+                <p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><span style="font-size: 10.0pt; mso-bidi-font-family: Calibri; mso-bidi-theme-font: minor-latin;">STRB_ASSETID</span></p>
+                </td>
+                <td style="width: 15.92%; border: none; border-bottom: solid #1F3864 2.25pt; mso-border-bottom-themecolor: accent1; mso-border-bottom-themeshade: 128; mso-border-top-alt: solid #1F3864 2.25pt; mso-border-top-themecolor: accent1; mso-border-top-themeshade: 128; padding: 0in 5.4pt 0in 5.4pt; height: 36.9pt;" width="15%">
+                <p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><span class="SpellE"><span class="hljs-keyword"><span style="font-size: 10.0pt; mso-bidi-font-family: Calibri; mso-bidi-theme-font: minor-latin;">asset_id</span></span></span></p>
+                </td>
+                <td style="width: 9.88%; border: none; border-bottom: solid #1F3864 2.25pt; mso-border-bottom-themecolor: accent1; mso-border-bottom-themeshade: 128; mso-border-top-alt: solid #1F3864 2.25pt; mso-border-top-themecolor: accent1; mso-border-top-themeshade: 128; padding: 0in 5.4pt 0in 5.4pt; height: 36.9pt;" width="9%">
+                <p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><span class="hljs-keyword"><span style="font-size: 10.0pt; mso-bidi-font-family: Calibri; mso-bidi-theme-font: minor-latin;">Insert</span></span></p>
+                </td>
+                <td style="width: 24.34%; border: none; border-bottom: solid #1F3864 2.25pt; mso-border-bottom-themecolor: accent1; mso-border-bottom-themeshade: 128; mso-border-top-alt: solid #1F3864 2.25pt; mso-border-top-themecolor: accent1; mso-border-top-themeshade: 128; padding: 0in 5.4pt 0in 5.4pt; height: 36.9pt;" width="24%">
+                <p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><span class="hljs-keyword"><span style="font-size: 10.0pt; mso-bidi-font-family: Calibri; mso-bidi-theme-font: minor-latin;">return</span></span> <span class="hljs-string"><span style="font-size: 10.0pt; mso-bidi-font-family: Calibri; mso-bidi-theme-font: minor-latin;">"</span></span><span style="font-size: 10.0pt; mso-bidi-font-family: Calibri; mso-bidi-theme-font: minor-latin;"> STRB<span class="hljs-string">-"</span><span style="color: black; mso-color-alt: windowtext; background: #F8F8F8;"> + <span class="SpellE">NextSequenceValue</span> (</span><span class="hljs-string">"</span><span class="SpellE">STRB<span class="hljs-string">_Sequence</span></span><span class="hljs-string">"</span><span style="color: black; mso-color-alt: windowtext; background: #F8F8F8;">)</span></span></p>
+                </td>
+                </tr>
+                </tbody>
+                </table>
+                              
+                              <!-- End Table -->
+                </div>
+            </calcite-notice>
+        </calcite-tab>
+        <!--End ITS DB Attribution Rules panel-->
+    </calcite-tabs>
+<!--End Tab Navigation-->
+
+
+
+</body>
+</html>

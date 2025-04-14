@@ -1,0 +1,178 @@
+<html>
+    <head>
+        <style>
+            
+                /**
+     * Tabs
+     */
+    .tabs {
+        display: flex;
+        flex-wrap: wrap; /* <h make sure it wraps */
+
+    }
+    .tabs label {
+        order: 1; /* Put the labels first */
+        display: block;
+        padding: 0.5rem 1rem;
+        margin-right: 0.2rem;
+        cursor: pointer;
+      background: #0079c1;
+      color: hsl(0, 100%, 100%);
+      font-weight: bold;
+      transition: background ease 0.2s;
+      border-top-left-radius: 15px;
+      border-top-right-radius: 15px;
+    }
+    .tabs .tab {
+      order: 99; /* Put the tabs last */
+      flex-grow: 1;
+        width: 100%;
+        display: none;
+      padding: 1rem;
+      background: #fff;
+    }
+    .tabs input[type="radio"] {
+        display: none;
+    }
+    .tabs input[type="radio"]:checked + label {
+        background: #55b4eb;
+    }
+    .tabs input[type="radio"]:checked + label + .tab {
+        display: block;
+    }
+    
+    @media (max-width: 45em) {
+      .tabs .tab,
+      .tabs label {
+        order: initial;
+      }
+      .tabs label {
+        width: 100%;
+        margin-right: 0;
+        margin-top: 0.2rem;
+      }
+    }
+
+
+            /*Acco*/
+
+              
+              .accordian * {
+                -webkit-box-sizing: border-box;
+                -moz-box-sizing: border-box;
+                box-sizing: border-box;
+                -ms-box-sizing: border-box;
+              }
+              
+              .accordian input[name='panel'] {
+                display: none;
+              }
+              
+              .accordian label {
+                display: block;
+                padding: 0.8em;
+                width: 100%;
+                height: 1.5em;
+                border-bottom: 0.1em solid #e6e5e5;
+                background: #0079c1;
+                color: hsl(0, 100%, 100%);
+                text-transform: none;
+                font-size: 1.25em;
+                line-height: 0em;
+                cursor: pointer;
+                border-top-left-radius: 20px;
+                border-top-right-radius: 20px;
+                border-bottom-left-radius: 20px;
+                border-bottom-right-radius: 20px;
+              }
+              
+              .accordian label:hover {
+                background: #55b4eb;
+              }
+              
+              .accordian collapsible {
+                display: block;
+                padding: 0 2em;
+                width: 100%;
+                background: #e6e5e5;
+              }
+              
+              .accordian input[name='panel'] + .collapsible {
+                overflow: hidden;
+                height: 0;
+              
+                -webkit-transition: height 1s ease;
+                -moz-transition: height 1s ease;
+                -ms-transition: height 1s ease;
+                -o-transition: height 1s ease;
+                transition: height 1s ease;
+              }
+              
+              .accordian input[name='panel']:checked + .collapsible {
+                overflow: auto;
+                height: 400px; /* needs a numeric value here to keep transition */
+              }
+    /**
+ * Generic Styling
+*/
+              body {
+                background: #eee;
+                min-height: 100vh;
+                  box-sizing: border-box;
+                  padding-top: 10vh;
+                font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+                font-weight: 300;
+                line-height: 1.5;
+                max-width: 100rem;
+                margin: 0 auto;
+                font-size: 112%;
+              }
+        </style>
+    </head>
+    <body>
+        <div class="tabs">
+            <input type="radio" name="tabs" id="tabone" checked="checked">
+            <label for="tabone">Domains</label>
+            <div class="tab">
+              <h2>Domains</h2>
+    <div class="accordian">
+        <label for="panel_d1">No</label>
+        <input type="radio" name="panel" id="panel_d1">
+        <div class="collapsible">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus pellentesque consectetur nisi. Vivamus lacinia tempus laoreet. Pellentesque vehicula sollicitudin orci, in convallis nibh aliquam ut. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean facilisis metus at velit consectetur commodo. Nunc dolor nibh, cursus quis accumsan faucibus, viverra bibendum magna. Sed id convallis nisi. Quisque a orci sed ligula pellentesque pellentesque. Integer molestie, enim sit amet sodales pharetra, nunc risus gravida dolor, quis placerat elit erat sagittis justo. Nulla nec lacus varius, tempus ipsum in, rutrum purus. Sed ornare neque nec leo suscipit eleifend. Maecenas in ante at lorem ultrices lobortis. Morbi malesuada, nisi ac ornare dignissim, lacus dui euismod ipsum, et porttitor velit leo quis lacus. Suspendisse potenti.</p>
+        </div>
+        <label for="panel_d2">JS</label>
+        
+        <input type="radio" name="panel" id="panel_d2">
+        
+        <div class="collapsible">
+          <h3>With Scrolling</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus pellentesque consectetur nisi. Vivamus lacinia tempus laoreet. Pellentesque vehicula sollicitudin orci, in convallis nibh aliquam ut. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean facilisis metus at velit consectetur commodo. Nunc dolor nibh, cursus quis accumsan faucibus, viverra bibendum magna. Sed id convallis nisi. Quisque a orci sed ligula pellentesque pellentesque. Integer molestie, enim sit amet sodales pharetra, nunc risus gravida dolor, quis placerat elit erat sagittis justo. Nulla nec lacus varius, tempus ipsum in, rutrum purus. Sed ornare neque nec leo suscipit eleifend. Maecenas in ante at lorem ultrices lobortis. Morbi malesuada, nisi ac ornare dignissim, lacus dui euismod ipsum, et porttitor velit leo quis lacus. Suspendisse potenti.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus pellentesque consectetur nisi. Vivamus lacinia tempus laoreet. Pellentesque vehicula sollicitudin orci, in convallis nibh aliquam ut. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean facilisis metus at velit consectetur commodo. Nunc dolor nibh, cursus quis accumsan faucibus, viverra bibendum magna. Sed id convallis nisi. Quisque a orci sed ligula pellentesque pellentesque. Integer molestie, enim sit amet sodales pharetra, nunc risus gravida dolor, quis placerat elit erat sagittis justo. Nulla nec lacus varius, tempus ipsum in, rutrum purus. Sed ornare neque nec leo suscipit eleifend. Maecenas in ante at lorem ultrices lobortis. Morbi malesuada, nisi ac ornare dignissim, lacus dui euismod ipsum, et porttitor velit leo quis lacus. Suspendisse potenti.</p>
+        </div>
+        <label for="panel_d3">Accordion</label>
+        <input type="radio" name="panel" id="panel_d3" checked>
+        <div class="collapsible">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus pellentesque consectetur nisi. Vivamus lacinia tempus laoreet. Pellentesque vehicula sollicitudin orci, in convallis nibh aliquam ut. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean facilisis metus at velit consectetur commodo. Nunc dolor nibh, cursus quis accumsan faucibus, viverra bibendum magna. Sed id convallis nisi. Quisque a orci sed ligula pellentesque pellentesque. Integer molestie, enim sit amet sodales pharetra, nunc risus gravida dolor, quis placerat elit erat sagittis justo. Nulla nec lacus varius, tempus ipsum in, rutrum purus. Sed ornare neque nec leo suscipit eleifend. Maecenas in ante at lorem ultrices lobortis. Morbi malesuada, nisi ac ornare dignissim, lacus dui euismod ipsum, et porttitor velit leo quis lacus. Suspendisse potenti.</p>
+        </div>
+    </div>
+
+            </div>
+            
+            <input type="radio" name="tabs" id="tabtwo">
+            <label for="tabtwo">Subtypes</label>
+            <div class="tab">
+              <h2>Subtypes</h2>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            </div>
+            
+            <input type="radio" name="tabs" id="tabthree">
+            <label for="tabthree">Fields</label>
+            <div class="tab">
+              <h2>Fields</h2>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+            </div>
+          </div>
+        
+    </body>
+</html>

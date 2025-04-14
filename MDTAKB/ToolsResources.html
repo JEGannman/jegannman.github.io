@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Tools And Resources</title>
+    <script
+      type="module"
+      src="https://js.arcgis.com/calcite-components/1.4.1/calcite.esm.js"
+    ></script>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://js.arcgis.com/calcite-components/1.4.1/calcite.css"
+    />
+  </head>
+  
+  <body>
+    <h2>Tools &amp; Resources</h2>
+<p>Several tools and resources are available to support the creation and management of MDTA Enterprise GIS data:</p>
+<ul>
+  <li>Authoritative Road Reference Layers</li>
+  <li>MDTA-Specific Reference Map Services</li>
+  <li>Standards Database</li>
+  <li>GIS Software</li>
+  <li>Point(s) of Contact</li>
+</ul>
+<p>Choose a tab below to view each resource in detail..</p>
+    <!--Tab Menu Navigation-->
+    <calcite-tabs>
+        <calcite-tab-nav slot="title-group">
+            <!--Tab Title Navigation Group-->
+            <calcite-tab-title selected>
+                Authoritative Road Reference Layers
+            </calcite-tab-title>
+            <calcite-tab-title>MDTA-Specific Reference Map Services</calcite-tab-title>
+            <calcite-tab-title>Standards Database</calcite-tab-title>
+            <calcite-tab-title>GIS Software</calcite-tab-title>
+            <calcite-tab-title>Point(s) of Contact</calcite-tab-title>
+        </calcite-tab-nav>
+        <!--End navigation group-->
+        <!--Panel - Introduction-->
+        <calcite-tab selected>
+            <calcite-notice icon="information" open>
+                <div slot="message">
+                    <p>The Maryland Department of Transportation State Highway Administration (MDDOT SHA)-maintained GIS feature services which are publicly available via Maryland’s Open Data Portal (MD iMap) are the authoritative source(s) for attribution specific to roads (road name, direction, route id and mile point). Table 1 lists the specific iMap services which should be referenced when updating road-related attributes.</p>
+                    <div align="center">
+                <!--Begin Table -->
+                <table class="MsoTable15Grid4Accent5" border="1" cellspacing="0" cellpadding="0" width="583" style="width:437.15pt;border-collapse:collapse;border:none">
+                 <tbody><tr style="height:15.85pt">
+                  <td width="367" style="width:275.4pt;border:solid #4472C4 1.0pt;border-right:   none;background:#1F4E79;padding:0in 5.4pt 0in 5.4pt;height:15.85pt">
+                  <p class="MsoNormal" style="margin-bottom:0in;margin-bottom:.0001pt;line-height:   normal"><b><span style="font-size:10.0pt;color:white">Reference Layer Information</span></b></p>
+                  </td>
+                  <td width="108" valign="top" style="width:81.0pt;border-top:solid #4472C4 1.0pt;   border-left:none;border-bottom:solid #4472C4 1.0pt;border-right:none;   background:#1F4E79;padding:0in 5.4pt 0in 5.4pt;height:15.85pt">
+                  <p class="MsoNormal" style="margin-bottom:0in;margin-bottom:.0001pt;line-height:   normal"><b><span style="font-size:10.0pt;color:white">&nbsp;</span></b></p>
+                  </td>
+                  <td width="108" valign="top" style="width:80.75pt;border:solid #4472C4 1.0pt;   border-left:none;background:#1F4E79;padding:0in 5.4pt 0in 5.4pt;height:15.85pt">
+                  <p class="MsoNormal" style="margin-bottom:0in;margin-bottom:.0001pt;line-height:   normal"><b><span style="font-size:10.0pt;color:white">&nbsp;</span></b></p>
+                  </td>
+                 </tr>
+                 <tr style="height:36.95pt">
+                  <td width="367" style="width:275.4pt;border:none;background:#DEEAF6;padding:   0in 5.4pt 0in 5.4pt;height:36.95pt">
+                  <p class="MsoNormal" style="margin-bottom:0in;margin-bottom:.0001pt;line-height:   normal"><b><span style="font-size:10.0pt;color:black">Maryland Road
+                  Centerlines - Comprehensive</span></b></p>
+                  </td>
+                  <td width="108" style="width:81.0pt;border:none;background:#DEEAF6;padding:   0in 5.4pt 0in 5.4pt;height:36.95pt">
+                  <p class="MsoNormal" align="center" style="margin-bottom:0in;margin-bottom:.0001pt;   text-align:center;line-height:normal"><span style="color:black"><a href="https://data.imap.maryland.gov/datasets/maryland-road-centerlines-comprehensive">iMap
+                  URL</a></span></p>
+                  </td>
+                  <td width="108" style="width:80.75pt;border:none;background:#DEEAF6;padding:   0in 5.4pt 0in 5.4pt;height:36.95pt">
+                  <p class="MsoNormal" align="center" style="margin-bottom:0in;margin-bottom:.0001pt;   text-align:center;line-height:normal"><span style="color:black"><a href="https://geodata.md.gov/imap/rest/services/Transportation/MD_RoadCenterlinesComprehensive/MapServer/0">REST
+                  URL</a></span></p>
+                  </td>
+                 </tr>
+                 <tr style="height:36.95pt">
+                  <td width="367" style="width:275.4pt;border:none;border-bottom:solid #1F4E79 2.25pt;   padding:0in 5.4pt 0in 5.4pt;height:36.95pt">
+                  <p class="MsoNormal" style="margin-bottom:0in;margin-bottom:.0001pt;line-height:   normal"><b><span style="font-size:10.0pt">MDOT SHA Mile Points (100th)</span></b></p>
+                  <p class="MsoNormal" style="margin-bottom:0in;margin-bottom:.0001pt;line-height:   normal"><b> </b></p>
+                  </td>
+                  <td width="108" style="width:81.0pt;border:none;border-bottom:solid #1F4E79 2.25pt;   padding:0in 5.4pt 0in 5.4pt;height:36.95pt">
+                  <p class="MsoNormal" align="center" style="margin-bottom:0in;margin-bottom:.0001pt;   text-align:center;line-height:normal"><a href="https://data.imap.maryland.gov/datasets/mdot-sha-mile-points-100th">iMap
+                  URL</a></p>
+                  </td>
+                  <td width="108" style="width:80.75pt;border:none;border-bottom:solid #1F4E79 2.25pt;   padding:0in 5.4pt 0in 5.4pt;height:36.95pt">
+                  <p class="MsoNormal" align="center" style="margin-bottom:0in;margin-bottom:.0001pt;   text-align:center;line-height:normal"><a href="https://maps.roads.maryland.gov/arcgis/rest/services/Milepoints/Milepoints_Maryland_MDOTSHA/MapServer/1">REST
+                  URL</a></p>
+                  </td>
+                 </tr>
+                </tbody></table>
+                <p>Table 1: Maryland iMap Road and Mile Point Authoritative Reference Layers</p>
+                </div>
+                <!-- end table -->
+                <p>Table 2 maps the attributes in the authoritative reference layers to their corresponding MDTA standard attributes.</p>
+                <!--end table -->
+                <div align="center">
+                
+                <table class="MsoTable15Grid4Accent5" border="1" cellspacing="0" cellpadding="0" width="592" style="width:443.95pt;border-collapse:collapse;border:none">
+                 <tbody><tr style="height:.2in">
+                  <td width="266" valign="top" style="width:199.15pt;border:solid #4472C4 1.0pt;   border-right:none;background:#1F4E79;padding:0in 5.4pt 0in 5.4pt;height:.2in">
+                  <p class="MsoNormal" style="margin-bottom:0in;margin-bottom:.0001pt;line-height:   normal"><b><span style="color:white">Reference Layer</span></b></p>
+                  </td>
+                  <td width="150" valign="top" style="width:112.5pt;border-top:solid #4472C4 1.0pt;   border-left:none;border-bottom:solid #4472C4 1.0pt;border-right:none;   background:#1F4E79;padding:0in 5.4pt 0in 5.4pt;height:.2in">
+                  <p class="MsoNormal" style="margin-bottom:0in;margin-bottom:.0001pt;line-height:   normal"><b><span style="color:white">Reference Attribute</span></b></p>
+                  </td>
+                  <td width="176" valign="top" style="width:132.3pt;border:solid #4472C4 1.0pt;   border-left:none;background:#1F4E79;padding:0in 5.4pt 0in 5.4pt;height:.2in">
+                  <p class="MsoNormal" style="margin-bottom:0in;margin-bottom:.0001pt;line-height:   normal"><b><span style="color:white">MDTA Standard Attribute</span></b></p>
+                  </td>
+                 </tr>
+                 <tr style="height:.3in">
+                  <td width="266" style="width:199.15pt;border:none;background:#DEEAF6;   padding:0in 5.4pt 0in 5.4pt;height:.3in">
+                  <p class="MsoNormal" style="margin-bottom:0in;margin-bottom:.0001pt;line-height:   normal"><b><span style="font-size:10.0pt;color:black">Maryland Road
+                  Centerlines - Comprehensive</span></b></p>
+                  </td>
+                  <td width="150" style="width:112.5pt;border:none;background:#DEEAF6;padding:   0in 5.4pt 0in 5.4pt;height:.3in">
+                  <p class="MsoNormal" style="margin-bottom:0in;margin-bottom:.0001pt;line-height:   normal"><span style="color:black">ROUTEID_RH</span></p>
+                  </td>
+                  <td width="176" style="width:132.3pt;border:none;background:#DEEAF6;padding:   0in 5.4pt 0in 5.4pt;height:.3in">
+                  <p class="MsoNormal" style="margin-bottom:0in;margin-bottom:.0001pt;line-height:   normal"><span style="color:black">ROUTE ID</span></p>
+                  </td>
+                 </tr>
+                 <tr style="height:.3in">
+                  <td width="266" style="width:199.15pt;border:none;padding:0in 5.4pt 0in 5.4pt;   height:.3in">
+                  <p class="MsoNormal" style="margin-bottom:0in;margin-bottom:.0001pt;line-height:   normal"><b><span style="font-size:10.0pt">Maryland Road Centerlines -
+                  Comprehensive</span></b></p>
+                  </td>
+                  <td width="150" style="width:112.5pt;border:none;background:white;padding:0in 5.4pt 0in 5.4pt;   height:.3in">
+                  <p class="MsoNormal" style="margin-bottom:0in;margin-bottom:.0001pt;line-height:   normal"><span style="color:black">ROADNAMESHA</span></p>
+                  </td>
+                  <td width="176" style="width:132.3pt;border:none;padding:0in 5.4pt 0in 5.4pt;   height:.3in">
+                  <p class="MsoNormal" style="margin-bottom:0in;margin-bottom:.0001pt;line-height:   normal">ROAD NAME</p>
+                  </td>
+                 </tr>
+                 <tr style="height:.3in">
+                  <td width="266" style="width:199.15pt;border:none;background:#DEEAF6;   padding:0in 5.4pt 0in 5.4pt;height:.3in">
+                  <p class="MsoNormal" style="margin-bottom:0in;margin-bottom:.0001pt;line-height:   normal"><b><span style="font-size:10.0pt;color:black">Maryland Road Centerlines
+                  - Comprehensive</span></b></p>
+                  </td>
+                  <td width="150" style="width:112.5pt;border:none;background:#DEEAF6;padding:   0in 5.4pt 0in 5.4pt;height:.3in">
+                  <p class="MsoNormal" style="margin-bottom:0in;margin-bottom:.0001pt;line-height:   normal"><span style="color:black">MP_DIRECTION</span></p>
+                  </td>
+                  <td width="176" style="width:132.3pt;border:none;background:#DEEAF6;padding:   0in 5.4pt 0in 5.4pt;height:.3in">
+                  <p class="MsoNormal" style="margin-bottom:0in;margin-bottom:.0001pt;line-height:   normal"><span style="color:black">ROAD DIRECTION</span></p>
+                  </td>
+                 </tr>
+                 <tr style="height:.3in">
+                  <td width="266" style="width:199.15pt;border:none;padding:0in 5.4pt 0in 5.4pt;   height:.3in">
+                  <p class="MsoNormal" style="margin-bottom:0in;margin-bottom:.0001pt;line-height:   normal"><b><span style="font-size:10.0pt">MDOT SHA Mile Points (100th)</span></b></p>
+                  </td>
+                  <td width="150" style="width:112.5pt;border:none;background:white;padding:0in 5.4pt 0in 5.4pt;   height:.3in">
+                  <p class="MsoNormal" style="margin-bottom:0in;margin-bottom:.0001pt;line-height:   normal"><span style="color:black">ID_MP</span></p>
+                  </td>
+                  <td width="176" style="width:132.3pt;border:none;padding:0in 5.4pt 0in 5.4pt;   height:.3in">
+                  <p class="MsoNormal" style="margin-bottom:0in;margin-bottom:.0001pt;line-height:   normal">MILEPOINT</p>
+                  </td>
+                 </tr>
+                 <tr style="height:.3in">
+                  <td width="266" style="width:199.15pt;border:none;background:#DEEAF6;   padding:0in 5.4pt 0in 5.4pt;height:.3in">
+                  <p class="MsoNormal" style="margin-bottom:0in;margin-bottom:.0001pt;line-height:   normal"><b><span style="font-size:10.0pt;color:black">MDOT SHA Mile Points
+                  (100th)</span></b></p>
+                  </td>
+                  <td width="150" style="width:112.5pt;border:none;background:#DEEAF6;padding:   0in 5.4pt 0in 5.4pt;height:.3in">
+                  <p class="MsoNormal" style="margin-bottom:0in;margin-bottom:.0001pt;line-height:   normal"><span style="color:black">ID_MP</span></p>
+                  </td>
+                  <td width="176" style="width:132.3pt;border:none;background:#DEEAF6;padding:   0in 5.4pt 0in 5.4pt;height:.3in">
+                  <p class="MsoNormal" style="margin-bottom:0in;margin-bottom:.0001pt;line-height:   normal">MILEPOINT START<sup>1</sup></p>
+                  </td>
+                 </tr>
+                 <tr style="height:.3in">
+                  <td width="266" style="width:199.15pt;border:none;border-bottom:solid #1F4E79 2.25pt;   padding:0in 5.4pt 0in 5.4pt;height:.3in">
+                  <p class="MsoNormal" style="margin-bottom:0in;margin-bottom:.0001pt;line-height:   normal"><b><span style="font-size:10.0pt">MDOT SHA Mile Points (100th)</span></b></p>
+                  </td>
+                  <td width="150" style="width:112.5pt;border:none;border-bottom:solid #1F4E79 2.25pt;   background:white;padding:0in 5.4pt 0in 5.4pt;height:.3in">
+                  <p class="MsoNormal" style="margin-bottom:0in;margin-bottom:.0001pt;line-height:   normal"><span style="color:black">ID_MP</span></p>
+                  </td>
+                  <td width="176" style="width:132.3pt;border:none;border-bottom:solid #1F4E79 2.25pt;   padding:0in 5.4pt 0in 5.4pt;height:.3in">
+                  <div class="MsoNormal" style="margin-bottom:0in;margin-bottom:.0001pt;line-height:   normal;page-break-after:avoid">MILEPOINT END<sup>2</sup></div>
+                  </td>
+                 </tr>
+                </tbody></table>
+                <p>Table 2: Reference Layer Attributes Mapped to MDTA Standard Attributes</p>
+                </div>
+                <!--end table -->
+                <footer>
+                  <p><sup>1</sup>MILEPOINT START shall be used for lines to identify the mile point closest to the start of the line.</p>
+                  <p><sup>2</sup>MILEPOINT END shall be used for lines to identify the mile point closest to the end of the line.</p>
+                
+                </footer>
+                </div>
+            </calcite-notice>
+        </calcite-tab>
+        <calcite-tab>
+            <calcite-notice icon="information" open>
+                <div slot="message">
+                     <!--Begin Table-->
+      <table width="100%">
+        <tbody>
+        <tr>
+        <td width="25%">
+          <figure>
+          <img src="https://mdtagisdstore.mdta.ad.mdot.mdstate/MDTAGISDataShare/GISHub/Images/ReferenceMapServices.png" alt="Figure 1: MDTA-Specific Reference Map Services" width="75%" height="75%" />
+            <figcaption>Figure 1: MDTA-Specific Reference Map Services</figcaption>
+          </figure></td>
+        <td>
+          <p>MDTA's Office of Engineering Asset Management (OEC AM) group
+        maintains GIS reference map services related to the routes (facilities) that
+        fall under MDTA responsibility, as shown in Figure 1.</p>
+        <p>The reference map services are published to the MDTA ArcGIS
+        Portal and are shared at the Organization level so they are accessible by any
+        user with access to the Portal.  The MDTA_Reference_Layers_Combined map service
+        is included by default in all MDTA asset viewer applications. Table
+        3 describes each reference map service and its intended usage.</p>
+        <!-- Begin Table -->
+        <div align="center">
+        
+        <table class="MsoTable15Grid4Accent5" border="1" cellspacing="0" cellpadding="0" width="584" style="width:437.95pt;border-collapse:collapse;border:none">
+         <tr style="height:.2in">
+          <td width="225" style="width:169.1pt;border:solid #4472C4 1.0pt;border-right:   none;background:#1F4E79;padding:0in 5.4pt 0in 5.4pt;height:.2in">
+          <p class="MsoNormal" align="center" style="margin-bottom:0in;margin-bottom:.0001pt;   text-align:center;line-height:normal"><b><span style="font-size:10.0pt;   color:white">Layer Name</span></b></p>
+          </td>
+          <td width="169" style="width:126.5pt;border-top:solid #4472C4 1.0pt;border-left:   none;border-bottom:solid #4472C4 1.0pt;border-right:none;background:#1F4E79;   padding:0in 5.4pt 0in 5.4pt;height:.2in">
+          <p class="MsoNormal" align="center" style="margin-bottom:0in;margin-bottom:.0001pt;   text-align:center;line-height:normal"><b><span style="font-size:10.0pt;   color:white">Description</span></b></p>
+          </td>
+          <td width="190" style="width:142.35pt;border:solid #4472C4 1.0pt;border-left:   none;background:#1F4E79;padding:0in 5.4pt 0in 5.4pt;height:.2in">
+          <p class="MsoNormal" align="center" style="margin-bottom:0in;margin-bottom:.0001pt;   text-align:center;line-height:normal"><b><span style="font-size:10.0pt;   color:white">Usage</span></b></p>
+          </td>
+         </tr>
+         <tr style="height:.2in">
+          <td width="225" style="width:169.1pt;border:none;background:#DEEAF6;padding:   0in 5.4pt 0in 5.4pt;height:.2in">
+          <p class="MsoNormal" style="margin-bottom:0in;margin-bottom:.0001pt;line-height:   normal"><b><span style="font-size:10.0pt;color:black">MDTA_Centerlines</span></b></p>
+          </td>
+          <td width="169" style="width:126.5pt;border:none;background:#DEEAF6;padding:   0in 5.4pt 0in 5.4pt;height:.2in">
+          <p class="MsoNormal" style="margin-bottom:0in;margin-bottom:.0001pt;line-height:   normal"><span style="font-size:10.0pt;color:black">These features are
+          extracted from the Maryland Road Centerlines - Comprehensive feature service
+          and include only the routes that fall under MDTA responsibility.</span></p>
+          </td>
+          <td width="190" style="width:142.35pt;border:none;background:#DEEAF6;   padding:0in 5.4pt 0in 5.4pt;height:.2in">
+          <p class="MsoNormal" style="margin-bottom:0in;margin-bottom:.0001pt;line-height:   normal"><span style="font-size:10.0pt;color:black">This layer can be used in
+          place of the Maryland Road Centerlines - Comprehensive feature service to
+          update road-related attributes for MDTA-specific routes.</span></p>
+          </td>
+         </tr>
+         <tr style="height:.2in">
+          <td width="225" style="width:169.1pt;border:none;padding:0in 5.4pt 0in 5.4pt;   height:.2in">
+          <p class="MsoNormal" style="margin-bottom:0in;margin-bottom:.0001pt;line-height:   normal"><b><span style="font-size:10.0pt">MDTA_Mile_Markers</span></b></p>
+          </td>
+          <td width="169" style="width:126.5pt;border:none;padding:0in 5.4pt 0in 5.4pt;   height:.2in">
+          <p class="MsoNormal" style="margin-bottom:0in;margin-bottom:.0001pt;line-height:   normal"><span style="font-size:10.0pt">This layer contains all mile markers
+          along MDTA routes (facilities).</span></p>
+          </td>
+          <td width="190" style="width:142.35pt;border:none;padding:0in 5.4pt 0in 5.4pt;   height:.2in">
+          <p class="MsoNormal" style="margin-bottom:0in;margin-bottom:.0001pt;line-height:   normal"><span style="font-size:10.0pt">Use this layer when populating the
+          following standard attributes:</span></p>
+          <p class="MsoListParagraphCxSpFirst" style="margin-bottom:0in;margin-bottom:   .0001pt;text-indent:-.25in;line-height:normal"><span style="font-size:10.0pt">-<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          </span></span><span style="font-size:10.0pt">MILEMARKER</span></p>
+          <p class="MsoListParagraphCxSpMiddle" style="margin-bottom:0in;margin-bottom:   .0001pt;text-indent:-.25in;line-height:normal"><span style="font-size:10.0pt">-<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          </span></span><span style="font-size:10.0pt">MILEMARKER_START</span></p>
+          <p class="MsoListParagraphCxSpLast" style="margin-bottom:0in;margin-bottom:   .0001pt;text-indent:-.25in;line-height:normal"><span style="font-size:10.0pt">-<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          </span></span><span style="font-size:10.0pt">MILEMARKER_END</span></p>
+          </td>
+         </tr>
+         <tr style="height:.2in">
+          <td width="225" style="width:169.1pt;border:none;background:#DEEAF6;padding:   0in 5.4pt 0in 5.4pt;height:.2in">
+          <p class="MsoNormal" style="margin-bottom:0in;margin-bottom:.0001pt;line-height:   normal"><b><span style="font-size:10.0pt;color:black">MDTA_Mile_Points_100th</span></b></p>
+          </td>
+          <td width="169" style="width:126.5pt;border:none;background:#DEEAF6;padding:   0in 5.4pt 0in 5.4pt;height:.2in">
+          <p class="MsoNormal" style="margin-bottom:0in;margin-bottom:.0001pt;line-height:   normal"><span style="font-size:10.0pt;color:black">These features are
+          extracted from the MDOT SHA Mile Points (100th) feature service and include
+          only the mile points for routes that fall under MDTA responsibility.</span></p>
+          </td>
+          <td width="190" style="width:142.35pt;border:none;background:#DEEAF6;   padding:0in 5.4pt 0in 5.4pt;height:.2in">
+          <p class="MsoNormal" style="margin-bottom:0in;margin-bottom:.0001pt;line-height:   normal"><span style="font-size:10.0pt;color:black">This layer can be used in
+          place of the MDOT SHA Mile Points (100th) feature service to update
+          road-related attributes for MDTA-specific routes.</span></p>
+          </td>
+         </tr>
+         <tr style="height:.2in">
+          <td width="225" style="width:169.1pt;border:none;background:white;padding:0in 5.4pt 0in 5.4pt;   height:.2in">
+          <p class="MsoNormal" style="margin-bottom:0in;margin-bottom:.0001pt;line-height:   normal"><b><span style="font-size:10.0pt;color:black">MDTA_Exit_Numbers</span></b></p>
+          </td>
+          <td width="358" colspan="2" style="width:268.85pt;border:none;background:white;   padding:0in 5.4pt 0in 5.4pt;height:.2in">
+          <p class="MsoNormal" style="margin-bottom:0in;margin-bottom:.0001pt;line-height:   normal"><span style="font-size:10.0pt;color:black">These point features
+          identify exit numbers along MDTA routes.</span></p>
+          </td>
+         </tr>
+         <tr style="height:.2in">
+          <td width="225" style="width:169.1pt;border:none;background:#DEEAF6;padding:   0in 5.4pt 0in 5.4pt;height:.2in">
+          <p class="MsoNormal" style="margin-bottom:0in;margin-bottom:.0001pt;line-height:   normal"><b><span style="font-size:10.0pt;color:black">MDTA_Exit_Signs</span></b></p>
+          </td>
+          <td width="358" colspan="2" style="width:268.85pt;border:none;background:#DEEAF6;   padding:0in 5.4pt 0in 5.4pt;height:.2in">
+          <p class="MsoNormal" style="margin-bottom:0in;margin-bottom:.0001pt;line-height:   normal"><span style="font-size:10.0pt;color:black">These point features
+          identify exit signs along MDTA routes</span></p>
+          </td>
+         </tr>
+         <tr style="height:.2in">
+          <td width="225" style="width:169.1pt;border:none;background:white;padding:0in 5.4pt 0in 5.4pt;   height:.2in">
+          <p class="MsoNormal" style="margin-bottom:0in;margin-bottom:.0001pt;line-height:   normal"><b><span style="font-size:10.0pt;color:black">MDTA_ROW</span></b></p>
+          </td>
+          <td width="358" colspan="2" style="width:268.85pt;border:none;background:white;   padding:0in 5.4pt 0in 5.4pt;height:.2in">
+          <p class="MsoNormal" style="margin-bottom:0in;margin-bottom:.0001pt;line-height:   normal"><span style="font-size:10.0pt;color:black">These line features
+          identify MDTA right of ways</span></p>
+          </td>
+         </tr>
+         <tr style="height:.2in">
+          <td width="225" style="width:169.1pt;border:none;background:#DEEAF6;padding:   0in 5.4pt 0in 5.4pt;height:.2in">
+          <p class="MsoNormal" style="margin-bottom:0in;margin-bottom:.0001pt;line-height:   normal"><b><span style="font-size:10.0pt;color:black">MDTA_ICC_ROW</span></b></p>
+          </td>
+          <td width="358" colspan="2" style="width:268.85pt;border:none;background:#DEEAF6;   padding:0in 5.4pt 0in 5.4pt;height:.2in">
+          <p class="MsoNormal" style="margin-bottom:0in;margin-bottom:.0001pt;line-height:   normal"><span style="font-size:10.0pt;color:black">These line features
+          identify MDTA right of ways along the Inter-County Connector</span></p>
+          </td>
+         </tr>
+         <tr style="height:.2in">
+          <td width="225" style="width:169.1pt;border:none;border-bottom:solid #1F4E79 2.25pt;   background:white;padding:0in 5.4pt 0in 5.4pt;height:.2in">
+          <p class="MsoNormal" style="margin-bottom:0in;margin-bottom:.0001pt;line-height:   normal"><b><span style="font-size:10.0pt;color:black">MDTA_Reference_Layers_Combined</span></b></p>
+          </td>
+          <td width="358" colspan="2" style="width:268.85pt;border:none;border-bottom:solid #1F4E79 2.25pt;   background:white;padding:0in 5.4pt 0in 5.4pt;height:.2in">
+          <p class="MsoNormal" style="margin-bottom:0in;margin-bottom:.0001pt;line-height:   normal"><span style="font-size:10.0pt;color:black">This is a service that combines
+          all of the other reference features listed above</span></p>
+          </td>
+         </tr>
+        </table>
+        <p>Table 3: MDTA-Specific Reference Layer Details</p>
+        </div>
+        <!-- End Table -->
+        <p>The MDTA-maintained reference layers listed in Table 3 are updated periodically in line with new releases of the authoritative MDOT SHA iMap layers. Refer to the MDTA reference layer metadata for the date when a layer was last updated.</p>
+          </td>
+        </tr>
+        </tbody>
+        </table>
+            </div>
+                </div>
+            </calcite-notice>
+        </calcite-tab>
+        <calcite-tab>
+            <calcite-notice icon="information" open>
+                <div slot="message">
+                          <!--Begin Table -->
+      <table width="100%">
+        <tbody>
+        <tr>
+        <td width="25%">
+        <figure><img src="https://gist.mdta.maryland.gov/mdtaarcgis/sharing/rest/content/items/d9b43f8dcb6a4cd58a5860ef427cfa1b/data" alt="Figure 2 :Data Standards Template" width="75%" height="75%" />
+        <figcaption>Figure 2: Data Standards Template</figcaption>
+        </figure>
+        </td>
+        <td>
+        <p>GIS data standards such as consistent attribute naming conventions, formatting rules and use of domains improves overall data quality and usefulness. MDTA&rsquo;s Office of Engineering Asset Management group maintains a GIS Standards Database with template feature classes for point, line, and polygon features as shown in Figure 2.</p>
+        <p>These templates include all minimum standard and recommended attributes and should be used as a starting point for creating new asset feature classes in the MDTA Enterprise GIS standard format. Table 4 provides details about each feature class template</p>
+        <!-- Begin table -->
+        <div align="center">
+        <table class="MsoTable15Grid4Accent5" style="width: 437.95pt; border-collapse: collapse; border: none;" border="1" width="584" cellspacing="0" cellpadding="0">
+        <tbody>
+        <tr style="height: .2in;">
+        <td style="width: 95.65pt; border: solid #4472C4 1.0pt; border-right: none; background: #1F4E79; padding: 0in 5.4pt 0in 5.4pt; height: .2in;" width="128">
+        <p class="MsoNormal" style="margin-bottom: .0001pt; text-align: center; line-height: normal;" align="center"><strong><span style="font-size: 10.0pt; color: white;">Feature Class</span></strong></p>
+        </td>
+        <td style="width: 199.55pt; border-top: solid #4472C4 1.0pt; border-left: none; border-bottom: solid #4472C4 1.0pt; border-right: none; background: #1F4E79; padding: 0in 5.4pt 0in 5.4pt; height: .2in;" width="266">
+        <p class="MsoNormal" style="margin-bottom: .0001pt; text-align: center; line-height: normal;" align="center"><strong><span style="font-size: 10.0pt; color: white;">Description</span></strong></p>
+        </td>
+        <td style="width: 142.75pt; border: solid #4472C4 1.0pt; border-left: none; background: #1F4E79; padding: 0in 5.4pt 0in 5.4pt; height: .2in;" width="190">
+        <p class="MsoNormal" style="margin-bottom: .0001pt; text-align: center; line-height: normal;" align="center"><strong><span style="font-size: 10.0pt; color: white;">Usage</span></strong></p>
+        </td>
+        </tr>
+        <tr style="height: 23.8pt;">
+        <td style="width: 95.65pt; border: none; background: #DEEAF6; padding: 0in 5.4pt 0in 5.4pt; height: 23.8pt;" width="128">
+        <p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><strong><span style="font-size: 10.0pt; color: black;">Point</span></strong></p>
+        </td>
+        <td style="width: 199.55pt; border: none; background: #DEEAF6; padding: 0in 5.4pt 0in 5.4pt; height: 23.8pt;" width="266">
+        <p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><span style="font-size: 10.0pt; color: black;">Template feature class for point features. </span></p>
+        </td>
+        <td style="width: 142.75pt; border: none; border-bottom: solid #1F4E79 2.25pt; background: white; padding: 0in 5.4pt 0in 5.4pt; height: 23.8pt;" rowspan="3" width="190">
+        <p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><span style="font-size: 10.0pt; color: black;">Use as attribute templates for new feature classes. </span></p>
+        <p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><span style="font-size: 10.0pt;">&nbsp;</span></p>
+        <p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><span style="font-size: 10.0pt; color: black;">Customize as needed by removing non-standard attributes if not applicable.</span></p>
+        <p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><span style="font-size: 10.0pt;">&nbsp;</span></p>
+        </td>
+        </tr>
+        <tr style="height: 36.45pt;">
+        <td style="width: 95.65pt; border: none; padding: 0in 5.4pt 0in 5.4pt; height: 36.45pt;" width="128">
+        <p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><strong><span style="font-size: 10.0pt;">Line</span></strong></p>
+        </td>
+        <td style="width: 199.55pt; border: none; padding: 0in 5.4pt 0in 5.4pt; height: 36.45pt;" width="266">
+        <p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><span style="font-size: 10.0pt;">Template feature class for line features. </span></p>
+        </td>
+        </tr>
+        <tr style="height: .2in;">
+        <td style="width: 95.65pt; border: none; border-bottom: solid #1F4E79 2.25pt; background: #DEEAF6; padding: 0in 5.4pt 0in 5.4pt; height: .2in;" width="128">
+        <p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><strong><span style="font-size: 10.0pt; color: black;">Polygon</span></strong></p>
+        </td>
+        <td style="width: 199.55pt; border: none; border-bottom: solid #1F4E79 2.25pt; background: #DEEAF6; padding: 0in 5.4pt 0in 5.4pt; height: .2in;" width="266">
+        <p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><span style="font-size: 10.0pt; color: black;">Template feature class for polygon features.</span></p>
+        </td>
+        </tr>
+        </tbody>
+        </table>
+        <p>Table 4: MDTA GIS Standards Database Template Feature Class Details</p>
+        </div>
+        <!-- End Table -->
+        <p>The GIS Standards Database also contains the following tabular templates intended to support the tracking of work and warranty-related information in related database tables.</p>
+        <!-- Begin Table -->
+        <div align="center">
+        <table class="MsoTable15Grid4Accent5" style="width: 437.95pt; border-collapse: collapse; border: none;" border="1" width="584" cellspacing="0" cellpadding="0">
+        <tbody>
+        <tr style="height: .2in;">
+        <td style="width: 95.65pt; border: solid #4472C4 1.0pt; border-right: none; background: #1F4E79; padding: 0in 5.4pt 0in 5.4pt; height: .2in;" width="128">
+        <p class="MsoNormal" style="margin-bottom: .0001pt; text-align: center; line-height: normal;" align="center"><strong><span style="font-size: 10.0pt; color: white;">Table</span></strong></p>
+        </td>
+        <td style="width: 199.55pt; border-top: solid #4472C4 1.0pt; border-left: none; border-bottom: solid #4472C4 1.0pt; border-right: none; background: #1F4E79; padding: 0in 5.4pt 0in 5.4pt; height: .2in;" width="266">
+        <p class="MsoNormal" style="margin-bottom: .0001pt; text-align: center; line-height: normal;" align="center"><strong><span style="font-size: 10.0pt; color: white;">Description</span></strong></p>
+        </td>
+        <td style="width: 142.75pt; border: solid #4472C4 1.0pt; border-left: none; background: #1F4E79; padding: 0in 5.4pt 0in 5.4pt; height: .2in;" width="190">
+        <p class="MsoNormal" style="margin-bottom: .0001pt; text-align: center; line-height: normal;" align="center"><strong><span style="font-size: 10.0pt; color: white;">Usage</span></strong></p>
+        </td>
+        </tr>
+        <tr style="height: .2in;">
+        <td style="width: 95.65pt; border: none; background: #DEEAF6; padding: 0in 5.4pt 0in 5.4pt; height: .2in;" width="128">
+        <p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><strong><span style="font-size: 10.0pt; color: black;">Inspection</span></strong></p>
+        </td>
+        <td style="width: 199.55pt; border: none; background: #DEEAF6; padding: 0in 5.4pt 0in 5.4pt; height: .2in;" width="266">
+        <p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><span style="font-size: 10.0pt; color: black;">Template for a related table to track inspection work.</span></p>
+        </td>
+        <td style="width: 142.75pt; border: none; border-bottom: solid #1F4E79 2.25pt; background: white; padding: 0in 5.4pt 0in 5.4pt; height: .2in;" rowspan="3" width="190">
+        <p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><span style="font-size: 10.0pt; color: black;">Use as attribute templates for new related tables.</span></p>
+        <p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><span style="font-size: 10.0pt;">&nbsp;</span></p>
+        </td>
+        </tr>
+        <tr style="height: .2in;">
+        <td style="width: 95.65pt; border: none; background: white; padding: 0in 5.4pt 0in 5.4pt; height: .2in;" width="128">
+        <p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><strong><span style="font-size: 10.0pt; color: black;">Maintenance</span></strong></p>
+        </td>
+        <td style="width: 199.55pt; border: none; background: white; padding: 0in 5.4pt 0in 5.4pt; height: .2in;" width="266">
+        <p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><span style="font-size: 10.0pt; color: black;">Template for a related table to track maintenance work.</span></p>
+        </td>
+        </tr>
+        <tr style="height: .2in;">
+        <td style="width: 95.65pt; border: none; border-bottom: solid #1F4E79 2.25pt; background: #DEEAF6; padding: 0in 5.4pt 0in 5.4pt; height: .2in;" width="128">
+        <p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><strong><span style="font-size: 10.0pt; color: black;">Warranty</span></strong></p>
+        </td>
+        <td style="width: 199.55pt; border: none; border-bottom: solid #1F4E79 2.25pt; background: #DEEAF6; padding: 0in 5.4pt 0in 5.4pt; height: .2in;" width="266">
+        <p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><span style="font-size: 10.0pt; color: black;">Template for a related table to track asset warranty details.</span></p>
+        </td>
+        </tr>
+        </tbody>
+        </table>
+        <p>Table 5: MDTA GIS Standards Database Template Table Details</p>
+        </div>
+        <!-- End table -->
+        <p>Standard domains ensure data consistency and reduce user data entry errors. Table 6 lists the MDTA Enterprise GIS standard domains that are templated in the GIS Standards Database.</p>
+        <!-- begin table -->
+        <div align="center">
+        <table class="MsoTable15Grid4Accent5" style="width: 438.0pt; border-collapse: collapse; border: none;" border="0" width="584" cellspacing="0" cellpadding="0">
+        <tbody>
+        <tr style="height: .2in;">
+        <td style="width: 100.15pt; border: solid #4472C4 1.0pt; border-right: none; background: #1F4E79; padding: 0in 5.4pt 0in 5.4pt; height: .2in;" width="134">
+        <p class="MsoNormal" style="margin-bottom: .0001pt; text-align: center; line-height: normal;" align="center"><strong><span style="font-size: 10.0pt; color: white;">Domain</span></strong></p>
+        </td>
+        <td style="width: 337.85pt; border: solid #4472C4 1.0pt; border-left: none; background: #1F4E79; padding: 0in 5.4pt 0in 5.4pt; height: .2in;" width="450">
+        <p class="MsoNormal" style="margin-bottom: .0001pt; text-align: center; line-height: normal;" align="center"><strong><span style="font-size: 10.0pt; color: white;">Description</span></strong></p>
+        </td>
+        </tr>
+        <tr style="height: .3in;">
+        <td style="width: 100.15pt; background: #DEEAF6; padding: 0in 5.4pt 0in 5.4pt; height: .3in;" width="134">
+        <p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><strong><span style="font-size: 10.0pt; color: black;">Standard_County</span></strong></p>
+        </td>
+        <td style="width: 337.85pt; background: #DEEAF6; padding: 0in 5.4pt 0in 5.4pt; height: .3in;" width="450">
+        <p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><span style="font-size: 10.0pt; color: black;">The county in which an asset is physically located. Includes all Maryland counties and non-Maryland counties in which MDTA assets are located.</span></p>
+        </td>
+        </tr>
+        <tr style="height: .3in;">
+        <td style="width: 100.15pt; background: white; padding: 0in 5.4pt 0in 5.4pt; height: .3in;" width="134">
+        <p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><strong><span style="font-size: 10.0pt; color: black;">Standard_CommunicationType</span></strong></p>
+        </td>
+        <td style="width: 337.85pt; background: white; padding: 0in 5.4pt 0in 5.4pt; height: .3in;" width="450">
+        <p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><span style="font-size: 10.0pt; color: black;">Describes the communication type of an asset.</span></p>
+        </td>
+        </tr>
+        <tr style="height: .3in;">
+        <td style="width: 100.15pt; background: #DEEAF6; padding: 0in 5.4pt 0in 5.4pt; height: .3in;" width="134">
+        <p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><strong><span style="font-size: 10.0pt; color: black;">Standard_Facility</span></strong></p>
+        </td>
+        <td style="width: 337.85pt; background: #DEEAF6; padding: 0in 5.4pt 0in 5.4pt; height: .3in;" width="450">
+        <p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><span style="font-size: 10.0pt; color: black;">The list of MDTA facilities (ex. BHT, FMT, FSK, <em>etc.</em>).</span></p>
+        </td>
+        </tr>
+        <tr style="height: .3in;">
+        <td style="width: 100.15pt; background: white; padding: 0in 5.4pt 0in 5.4pt; height: .3in;" width="134">
+        <p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><strong><span style="font-size: 10.0pt; color: black;">Standard_Location</span></strong></p>
+        </td>
+        <td style="width: 337.85pt; background: white; padding: 0in 5.4pt 0in 5.4pt; height: .3in;" width="450">
+        <p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><span style="font-size: 10.0pt; color: black;">The physical location of an asset to assist with locating it in the field (ex. Left Shoulder, Right Shoulder, Parking Lot, <em>etc.</em>).</span></p>
+        </td>
+        </tr>
+        <tr style="height: .3in;">
+        <td style="width: 100.15pt; background: #DEEAF6; padding: 0in 5.4pt 0in 5.4pt; height: .3in;" width="134">
+        <p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><strong><span style="font-size: 10.0pt; color: black;">Standard_LineInstallationType</span></strong></p>
+        </td>
+        <td style="width: 337.85pt; background: #DEEAF6; padding: 0in 5.4pt 0in 5.4pt; height: .3in;" width="450">
+        <p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><span style="font-size: 10.0pt; color: black;">Domain describing where a line is installed (ex. Bridge-attached, underground, etc.).</span></p>
+        </td>
+        </tr>
+        <tr style="height: .3in;">
+        <td style="width: 100.15pt; background: white; padding: 0in 5.4pt 0in 5.4pt; height: .3in;" width="134">
+        <p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><strong><span style="font-size: 10.0pt; color: black;">Standard_LineMode</span></strong></p>
+        </td>
+        <td style="width: 337.85pt; background: white; padding: 0in 5.4pt 0in 5.4pt; height: .3in;" width="450">
+        <p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><span style="font-size: 10.0pt; color: black;">Domain describing the mode of a line.</span></p>
+        </td>
+        </tr>
+        <tr style="height: .3in;">
+        <td style="width: 100.15pt; background: #DEEAF6; padding: 0in 5.4pt 0in 5.4pt; height: .3in;" width="134">
+        <p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><strong><span style="font-size: 10.0pt; color: black;">Standard_MountingType</span></strong></p>
+        </td>
+        <td style="width: 337.85pt; background: #DEEAF6; padding: 0in 5.4pt 0in 5.4pt; height: .3in;" width="450">
+        <p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><span style="font-size: 10.0pt; color: black;">A description of where an asset is physically mounted.</span></p>
+        </td>
+        </tr>
+        <tr style="height: .3in;">
+        <td style="width: 100.15pt; background: white; padding: 0in 5.4pt 0in 5.4pt; height: .3in;" width="134">
+        <p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><strong><span style="font-size: 10.0pt; color: black;">Standard_OffsetDirection</span></strong></p>
+        </td>
+        <td style="width: 337.85pt; background: white; padding: 0in 5.4pt 0in 5.4pt; height: .3in;" width="450">
+        <p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><span style="font-size: 10.0pt; color: black;">The offset direction of an asset from the edge of the pavement.</span></p>
+        </td>
+        </tr>
+        <tr style="height: .3in;">
+        <td style="width: 100.15pt; background: #DEEAF6; padding: 0in 5.4pt 0in 5.4pt; height: .3in;" width="134">
+        <p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><strong><span style="font-size: 10.0pt; color: black;">Standard_Organization</span></strong></p>
+        </td>
+        <td style="width: 337.85pt; background: #DEEAF6; padding: 0in 5.4pt 0in 5.4pt; height: .3in;" width="450">
+        <p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><span style="font-size: 10.0pt; color: black;">The organization responsible for owning and/or maintaining an asset.</span></p>
+        </td>
+        </tr>
+        <tr style="height: .3in;">
+        <td style="width: 100.15pt; background: white; padding: 0in 5.4pt 0in 5.4pt; height: .3in;" width="134">
+        <p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><strong><span style="font-size: 10.0pt; color: black;">Standard_Phase</span></strong></p>
+        </td>
+        <td style="width: 337.85pt; background: white; padding: 0in 5.4pt 0in 5.4pt; height: .3in;" width="450">
+        <p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><span style="font-size: 10.0pt; color: black;">The electrical phase of an electrical asset (ex. 1-Phase, 2-Phase, 3-Phase).</span></p>
+        </td>
+        </tr>
+        <tr style="height: .3in;">
+        <td style="width: 100.15pt; background: #DEEAF6; padding: 0in 5.4pt 0in 5.4pt; height: .3in;" width="134">
+        <p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><strong><span style="font-size: 10.0pt; color: black;">Standard_RoadDirection</span></strong></p>
+        </td>
+        <td style="width: 337.85pt; background: #DEEAF6; padding: 0in 5.4pt 0in 5.4pt; height: .3in;" width="450">
+        <p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><span style="font-size: 10.0pt; color: black;">The direction of a road or route (North, South, East, West).</span></p>
+        </td>
+        </tr>
+        <tr style="height: .3in;">
+        <td style="width: 100.15pt; background: #DEEAF6; padding: 0in 5.4pt 0in 5.4pt; height: .3in;" width="134">
+        <p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><strong><span style="font-size: 10.0pt; color: black;">Standard_ServiceStatus</span></strong></p>
+        </td>
+        <td style="width: 337.85pt; background: #DEEAF6; padding: 0in 5.4pt 0in 5.4pt; height: .3in;" width="450">
+        <p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><span style="font-size: 10.0pt; color: black;">The service status of an asset (ex. In-Service, Abandoned, Retired, <em>etc.</em>).</span></p>
+        </td>
+        </tr>
+        <tr style="height: .3in;">
+        <td style="width: 100.15pt; background: white; padding: 0in 5.4pt 0in 5.4pt; height: .3in;" width="134">
+        <p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><strong><span style="font-size: 10.0pt; color: black;">Standard_Spur</span></strong></p>
+        </td>
+        <td style="width: 337.85pt; background: white; padding: 0in 5.4pt 0in 5.4pt; height: .3in;" width="450">
+        <p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><span style="font-size: 10.0pt; color: black;">Identifies whether a route is a mainline, spur or ramp.</span></p>
+        </td>
+        </tr>
+        <tr style="height: .3in;">
+        <td style="width: 100.15pt; background: #DEEAF6; padding: 0in 5.4pt 0in 5.4pt; height: .3in;" width="134">
+        <p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><strong><span style="font-size: 10.0pt; color: black;">Standard_StructureType</span></strong></p>
+        </td>
+        <td style="width: 337.85pt; background: #DEEAF6; padding: 0in 5.4pt 0in 5.4pt; height: .3in;" width="450">
+        <p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><span style="font-size: 10.0pt; color: black;">The type of structure the asset is mounted on. This only applies if the Mounting_Type domain value "Structure" is picked.</span></p>
+        </td>
+        </tr>
+        <tr style="height: .3in;">
+        <td style="width: 100.15pt; border: none; border-bottom: solid #1F4E79 2.25pt; background: white; padding: 0in 5.4pt 0in 5.4pt; height: .3in;" width="134">
+        <p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal;"><strong><span style="font-size: 10.0pt; color: black;">Standard_YesNo</span></strong></p>
+        </td>
+        <td style="width: 337.85pt; border: none; border-bottom: solid #1F4E79 2.25pt; background: white; padding: 0in 5.4pt 0in 5.4pt; height: .3in;" width="450">
+        <p class="MsoNormal" style="margin-bottom: .0001pt; line-height: normal; page-break-after: avoid;"><span style="font-size: 10.0pt; color: black;">Valid Yes/No Values.</span></p>
+        </td>
+        </tr>
+        </tbody>
+        </table>
+        <p>Table 6: MDTA GIS Standard Domains</p>
+        </div>
+        <!-- End Table -->
+        
+        </td>
+        </tr>
+        </tbody>
+        </table>
+        <!--End Table -->
+        <p>This standard data model schema is also published as a downloadable Portal service (navigate to page and click "Download" to save on your local machine).</p>
+        <p><a class="btn btn-primary" href="https://mdtagisdstore.mdta.ad.mdot.mdstate/MDTAGISDataShare/GISHub/Images/StandardsDB.png">Standard Data Model</a></p>
+                </div>
+            </calcite-notice>
+        </calcite-tab>
+        <calcite-tab>
+            <calcite-notice icon="information" open>
+                <div slot="message">
+                    <p>ArcGIS Pro 2.9 or higher is required for MDTA Enterprise
+                        GIS data creation and maintenance. For specific GIS editing or tool usage
+                        instructions, consult <a href="https://pro.arcgis.com/en/pro-app/2.9/help/main/welcome-to-the-arcgis-pro-app-help.htm" target="_blank">Esri's online help guides.</a></p>
+                        <p><em>Some ESRI Tutorials may be presented in more detail on this site in the future.</em></p>
+                </div>
+            </calcite-notice>
+        </calcite-tab>
+        <calcite-tab>
+            <calcite-notice icon="information" open>
+                <div slot="message">
+                    <p>Contact Asset Manager John Privot
+                        (<a href="mailto:jprivot@mdta.state.md.us">jprivot@mdta.state.md.us</a>) for more information about MDTA Enterprise GIS
+                        standards and to request access to MDTA GIS resources.</p>
+                </div>
+            </calcite-notice>
+        </calcite-tab>
+    </calcite-tabs>
+<!--End Tab Navigation-->
+
+
+
+</body>
+</html>

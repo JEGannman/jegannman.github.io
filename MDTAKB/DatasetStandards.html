@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>MDTA Enterprise GIS Data Appendix</title>
+    <script
+      type="module"
+      src="https://js.arcgis.com/calcite-components/1.4.1/calcite.esm.js"
+    ></script>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://js.arcgis.com/calcite-components/1.4.1/calcite.css"
+    />
+  </head>
+  
+  <body>
+
+    <h1>Dataset Standards</h1>
+    <p>The following sections provide guidance for creating new datasets that conform to MDTA Enterprise GIS standards, including:</p>
+    <ul>
+      <li>Dataset Naming Conventions</li>
+      <li>Coordinate System</li>
+      <li>Metadata</li>
+    </ul>
+        <calcite-tabs>
+            <calcite-tab-nav slot="title-group">
+                <calcite-tab-title selected>
+                    Dataset Naming Conventions
+                </calcite-tab-title>
+                <calcite-tab-title>Coordinate System</calcite-tab-title>
+                <calcite-tab-title>Metadata</calcite-tab-title>
+            </calcite-tab-nav>
+            <calcite-tab selected>
+                <calcite-notice icon="table" open>
+                    <div slot="message">
+                        <p>MDTA Enterprise GIS feature classes and/or tables that
+                            contain multiple asset types should be named according to the general category
+                            and type or geometry of the asset as appropriate, similar to the Intelligent
+                            Transportation Systems (ITS) and Structures examples shown in Table
+                            7. However, datasets containing a single asset type may be named according to
+                            the assets they contain, similar to the Bridge, Noise Barrier and Tunnel
+                            datasets also shown in Table 7.</p>
+                            <!-- Table begin -->
+                            <div align="center">
+                            
+                            <table class="MsoTable15Grid4Accent5" border="1" cellspacing="0" cellpadding="0" width="583" style="width:437.15pt;border-collapse:collapse;border:none">
+                             <tr style="height:.2in">
+                              <td width="146" style="width:109.15pt;border:solid #4472C4 1.0pt;border-right:   none;background:#1F4E79;padding:0in 5.4pt 0in 5.4pt;height:.2in">
+                              <p class="MsoNormal" style="margin-bottom:0in;margin-bottom:.0001pt;line-height:   normal"><b><span style="font-size:10.0pt;color:white">Asset Category</span></b></p>
+                              </td>
+                              <td width="153" valign="top" style="width:114.75pt;border-top:solid #4472C4 1.0pt;   border-left:none;border-bottom:solid #4472C4 1.0pt;border-right:none;   background:#1F4E79;padding:0in 5.4pt 0in 5.4pt;height:.2in">
+                              <p class="MsoNormal" style="margin-bottom:0in;margin-bottom:.0001pt;line-height:   normal"><b><span style="font-size:10.0pt;color:white">Multiple Asset Types
+                              Included?</span></b></p>
+                              </td>
+                              <td style="border-top:solid #4472C4 1.0pt;border-left:none;border-bottom:   solid #4472C4 1.0pt;border-right:none;background:#1F4E79;padding:0in 5.4pt 0in 5.4pt;   height:.2in">
+                              <p class="MsoNormal" style="margin-bottom:0in;margin-bottom:.0001pt;line-height:   normal"><b><span style="font-size:10.0pt;color:white">Type or Geometry of
+                              Asset</span></b></p>
+                              </td>
+                              <td width="136" style="width:102.3pt;border:solid #4472C4 1.0pt;border-left:   none;background:#1F4E79;padding:0in 5.4pt 0in 5.4pt;height:.2in">
+                              <p class="MsoNormal" style="margin-bottom:0in;margin-bottom:.0001pt;line-height:   normal"><b><span style="font-size:10.0pt;color:white">Example</span></b></p>
+                              </td>
+                             </tr>
+                             <tr style="height:.2in">
+                              <td width="146" style="width:109.15pt;border:none;background:#DEEAF6;   padding:0in 5.4pt 0in 5.4pt;height:.2in">
+                              <p class="MsoNormal" style="margin-bottom:0in;margin-bottom:.0001pt;line-height:   normal"><b><span style="font-size:10.0pt;color:black">ITS</span></b></p>
+                              </td>
+                              <td width="153" valign="top" style="width:114.75pt;border:none;background:#DEEAF6;   padding:0in 5.4pt 0in 5.4pt;height:.2in">
+                              <p class="MsoNormal" align="center" style="margin-bottom:0in;margin-bottom:.0001pt;   text-align:center;line-height:normal"><span style="font-size:10.0pt;   color:black">Yes</span></p>
+                              </td>
+                              <td style="border:none;background:#DEEAF6;padding:0in 5.4pt 0in 5.4pt;   height:.2in">
+                              <p class="MsoNormal" style="margin-bottom:0in;margin-bottom:.0001pt;line-height:   normal"><span style="font-size:10.0pt;color:black">Device</span></p>
+                              </td>
+                              <td width="136" style="width:102.3pt;border:none;background:#DEEAF6;padding:   0in 5.4pt 0in 5.4pt;height:.2in">
+                              <p class="MsoNormal" style="margin-bottom:0in;margin-bottom:.0001pt;line-height:   normal"><span style="font-size:10.0pt;color:black">ITSDevice</span></p>
+                              </td>
+                             </tr>
+                             <tr style="height:.2in">
+                              <td width="146" style="width:109.15pt;border:none;padding:0in 5.4pt 0in 5.4pt;   height:.2in">
+                              <p class="MsoNormal" style="margin-bottom:0in;margin-bottom:.0001pt;line-height:   normal"><b><span style="font-size:10.0pt">ITS</span></b></p>
+                              </td>
+                              <td width="153" valign="top" style="width:114.75pt;border:none;padding:0in 5.4pt 0in 5.4pt;   height:.2in">
+                              <p class="MsoNormal" align="center" style="margin-bottom:0in;margin-bottom:.0001pt;   text-align:center;line-height:normal"><span style="font-size:10.0pt">Yes</span></p>
+                              </td>
+                              <td style="border:none;padding:0in 5.4pt 0in 5.4pt;height:.2in">
+                              <p class="MsoNormal" style="margin-bottom:0in;margin-bottom:.0001pt;line-height:   normal"><span style="font-size:10.0pt">Line</span></p>
+                              </td>
+                              <td width="136" style="width:102.3pt;border:none;padding:0in 5.4pt 0in 5.4pt;   height:.2in">
+                              <p class="MsoNormal" style="margin-bottom:0in;margin-bottom:.0001pt;line-height:   normal"><span style="font-size:10.0pt">ITSLine</span></p>
+                              </td>
+                             </tr>
+                             <tr style="height:.2in">
+                              <td width="146" style="width:109.15pt;border:none;background:#DEEAF6;   padding:0in 5.4pt 0in 5.4pt;height:.2in">
+                              <p class="MsoNormal" style="margin-bottom:0in;margin-bottom:.0001pt;line-height:   normal"><b><span style="font-size:10.0pt;color:black">Electric</span></b></p>
+                              </td>
+                              <td width="153" valign="top" style="width:114.75pt;border:none;background:#DEEAF6;   padding:0in 5.4pt 0in 5.4pt;height:.2in">
+                              <p class="MsoNormal" align="center" style="margin-bottom:0in;margin-bottom:.0001pt;   text-align:center;line-height:normal"><span style="font-size:10.0pt;   color:black">Yes</span></p>
+                              </td>
+                              <td style="border:none;background:#DEEAF6;padding:0in 5.4pt 0in 5.4pt;   height:.2in">
+                              <p class="MsoNormal" style="margin-bottom:0in;margin-bottom:.0001pt;line-height:   normal"><span style="font-size:10.0pt;color:black">Device</span></p>
+                              </td>
+                              <td width="136" style="width:102.3pt;border:none;background:#DEEAF6;padding:   0in 5.4pt 0in 5.4pt;height:.2in">
+                              <p class="MsoNormal" style="margin-bottom:0in;margin-bottom:.0001pt;line-height:   normal"><span style="font-size:10.0pt;color:black">ElectricDevice</span></p>
+                              </td>
+                             </tr>
+                             <tr style="height:.2in">
+                              <td width="146" style="width:109.15pt;border:none;padding:0in 5.4pt 0in 5.4pt;   height:.2in">
+                              <p class="MsoNormal" style="margin-bottom:0in;margin-bottom:.0001pt;line-height:   normal"><b><span style="font-size:10.0pt">Electric</span></b></p>
+                              </td>
+                              <td width="153" valign="top" style="width:114.75pt;border:none;padding:0in 5.4pt 0in 5.4pt;   height:.2in">
+                              <p class="MsoNormal" align="center" style="margin-bottom:0in;margin-bottom:.0001pt;   text-align:center;line-height:normal"><span style="font-size:10.0pt">Yes</span></p>
+                              </td>
+                              <td style="border:none;padding:0in 5.4pt 0in 5.4pt;height:.2in">
+                              <p class="MsoNormal" style="margin-bottom:0in;margin-bottom:.0001pt;line-height:   normal"><span style="font-size:10.0pt">Line</span></p>
+                              </td>
+                              <td width="136" style="width:102.3pt;border:none;padding:0in 5.4pt 0in 5.4pt;   height:.2in">
+                              <p class="MsoNormal" style="margin-bottom:0in;margin-bottom:.0001pt;line-height:   normal"><span style="font-size:10.0pt">ElectricLine</span></p>
+                              </td>
+                             </tr>
+                             <tr style="height:.2in">
+                              <td width="146" style="width:109.15pt;border:none;background:#DEEAF6;   padding:0in 5.4pt 0in 5.4pt;height:.2in">
+                              <p class="MsoNormal" style="margin-bottom:0in;margin-bottom:.0001pt;line-height:   normal"><b><span style="font-size:10.0pt;color:black">Electric/ITS</span></b></p>
+                              </td>
+                              <td width="153" valign="top" style="width:114.75pt;border:none;background:#DEEAF6;   padding:0in 5.4pt 0in 5.4pt;height:.2in">
+                              <p class="MsoNormal" align="center" style="margin-bottom:0in;margin-bottom:.0001pt;   text-align:center;line-height:normal"><span style="font-size:10.0pt;   color:black">Yes</span></p>
+                              </td>
+                              <td style="border:none;background:#DEEAF6;padding:0in 5.4pt 0in 5.4pt;   height:.2in">
+                              <p class="MsoNormal" style="margin-bottom:0in;margin-bottom:.0001pt;line-height:   normal"><span style="font-size:10.0pt;color:black">Point</span></p>
+                              </td>
+                              <td width="136" style="width:102.3pt;border:none;background:#DEEAF6;padding:   0in 5.4pt 0in 5.4pt;height:.2in">
+                              <p class="MsoNormal" style="margin-bottom:0in;margin-bottom:.0001pt;line-height:   normal"><span style="font-size:10.0pt;color:black">ElectricITSJunction</span></p>
+                              </td>
+                             </tr>
+                             <tr style="height:.2in">
+                              <td width="146" style="width:109.15pt;border:none;padding:0in 5.4pt 0in 5.4pt;   height:.2in">
+                              <p class="MsoNormal" style="margin-bottom:0in;margin-bottom:.0001pt;line-height:   normal"><b><span style="font-size:10.0pt">Electric/ITS</span></b></p>
+                              </td>
+                              <td width="153" valign="top" style="width:114.75pt;border:none;padding:0in 5.4pt 0in 5.4pt;   height:.2in">
+                              <p class="MsoNormal" align="center" style="margin-bottom:0in;margin-bottom:.0001pt;   text-align:center;line-height:normal"><span style="font-size:10.0pt">Yes</span></p>
+                              </td>
+                              <td style="border:none;padding:0in 5.4pt 0in 5.4pt;height:.2in">
+                              <p class="MsoNormal" style="margin-bottom:0in;margin-bottom:.0001pt;line-height:   normal"><span style="font-size:10.0pt">Line</span></p>
+                              </td>
+                              <td width="136" style="width:102.3pt;border:none;padding:0in 5.4pt 0in 5.4pt;   height:.2in">
+                              <p class="MsoNormal" style="margin-bottom:0in;margin-bottom:.0001pt;line-height:   normal"><span style="font-size:10.0pt">ElectricITSLine</span></p>
+                              </td>
+                             </tr>
+                             <tr style="height:.2in">
+                              <td width="146" style="width:109.15pt;border:none;background:#DEEAF6;   padding:0in 5.4pt 0in 5.4pt;height:.2in">
+                              <p class="MsoNormal" style="margin-bottom:0in;margin-bottom:.0001pt;line-height:   normal"><b><span style="font-size:10.0pt;color:black">Electric/ITS</span></b></p>
+                              </td>
+                              <td width="153" valign="top" style="width:114.75pt;border:none;background:#DEEAF6;   padding:0in 5.4pt 0in 5.4pt;height:.2in">
+                              <p class="MsoNormal" align="center" style="margin-bottom:0in;margin-bottom:.0001pt;   text-align:center;line-height:normal"><span style="font-size:10.0pt;   color:black">Yes</span></p>
+                              </td>
+                              <td style="border:none;background:#DEEAF6;padding:0in 5.4pt 0in 5.4pt;   height:.2in">
+                              <p class="MsoNormal" style="margin-bottom:0in;margin-bottom:.0001pt;line-height:   normal"><span style="font-size:10.0pt;color:black">Polygon Boundary</span></p>
+                              </td>
+                              <td width="136" style="width:102.3pt;border:none;background:#DEEAF6;padding:   0in 5.4pt 0in 5.4pt;height:.2in">
+                              <p class="MsoNormal" style="margin-bottom:0in;margin-bottom:.0001pt;line-height:   normal"><span style="font-size:10.0pt;color:black">ElectricITSBoundary</span></p>
+                              </td>
+                             </tr>
+                             <tr style="height:.2in">
+                              <td width="146" style="width:109.15pt;border:none;padding:0in 5.4pt 0in 5.4pt;   height:.2in">
+                              <p class="MsoNormal" style="margin-bottom:0in;margin-bottom:.0001pt;line-height:   normal"><b><span style="font-size:10.0pt">Structure</span></b></p>
+                              </td>
+                              <td width="153" valign="top" style="width:114.75pt;border:none;padding:0in 5.4pt 0in 5.4pt;   height:.2in">
+                              <p class="MsoNormal" align="center" style="margin-bottom:0in;margin-bottom:.0001pt;   text-align:center;line-height:normal"><span style="font-size:10.0pt">Yes</span></p>
+                              </td>
+                              <td style="border:none;padding:0in 5.4pt 0in 5.4pt;height:.2in">
+                              <p class="MsoNormal" style="margin-bottom:0in;margin-bottom:.0001pt;line-height:   normal"><span style="font-size:10.0pt">Boundary</span></p>
+                              </td>
+                              <td width="136" style="width:102.3pt;border:none;padding:0in 5.4pt 0in 5.4pt;   height:.2in">
+                              <p class="MsoNormal" style="margin-bottom:0in;margin-bottom:.0001pt;line-height:   normal;page-break-after:avoid"><span style="font-size:10.0pt">StructureBoundary</span></p>
+                              </td>
+                             </tr>
+                             <tr style="height:.2in">
+                              <td width="146" style="width:109.15pt;border:none;background:#DEEAF6;   padding:0in 5.4pt 0in 5.4pt;height:.2in">
+                              <p class="MsoNormal" style="margin-bottom:0in;margin-bottom:.0001pt;line-height:   normal"><b><span style="font-size:10.0pt;color:black">Structure</span></b></p>
+                              </td>
+                              <td width="153" valign="top" style="width:114.75pt;border:none;background:#DEEAF6;   padding:0in 5.4pt 0in 5.4pt;height:.2in">
+                              <p class="MsoNormal" align="center" style="margin-bottom:0in;margin-bottom:.0001pt;   text-align:center;line-height:normal"><span style="font-size:10.0pt;   color:black">No</span></p>
+                              </td>
+                              <td style="border:none;background:#DEEAF6;padding:0in 5.4pt 0in 5.4pt;   height:.2in">
+                              <p class="MsoNormal" style="margin-bottom:0in;margin-bottom:.0001pt;line-height:   normal"><span style="font-size:10.0pt;color:black">Line</span></p>
+                              </td>
+                              <td width="136" style="width:102.3pt;border:none;background:#DEEAF6;padding:   0in 5.4pt 0in 5.4pt;height:.2in">
+                              <p class="MsoNormal" style="margin-bottom:0in;margin-bottom:.0001pt;line-height:   normal;page-break-after:avoid"><span style="font-size:10.0pt;color:black">Bridge</span></p>
+                              </td>
+                             </tr>
+                             <tr style="height:.2in">
+                              <td width="146" style="width:109.15pt;border:none;padding:0in 5.4pt 0in 5.4pt;   height:.2in">
+                              <p class="MsoNormal" style="margin-bottom:0in;margin-bottom:.0001pt;line-height:   normal"><b><span style="font-size:10.0pt">Structure</span></b></p>
+                              </td>
+                              <td width="153" valign="top" style="width:114.75pt;border:none;padding:0in 5.4pt 0in 5.4pt;   height:.2in">
+                              <p class="MsoNormal" align="center" style="margin-bottom:0in;margin-bottom:.0001pt;   text-align:center;line-height:normal"><span style="font-size:10.0pt">No</span></p>
+                              </td>
+                              <td style="border:none;padding:0in 5.4pt 0in 5.4pt;height:.2in">
+                              <p class="MsoNormal" style="margin-bottom:0in;margin-bottom:.0001pt;line-height:   normal"><span style="font-size:10.0pt">Line</span></p>
+                              </td>
+                              <td width="136" style="width:102.3pt;border:none;padding:0in 5.4pt 0in 5.4pt;   height:.2in">
+                              <p class="MsoNormal" style="margin-bottom:0in;margin-bottom:.0001pt;line-height:   normal;page-break-after:avoid"><span style="font-size:10.0pt">NoiseBarrier</span></p>
+                              </td>
+                             </tr>
+                             <tr style="height:.2in">
+                              <td width="146" style="width:109.15pt;border:none;background:#DEEAF6;   padding:0in 5.4pt 0in 5.4pt;height:.2in">
+                              <p class="MsoNormal" style="margin-bottom:0in;margin-bottom:.0001pt;line-height:   normal"><b><span style="font-size:10.0pt;color:black">Structure</span></b></p>
+                              </td>
+                              <td width="153" valign="top" style="width:114.75pt;border:none;background:#DEEAF6;   padding:0in 5.4pt 0in 5.4pt;height:.2in">
+                              <p class="MsoNormal" align="center" style="margin-bottom:0in;margin-bottom:.0001pt;   text-align:center;line-height:normal"><span style="font-size:10.0pt;   color:black">No</span></p>
+                              </td>
+                              <td style="border:none;background:#DEEAF6;padding:0in 5.4pt 0in 5.4pt;   height:.2in">
+                              <p class="MsoNormal" style="margin-bottom:0in;margin-bottom:.0001pt;line-height:   normal"><span style="font-size:10.0pt;color:black">Line</span></p>
+                              </td>
+                              <td width="136" style="width:102.3pt;border:none;background:#DEEAF6;padding:   0in 5.4pt 0in 5.4pt;height:.2in">
+                              <p class="MsoNormal" style="margin-bottom:0in;margin-bottom:.0001pt;line-height:   normal;page-break-after:avoid"><span style="font-size:10.0pt;color:black">RetainingWall</span></p>
+                              </td>
+                             </tr>
+                             <tr style="height:.2in">
+                              <td width="146" style="width:109.15pt;border:none;padding:0in 5.4pt 0in 5.4pt;   height:.2in">
+                              <p class="MsoNormal" style="margin-bottom:0in;margin-bottom:.0001pt;line-height:   normal"><b><span style="font-size:10.0pt">Structure</span></b></p>
+                              </td>
+                              <td width="153" valign="top" style="width:114.75pt;border:none;padding:0in 5.4pt 0in 5.4pt;   height:.2in">
+                              <p class="MsoNormal" align="center" style="margin-bottom:0in;margin-bottom:.0001pt;   text-align:center;line-height:normal"><span style="font-size:10.0pt">No</span></p>
+                              </td>
+                              <td style="border:none;padding:0in 5.4pt 0in 5.4pt;height:.2in">
+                              <p class="MsoNormal" style="margin-bottom:0in;margin-bottom:.0001pt;line-height:   normal"><span style="font-size:10.0pt">Point</span></p>
+                              </td>
+                              <td width="136" style="width:102.3pt;border:none;padding:0in 5.4pt 0in 5.4pt;   height:.2in">
+                              <p class="MsoNormal" style="margin-bottom:0in;margin-bottom:.0001pt;line-height:   normal;page-break-after:avoid"><span style="font-size:10.0pt">SignStructure</span></p>
+                              </td>
+                             </tr>
+                             <tr style="height:.2in">
+                              <td width="146" style="width:109.15pt;border:none;background:#DEEAF6;   padding:0in 5.4pt 0in 5.4pt;height:.2in">
+                              <p class="MsoNormal" style="margin-bottom:0in;margin-bottom:.0001pt;line-height:   normal"><b><span style="font-size:10.0pt;color:black">Structure</span></b></p>
+                              </td>
+                              <td width="153" valign="top" style="width:114.75pt;border:none;background:#DEEAF6;   padding:0in 5.4pt 0in 5.4pt;height:.2in">
+                              <p class="MsoNormal" align="center" style="margin-bottom:0in;margin-bottom:.0001pt;   text-align:center;line-height:normal"><span style="font-size:10.0pt;   color:black">No</span></p>
+                              </td>
+                              <td style="border:none;background:#DEEAF6;padding:0in 5.4pt 0in 5.4pt;   height:.2in">
+                              <p class="MsoNormal" style="margin-bottom:0in;margin-bottom:.0001pt;line-height:   normal"><span style="font-size:10.0pt;color:black">Polygon</span></p>
+                              </td>
+                              <td width="136" style="width:102.3pt;border:none;background:#DEEAF6;padding:   0in 5.4pt 0in 5.4pt;height:.2in">
+                              <p class="MsoNormal" style="margin-bottom:0in;margin-bottom:.0001pt;line-height:   normal;page-break-after:avoid"><span style="font-size:10.0pt;color:black">Tunnels</span></p>
+                              </td>
+                             </tr>
+                             <tr style="height:.2in">
+                              <td width="146" style="width:109.15pt;border:none;background:white;padding:   0in 5.4pt 0in 5.4pt;height:.2in">
+                              <p class="MsoNormal" style="margin-bottom:0in;margin-bottom:.0001pt;line-height:   normal"><b><span style="font-size:10.0pt;color:black">Structure</span></b></p>
+                              </td>
+                              <td width="153" valign="top" style="width:114.75pt;border:none;background:white;   padding:0in 5.4pt 0in 5.4pt;height:.2in">
+                              <p class="MsoNormal" align="center" style="margin-bottom:0in;margin-bottom:.0001pt;   text-align:center;line-height:normal"><span style="font-size:10.0pt;   color:black">Yes</span></p>
+                              </td>
+                              <td style="border:none;background:white;padding:0in 5.4pt 0in 5.4pt;   height:.2in">
+                              <p class="MsoNormal" style="margin-bottom:0in;margin-bottom:.0001pt;line-height:   normal"><span style="font-size:10.0pt;color:black">Point</span></p>
+                              </td>
+                              <td width="136" style="width:102.3pt;border:none;background:white;padding:0in 5.4pt 0in 5.4pt;   height:.2in">
+                              <p class="MsoNormal" style="margin-bottom:0in;margin-bottom:.0001pt;line-height:   normal;page-break-after:avoid"><span style="font-size:10.0pt;color:black">PoleStructure</span></p>
+                              </td>
+                             </tr>
+                             <tr style="height:.2in">
+                              <td width="146" style="width:109.15pt;border:none;background:#DEEAF6;   padding:0in 5.4pt 0in 5.4pt;height:.2in">
+                              <p class="MsoNormal" style="margin-bottom:0in;margin-bottom:.0001pt;line-height:   normal"><b><span style="font-size:10.0pt;color:black">Lighting</span></b></p>
+                              </td>
+                              <td width="153" valign="top" style="width:114.75pt;border:none;background:#DEEAF6;   padding:0in 5.4pt 0in 5.4pt;height:.2in">
+                              <p class="MsoNormal" align="center" style="margin-bottom:0in;margin-bottom:.0001pt;   text-align:center;line-height:normal"><span style="font-size:10.0pt;   color:black">No</span></p>
+                              </td>
+                              <td style="border:none;background:#DEEAF6;padding:0in 5.4pt 0in 5.4pt;   height:.2in">
+                              <p class="MsoNormal" style="margin-bottom:0in;margin-bottom:.0001pt;line-height:   normal"><span style="font-size:10.0pt;color:black">Point</span></p>
+                              </td>
+                              <td width="136" style="width:102.3pt;border:none;background:#DEEAF6;padding:   0in 5.4pt 0in 5.4pt;height:.2in">
+                              <p class="MsoNormal" style="margin-bottom:0in;margin-bottom:.0001pt;line-height:   normal;page-break-after:avoid"><span style="font-size:10.0pt;color:black">LowLevelLights</span></p>
+                              </td>
+                             </tr>
+                             <tr style="height:.2in">
+                              <td width="146" style="width:109.15pt;border:none;background:white;padding:   0in 5.4pt 0in 5.4pt;height:.2in">
+                              <p class="MsoNormal" style="margin-bottom:0in;margin-bottom:.0001pt;line-height:   normal"><b><span style="font-size:10.0pt;color:black">Lighting</span></b></p>
+                              </td>
+                              <td width="153" valign="top" style="width:114.75pt;border:none;background:white;   padding:0in 5.4pt 0in 5.4pt;height:.2in">
+                              <p class="MsoNormal" align="center" style="margin-bottom:0in;margin-bottom:.0001pt;   text-align:center;line-height:normal"><span style="font-size:10.0pt;   color:black">No</span></p>
+                              </td>
+                              <td style="border:none;background:white;padding:0in 5.4pt 0in 5.4pt;   height:.2in">
+                              <p class="MsoNormal" style="margin-bottom:0in;margin-bottom:.0001pt;line-height:   normal"><span style="font-size:10.0pt;color:black">Point</span></p>
+                              </td>
+                              <td width="136" style="width:102.3pt;border:none;background:white;padding:0in 5.4pt 0in 5.4pt;   height:.2in">
+                              <p class="MsoNormal" style="margin-bottom:0in;margin-bottom:.0001pt;line-height:   normal;page-break-after:avoid"><span style="font-size:10.0pt;color:black">HighMastLights</span></p>
+                              </td>
+                             </tr>
+                             <tr style="height:.2in">
+                              <td width="146" style="width:109.15pt;border:none;background:#DEEAF6;   padding:0in 5.4pt 0in 5.4pt;height:.2in">
+                              <p class="MsoNormal" style="margin-bottom:0in;margin-bottom:.0001pt;line-height:   normal"><b><span style="font-size:10.0pt;color:black">BuildingFacilityAssets</span></b></p>
+                              </td>
+                              <td width="153" valign="top" style="width:114.75pt;border:none;background:#DEEAF6;   padding:0in 5.4pt 0in 5.4pt;height:.2in">
+                              <p class="MsoNormal" align="center" style="margin-bottom:0in;margin-bottom:.0001pt;   text-align:center;line-height:normal"><span style="font-size:10.0pt;   color:black">Yes</span></p>
+                              </td>
+                              <td style="border:none;background:#DEEAF6;padding:0in 5.4pt 0in 5.4pt;   height:.2in">
+                              <p class="MsoNormal" style="margin-bottom:0in;margin-bottom:.0001pt;line-height:   normal"><span style="font-size:10.0pt;color:black">Point</span></p>
+                              </td>
+                              <td width="136" style="width:102.3pt;border:none;background:#DEEAF6;padding:   0in 5.4pt 0in 5.4pt;height:.2in">
+                              <p class="MsoNormal" style="margin-bottom:0in;margin-bottom:.0001pt;line-height:   normal;page-break-after:avoid"><span style="font-size:10.0pt;color:black">HVAC</span></p>
+                              </td>
+                             </tr>
+                             <tr style="height:.2in">
+                              <td width="146" style="width:109.15pt;border:none;background:white;padding:   0in 5.4pt 0in 5.4pt;height:.2in">
+                              <p class="MsoNormal" style="margin-bottom:0in;margin-bottom:.0001pt;line-height:   normal"><b><span style="font-size:10.0pt;color:black">BuildingFacilityAssets</span></b></p>
+                              </td>
+                              <td width="153" valign="top" style="width:114.75pt;border:none;background:white;   padding:0in 5.4pt 0in 5.4pt;height:.2in">
+                              <p class="MsoNormal" align="center" style="margin-bottom:0in;margin-bottom:.0001pt;   text-align:center;line-height:normal"><span style="font-size:10.0pt;   color:black">Yes</span></p>
+                              </td>
+                              <td style="border:none;background:white;padding:0in 5.4pt 0in 5.4pt;   height:.2in">
+                              <p class="MsoNormal" style="margin-bottom:0in;margin-bottom:.0001pt;line-height:   normal"><span style="font-size:10.0pt;color:black">Point</span></p>
+                              </td>
+                              <td width="136" style="width:102.3pt;border:none;background:white;padding:0in 5.4pt 0in 5.4pt;   height:.2in">
+                              <p class="MsoNormal" style="margin-bottom:0in;margin-bottom:.0001pt;line-height:   normal;page-break-after:avoid"><span style="font-size:10.0pt;color:black">Electrical</span></p>
+                              </td>
+                             </tr>
+                             <tr style="height:.2in">
+                              <td width="146" style="width:109.15pt;border:none;background:#DEEAF6;   padding:0in 5.4pt 0in 5.4pt;height:.2in">
+                              <p class="MsoNormal" style="margin-bottom:0in;margin-bottom:.0001pt;line-height:   normal"><b><span style="font-size:10.0pt;color:black">BuildingFacilityAssets</span></b></p>
+                              </td>
+                              <td width="153" valign="top" style="width:114.75pt;border:none;background:#DEEAF6;   padding:0in 5.4pt 0in 5.4pt;height:.2in">
+                              <p class="MsoNormal" align="center" style="margin-bottom:0in;margin-bottom:.0001pt;   text-align:center;line-height:normal"><span style="font-size:10.0pt;   color:black">Yes</span></p>
+                              </td>
+                              <td style="border:none;background:#DEEAF6;padding:0in 5.4pt 0in 5.4pt;   height:.2in">
+                              <p class="MsoNormal" style="margin-bottom:0in;margin-bottom:.0001pt;line-height:   normal"><span style="font-size:10.0pt;color:black">Point</span></p>
+                              </td>
+                              <td width="136" style="width:102.3pt;border:none;background:#DEEAF6;padding:   0in 5.4pt 0in 5.4pt;height:.2in">
+                              <p class="MsoNormal" style="margin-bottom:0in;margin-bottom:.0001pt;line-height:   normal;page-break-after:avoid"><span style="font-size:10.0pt;color:black">Conveyance</span></p>
+                              </td>
+                             </tr>
+                             <tr style="height:.2in">
+                              <td width="146" style="width:109.15pt;border:none;border-bottom:solid #1F4E79 1.5pt;   padding:0in 5.4pt 0in 5.4pt;height:.2in">
+                              <p class="MsoNormal" style="margin-bottom:0in;margin-bottom:.0001pt;line-height:   normal"><b><span style="font-size:10.0pt">BuildingFacilityAssets</span></b></p>
+                              </td>
+                              <td width="153" valign="top" style="width:114.75pt;border:none;border-bottom:   solid #1F4E79 1.5pt;padding:0in 5.4pt 0in 5.4pt;height:.2in">
+                              <p class="MsoNormal" align="center" style="margin-bottom:0in;margin-bottom:.0001pt;   text-align:center;line-height:normal"><span style="font-size:10.0pt">Yes</span></p>
+                              </td>
+                              <td style="border:none;border-bottom:solid #1F4E79 1.5pt;padding:0in 5.4pt 0in 5.4pt;   height:.2in">
+                              <p class="MsoNormal" style="margin-bottom:0in;margin-bottom:.0001pt;line-height:   normal"><span style="font-size:10.0pt">Point</span></p>
+                              </td>
+                              <td width="136" style="width:102.3pt;border:none;border-bottom:solid #1F4E79 1.5pt;   padding:0in 5.4pt 0in 5.4pt;height:.2in">
+                              <p class="MsoNormal" style="margin-bottom:0in;margin-bottom:.0001pt;line-height:   normal;page-break-after:avoid"><span style="font-size:10.0pt">Equipment</span></p>
+                              </td>
+                             </tr>
+                            </table>
+                            <p>Table 7: GIS Dataset Naming Convention Examples</p>
+                            </div>
+                            <!-- End Table -->
+                            <p><b><u>Note</u></b>: To the extent possible, similar assets
+                            (ex. ITS device points) should be consolidated into one feature class and
+                            differentiated by subtypes instead of creating separate feature classes for
+                            each asset type.  Subtype standards are covered further in Section V.,
+                            sub-section A.</p>  
+                    </div>
+                </calcite-notice>
+            </calcite-tab>
+            <calcite-tab>
+                <calcite-notice icon="coordinate-system" open>
+                    <div slot="message">
+                         <!-- Begin table -->
+<table>
+    <tbody>
+    <tr>
+    <td><p>All MDTA Enterprise GIS feature classes should utilize the
+    Maryland State Plane projected coordinate system shown in Figure 3.</p></td>
+    <td style="text-align:right"><figure><img src="https://gist.mdta.maryland.gov/mdtaarcgis/sharing/rest/content/items/9e41b08592cc44249309da3411b129cc/data" alt="Figure 3: MDTA Enterprise GIS Projected Coordinate System" width="75%" height="75%" />
+    <figcaption>Figure 3: MDTA Enterprise GIS Projected Coordinate System</figcaption>
+    </figure></td>
+    </tr>
+    <tr>
+    <td><figure><img src="https://gist.mdta.maryland.gov/mdtaarcgis/sharing/rest/content/items/f39d10abbb1a42ba9053ea14713572c3/data" alt="Figure 4: MDTA Enterprise GIS Geographic Coordinate System" width="75%" height="75%" />
+    <figcaption>Figure 4: MDTA Enterprise GIS Geographic Coordinate System</figcaption>
+    </figure></td>
+    <td><p>The geographic coordinate system should be NAD 1983 HARN as
+    shown in Figure 4.</p></td>
+    </tr>
+    </tbody>
+    </table>
+    <!-- end table -->
+                    </div>
+                </calcite-notice>
+            </calcite-tab>
+            <calcite-tab>
+                <calcite-notice icon="file-text" open>
+                    <div slot="message">
+                        MDTA has standardized on the ISO
+19115/19139 metadata standard and </span>the configuration and maintenance of <span style="color:black">ISO 19115/19139 </span>metadata is required for all MDTA
+Enterprise GIS data, whether created internally or provided by contractors. <span style="color:black">Metadata may include information about how accurate and
+recent the data is, restrictions associated with using and sharing the data,
+and important processes in the dataset’s life cycle, among other
+characteristics. </span>The <a href="https://gist.mdta.maryland.gov/mdtaarcgis/sharing/rest/content/items/f26810dd877f4ff9b137578eec722426/data?token=Pfzk5t9EYtxl4MoVfFY4qiVD-kvoLPJKB7DAreSsvIJHLCUz5DWIzBZLyasiG88xHwsE0ll4hB-hMMyvPQDRkzkWFHLUqWPSNj75__Ip4zUnJ3Ek2ShbqOx0HHuzE4HEWPCwiG9WA-G-exA2zzBUy3zXLKAB4wkQURTbkR1m0t75xsuJy6rWJhL4FZSyhJcLdnKiV3z8kh1UNWzcAdw1LbVR2aQC8n6XtKUy3p-Q7tU."><b>MDTA
+Enterprise GIS Metadata Guidelines</b></a> document should be consulted for
+specific metadata standards.</p>
+                    </div>
+                </calcite-notice>
+            </calcite-tab>
+        </calcite-tabs>
+
+
+</body>
+</html>

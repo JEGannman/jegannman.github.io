@@ -1,0 +1,89 @@
+<html>
+    <head>
+        <script type="module" src="https://js.arcgis.com/calcite-components/1.4.1/calcite.esm.js"></script>
+        <link rel="stylesheet" type="text/css" href="https://js.arcgis.com/calcite-components/1.4.1/calcite.css" />
+      </head>
+    <body>
+        <calcite-stepper numbered>
+            <calcite-stepper-item heading="Add info" selected>
+                <calcite-notice width="full" open>
+                    <div slot="title">Step 1 content</div>
+                </calcite-notice>
+            </calcite-stepper-item>
+            <calcite-stepper-item heading="Add data">
+                <calcite-notice width="full" open>
+                    <div slot="title">Step 2 content</div>
+                </calcite-notice>
+            </calcite-stepper-item>
+            <calcite-stepper-item heading="Add images">
+                <calcite-notice width="full" open>
+                    <div slot="title">Step 3 content</div>
+                </calcite-notice>
+            </calcite-stepper-item>
+            <calcite-stepper-item heading="Review">
+                <calcite-notice width="full" open>
+                    <div slot="title">Step 4 content</div>
+                </calcite-notice>
+            </calcite-stepper-item>
+        </calcite-stepper>
+
+        v1.4.2
+
+
+
+<calcite-shell>
+
+    <calcite-shell-panel slot="panel-start">
+
+        <calcite-panel heading="Menu" id="menu-panel">
+
+            <calcite-menu layout="vertical" label="Publications">
+
+                <calcite-menu-item icon-start="car" text="Cars"></calcite-menu-item>
+
+                <calcite-menu-item icon-start="road-sign" text="Trucks">
+
+                    <calcite-menu-item icon-start="trucking-time" slot="submenu-item" text="Local"></calcite-menu-item>
+
+                    <calcite-menu-item icon-start="trucking-distance" slot="submenu-item" text="Regional">
+
+                    </calcite-menu-item>
+
+                </calcite-menu-item>
+
+                <calcite-menu-item icon-start="plane" text="Airplanes"></calcite-menu-item>
+
+                <calcite-menu-item icon-start="biking" text="Bicycles"></calcite-menu-item>
+
+            </calcite-menu>
+
+        </calcite-panel>
+
+    </calcite-shell-panel>
+
+    <calcite-panel heading="Content"></calcite-panel>
+
+</calcite-shell>
+
+v1.4.2
+
+<calcite-shell>
+    <calcite-shell-panel slot="panel-start">
+        <calcite-panel heading="Menu" id="menu-panel">
+            <calcite-menu layout="vertical" label="Publications">
+                <calcite-menu-item icon-start="car" text="Cars"></calcite-menu-item>
+                <calcite-menu-item icon-start="road-sign" text="Trucks">
+                    <calcite-menu-item icon-start="trucking-time" slot="submenu-item" text="Local"></calcite-menu-item>
+                    <calcite-menu-item icon-start="trucking-distance" slot="submenu-item" text="Regional">
+                    </calcite-menu-item>
+                </calcite-menu-item>
+                <calcite-menu-item icon-start="plane" text="Airplanes"></calcite-menu-item>
+                <calcite-menu-item icon-start="biking" text="Bicycles"></calcite-menu-item>
+            </calcite-menu>
+        </calcite-panel>
+    </calcite-shell-panel>
+    <calcite-panel heading="Content"></calcite-panel>
+</calcite-shell>
+
+    </body>
+</html>

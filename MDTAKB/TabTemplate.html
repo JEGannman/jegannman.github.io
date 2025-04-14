@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>MDTA Enterprise GIS Data Appendix</title>
+    <script
+      type="module"
+      src="https://js.arcgis.com/calcite-components/2.11.0/calcite.esm.js"
+    ></script>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://js.arcgis.com/calcite-components/2.11.0/calcite.css"
+    />
+  </head>
+  
+  <body>
+    <calcite-tabs>
+        <calcite-tab-nav slot="title-group">
+            <calcite-tab-title selected>
+                Watercraft
+            </calcite-tab-title>
+            <calcite-tab-title>Automobiles</calcite-tab-title>
+            <calcite-tab-title>Aircrafts</calcite-tab-title>
+        </calcite-tab-nav>
+        <calcite-tab selected>
+            <calcite-notice icon="embark" open>
+                <div slot="message">Recommended for coastal use</div>
+            </calcite-notice>
+        </calcite-tab>
+        <calcite-tab>
+            <calcite-notice icon="car" open>
+                <div slot="message">A good choice for inland adventure</div>
+            </calcite-notice>
+        </calcite-tab>
+        <calcite-tab>
+            <calcite-notice icon="plane" open>
+                <div slot="message">Cross continents quickly</div>
+            </calcite-notice>
+        </calcite-tab>
+    </calcite-tabs>
+
+    <calcite-card>
+      <span slot="title">City-owned golf courses</span>
+      <span slot="subtitle">Department of Recreation - Municipality of Acme</span>
+      <calcite-chip value="solid" icon="launch">
+          <a href="https://pro.arcgis.com/en/pro-app/2.9/get-started/get-started.htm"" target="_blank">2.9</a>
+      </calcite-chip>
+      <calcite-chip value="solid" icon="launch">
+       <a href="https://pro.arcgis.com/en/pro-app/latest/get-started/get-started.htm" target="_blank">Latest (3.1)</a>
+      </calcite-chip>
+  </calcite-card>
+
+  <calcite-card>
+    <span slot="title">City-owned golf courses</span>
+    <span slot="subtitle">Department of Recreation - Municipality of Acme</span>
+</calcite-card>
+
+  <calcite-panel>
+    <calcite-block collapsible open heading="Layer effects" description="Adjust blur, highlight, and more">
+        <calcite-icon scale="s" slot="icon" icon="effects"></calcite-icon>
+        <calcite-notice open>
+            <div slot="message">Use layer effects sparingly, for emphasis</div>
+        </calcite-notice>
+        <calcite-action slot="control" text="Information" icon="information"></calcite-action>
+        <div slot="header-menu-actions">
+            <calcite-action text="Information" icon="information" text-enabled></calcite-action>
+        </div>
+    </calcite-block>
+</calcite-panel>
+
+<calcite-popover heading="#" label="#" reference-element="popover-buttonU1" closable>
+  <p style="padding:12px;margin:0;">
+      <code><xmp>
+          
+      </xmp></code>
+  </p>
+</calcite-popover>
+<calcite-button id="popover-buttonU1">#</calcite-button>
+
+<calcite-popover heading="#" label="#" reference-element="popover-buttonPXX" closable>
+  <p style="padding:12px;margin:0;">
+    <textarea name="tex" id="texXX" cols="120" rows="100" class="one textarea">
+          
+      </textarea>
+  </p>
+</calcite-popover>
+<calcite-button id="popover-buttonPXX">#</calcite-button>
+
+</body>
+</html>

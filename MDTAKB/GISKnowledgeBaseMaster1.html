@@ -1,0 +1,371 @@
+<html>
+    <title>KnowledgeBaseRef</title>
+  <head>
+    <link rel="stylesheet" type="text/css" href="https://js.arcgis.com/calcite-components/1.0.0-beta.95/calcite.css" />
+    <script type="module" src=https://js.arcgis.com/calcite-components/1.0.0-beta.95/calcite.esm.js></script>
+    <style>
+
+      /* Only for styling, not required for it to work */
+body {
+	background-color: #eee;
+	/* display: flex; */
+	/* flex-direction: column; */
+	justify-content: center;
+	align-items: center;
+}
+
+h2 {
+	font-size: 2rem;
+	text-align: center;
+}
+
+h3 {
+	font-size: 1rem;
+	font-family: sans-serif;
+	text-align: center;
+}
+
+details {
+	margin-bottom: 20px;
+	width: 100%;
+	font-family: sans-serif;
+}
+
+details p {
+	padding: 20px;
+}
+
+summary {
+	padding: 20px;
+	background-color: #0079c1;
+	border: 1px solid #9fb6ce;
+	outline: none;
+  color: #fff;
+  border-radius: 20px;
+}
+
+summary:hover,
+summary:focus {
+	border: 1px solid #0079c1;
+  color: #fff;
+  border-radius: 20px;
+}
+
+details[open] summary {
+	background-color: #0079c1;
+	border: 1px solid #0079c1;
+  color: #fff;
+  border-radius: 20px;
+}
+
+details[open] {
+	background: #fff;
+  border-radius: 20px;
+}
+
+section {
+	width: 100%;
+}
+
+    </style>
+  </head>
+  <body>
+    <!--Intro Material-->
+    <h1 style="text-align: center;">MDTA Enterprise GIS Knowledge Base</h1>
+    
+    <p>This page will provide other informative items not presented on their own page</p>
+    
+    <p>To-do</p>
+    <ul>
+      <li>Documentation and snippets of various Popups</li>
+      <li>Documentation and snippets of custom formulas, formats, etc. used in the creation of data layers</li>
+      <li>Data Dictionary displaying fields, types, and so forth (will have its own page)</li>
+      <li>Other documentation?</li>
+    </ul>
+    <!--Nav Tab Panel-->
+<calcite-tabs>
+    <calcite-tab-nav slot="tab-nav">
+      <calcite-tab-title active>Enterprise Access to ArcGIS Pro</calcite-tab-title>
+      <calcite-tab-title>Enterprise Architecture</calcite-tab-title>
+      <calcite-tab-title>Geodatabase Administration</calcite-tab-title>
+      <calcite-tab-title>O&M Workflows</calcite-tab-title>
+      <calcite-tab-title>Data Viewer Guide</calcite-tab-title>
+      <calcite-tab-title>Backup and Recovery</calcite-tab-title>
+      <calcite-tab-title>Accessibility in GIS</calcite-tab-title>
+      <calcite-tab-title>Popup Templates</calcite-tab-title>
+      <calcite-tab-title>GIS Tutorials and References</calcite-tab-title>
+    </calcite-tab-nav>
+
+
+    <!--Enterprise Access to ArcGIS Pro Tab-->
+    <calcite-tab active>
+        <h2>Enterprise Access to ArcGIS Pro</h2>
+        
+      <section>
+        <calcite-accordion>
+            <calcite-accordion-item icon="sign-in" item-title="Connecting to the MDTA Enterprise GIS Portal" item-subtitle="This Section describes the procedure to connect to the MDTA Enterprise GIS through ArcGIS Pro.">
+                <table width="100%">
+                    <tbody>
+                    <tr>
+                    <td style="vertical-align: top;" width="50%">
+                    <p>This Section describes the procedure to connect to the MDTA Enterprise GIS through ArcGIS Pro. <strong><em>Please note that ArcGIS Pro must first be installed on your computer to continue with this guide—please contact the MDTA HelpDesk for assistance</em></strong></p>
+                    <ol>
+                    <li>Open ArcGIS Pro</li>
+                    <li>Click “Settings” in the lower left-hand corner of the ArcGIS Pro splash screen</li>
+                    <li>Click the “Portals” menu on the left-hand side of the screen</li>
+                    <li>Click the “Add Portal” button below the list of available ArcGIS portals. (ArcGIS Online should be available)</li>
+                    <li>Enter the MDTA ArcGIS Enterprise Portal URL in the dialog box (https://gis.mdta.maryland.com/portal)</li>
+                    </ol>
+                    </td>
+                    <td style="text-align: right;" width="50%">
+                    <figure><img src="https://mdtagisdstore.mdta.ad.mdot.mdstate/MDTAGISDataShare/GISHub/Images/Portal/PortalProA.png" alt="1. Connecting to the MDTA Enterprise GIS" width="50%" height="50%">
+                    <figcaption>1. Connecting to the MDTA Enterprise GIS</figcaption>
+                    </figure>
+                    </td>
+                    </tr>
+                    
+                    </tbody>
+                    </table>
+            </calcite-accordion-item>
+            <calcite-accordion-item icon="portal" item-title="Switching Portals" item-subtitle="Steps to switch the active Portals">
+                <table width="100%">
+                    <tbody>
+                    <tr>
+                    <td style="vertical-align: top;" width="50%">
+                    <p>
+                      Follow the steps below to switch the active Portal.
+                      </p>
+                                  <ol>
+                                    <li>Open ArcGIS Pro</li>
+                                    <li>With or without a project open, click the drop-down menu in the upper right-hand corner</li>
+                                    <li>From the drop-down menu, you can get to the “Portals” screen by clicking “Manage Portals”, or you can switch your active portal by clicking the “Switch Active Portal” and choosing another portal. </li>
+                                  </ol>
+                    </td>
+                    
+                    <td style="text-align: right;" width="50%">
+                    <figure><img src="https://mdtagisdstore.mdta.ad.mdot.mdstate/MDTAGISDataShare/GISHub/Images/Portal/PortalPro5.png" alt="2. Switching Portals" width="50%" height="50%">
+                    <figcaption>2. Switching Portals</figcaption>
+                    </figure>
+                    </td>
+                    </tr>
+                    
+                    </tbody>
+                    </table>
+            </calcite-accordion-item>
+            <calcite-accordion-item icon="folder-open" item-title="Browse Items in the Portal" item-subtitle="Instructions for browsing the Portal">
+                <table width="100%">
+                    <tbody>
+                    <tr>
+                    <td style="vertical-align: top;" width="50%">
+                                  <p>To browse items in the Portal:</p>
+                                  <ol>
+                                    <li>Open a project in ArcGIS Pro</li>
+                                    <li>Click the “View” tab along the top of the ribbon</li>
+                                    <li>Under the “View” tab, click the “Catalog Pane” button</li>
+                                    <li>In the “Catalog Pane” click “Portal” along the top of the window</li>
+                                    <li>You can navigate and filter through organizational content by hiding folders, sorting, filtering, and searching using the search bar</li>
+                                    <li>By clicking on the icons, you can view your content, content in groups of which are a member of, items throughout the portal, and items contained in ESRI’s Living Atlas (Living Atlas items are items that ESRI has shared with all users of ArcGIS—they contain various maps, layers, and applications that you may use within your projects)</li>
+                                    <li>You may also search for portal items by name by using the search bar</li>
+                                  </ol>
+                    </td>
+                    
+                    <td style="text-align: right;" width="50%">
+                    <figure><img src="https://mdtagisdstore.mdta.ad.mdot.mdstate/MDTAGISDataShare/GISHub/Images/Portal/PortalProB.png" alt="3. Browse Items in the Portal" width="75%" height="75%">
+                    <figcaption>3. Browse Items in the Portal</figcaption>
+                    </figure>
+                    </td>
+                    </tr>
+                    
+                    </tbody>
+                    </table>
+            </calcite-accordion-item>
+            <calcite-accordion-item icon="add-layer" item-title="Adding Portal Items to a Map" item-subtitle="Directions for adding portal items to a map">
+                <table width="100%">
+                    <tbody>
+                    <tr>
+                    <td style="vertical-align: top;" width="50%">
+                    
+                                  <ol>
+                                    <li>You can add a portal item to a map in your project by either dragging the item from the “Catalog Pane” to your map, or by right-clicking on the item and clicking and then clicking “Add to Current Map” or “Add to New” and choose a new map or scene.
+                    </li>
+                    
+                                  </ol>
+                    </td>
+                    
+                    <td style="text-align: right;" width="50%">
+                    <figure><img src="https://mdtagisdstore.mdta.ad.mdot.mdstate/MDTAGISDataShare/GISHub/Images/Portal/PortalPro9.png" alt="4. Adding Portal Items to a Map" width="75%" height="75%">
+                    <figcaption>4. Adding Portal Items to a Map</figcaption>
+                    </figure>
+                    </td>
+                    </tr>
+                    
+                    </tbody>
+                    </table>
+            </calcite-accordion-item>  
+    </section>
+</calcite-tab>
+<!-- Enterprise Architecture Tab-->    
+    <calcite-tab>
+        <h2>Enterprise Architecture</h2>
+        <p>This section displays the organization of the <strong>ArcGIS Server environments</strong></p>
+        <calcite-accordion>
+            <calcite-accordion-item icon="package" item-title="Development (DEV)" item-subtitle="This is a sandbox ArcGIS Server site where the users will be freely testing their applications and services.">
+                <p>This is a sandbox ArcGIS Server site where the users will be freely testing their applications and 
+                    services. Typically, the development site runs on a small machine using an <strong>Esri Developer Network (EDN) 
+                    license</strong> for ArcGIS Server. Once changes are validated on the development site, they will be applied to the staging 
+                    site.</p>
+                    <p>In dev deployment, the software components are installed on total of 2 machines including the Database Server.</p>
+                    </td>
+                    
+                    <td style="text-align: right;" width="50%">
+                    <figure><img src="https://mdtagisdstore.mdta.ad.mdot.mdstate/MDTAGISDataShare/GISHub/Images/EnterpriseArch/Earch01.PNG" alt="ArcGIS Enterprise System Architecture (DEV)" width="100%" height="100%">
+                    <figcaption>ArcGIS Enterprise System Architecture (DEV)</figcaption>
+                    </figure>
+                    </td>
+                    </tr>
+                    
+                    </tbody>
+                    </table>
+            </calcite-accordion-item>
+            <calcite-accordion-item icon="test-data" item-title="Staging (TEST)" item-subtitle="Staging—This ArcGIS Server site is a clone of the production site. Testing at this level results in a decision to apply the changes on the production site or reject the changes and wait for a new iteration from the development site. ">
+                <p>Staging—This ArcGIS Server site is a clone of the production site. Testing at this level results in a decision to apply 
+                    the changes on the production site or reject the changes and wait for a new iteration from the development site. 
+                    The staging site is not used for development, just performance and functional testing.</p>
+                    <p><strong>Esri provides staging licenses for ArcGIS Server users at a lower cost than production licenses.</strong> In test
+                    deployment, the software components are installed on total of 4 machines including Database Server.</p>
+                    </td>
+                    
+                    <td style="text-align: right;" width="50%">
+                    <figure><img src="https://mdtagisdstore.mdta.ad.mdot.mdstate/MDTAGISDataShare/GISHub/Images/EnterpriseArch/Earch02.PNG" alt="MDTA Enterprise System Architecture (TEST)" width="100%" height="100%">
+                    <figcaption>MDTA Enterprise System Architecture (TEST)</figcaption>
+                    </figure>
+                    </td>
+                    </tr>
+                    
+                    </tbody>
+                    </table>
+            </calcite-accordion-item>
+            <calcite-accordion-item icon="gis-server" item-title="Production (PROD)" item-subtitle="This is the site  actually supports business workflows, the site accessed by real users. Absolutely no development or testing occurs on this site.">
+                <table width="100%">
+                    <tbody>
+                    <tr>
+                    <td style="vertical-align: top;" width="50%">
+                    <h3>Production (PROD)</h3>
+                    <p>This is the site  actually supports business workflows, the site accessed by real users. 
+                    Absolutely no development or testing occurs on this site. Only changes that have passed the scrutiny of testing on 
+                    the staging site are applied to the production site. In production the functionality and capacity of the base 
+                    Enterprise deployment is extended with two additional servers</p>
+                    <p>In production deployment, the software components are installed on total of 6 machines including Database Server. <strong>This requires 3 ArcGIS Enterprise 10.7.1 and licenses 1 SQL Server 2016 license.
+                    </strong></p>
+                    </td>
+                    <td style="text-align: right;" width="50%">
+                    <figure><img src="https://mdtagisdstore.mdta.ad.mdot.mdstate/MDTAGISDataShare/GISHub/Images/EnterpriseArch/Earch03.PNG" width="100%" height="100%">
+                    <figcaption>ArcGIS Enterprise System Architecture (PROD)</figcaption>
+                    </figure>
+                    </td>
+                    </tr>
+                    </tbody>
+                    </table>
+                    <p><em>As is is possible that our user base and activity increases, the components of our base ArcGIS Enterprise deployment may need to be 
+                    scaled out with additional resources.
+                    </em></p>
+            </calcite-accordion-item>
+        </calcite-accordion>
+        </calcite-tab>
+<!-- -->
+<calcite-tab>
+<calcite-accordion-item icon="table" item-title="Aircrafts" item-subtitle="Planes, helicopters, and jets">
+    Example accordion item content
+</calcite-accordion-item>
+</calcite-accordion>
+<!-- -->
+<calcite-accordion-item icon="table" item-title="Aircrafts" item-subtitle="Planes, helicopters, and jets">
+    Example accordion item content
+</calcite-accordion-item>
+</calcite-accordion>
+<!-- -->
+<calcite-accordion-item icon="table" item-title="Aircrafts" item-subtitle="Planes, helicopters, and jets">
+    Example accordion item content
+</calcite-accordion-item>
+</calcite-accordion>
+<!-- -->
+<calcite-accordion-item icon="table" item-title="Aircrafts" item-subtitle="Planes, helicopters, and jets">
+    Example accordion item content
+</calcite-accordion-item>
+</calcite-accordion>
+<!-- -->
+<calcite-accordion-item icon="table" item-title="Aircrafts" item-subtitle="Planes, helicopters, and jets">
+    Example accordion item content
+</calcite-accordion-item>
+</calcite-accordion>
+<!-- -->
+<calcite-accordion-item icon="table" item-title="Aircrafts" item-subtitle="Planes, helicopters, and jets">
+    Example accordion item content
+</calcite-accordion-item>
+</calcite-accordion>
+<!-- -->
+<calcite-accordion-item icon="table" item-title="Aircrafts" item-subtitle="Planes, helicopters, and jets">
+    Example accordion item content
+</calcite-accordion-item>
+</calcite-accordion>
+<!-- -->
+<calcite-accordion-item icon="table" item-title="Aircrafts" item-subtitle="Planes, helicopters, and jets">
+    Example accordion item content
+</calcite-accordion-item>
+</calcite-accordion>
+</calcite-tab>
+<!-- # -->
+    <calcite-tab>
+    <h2></h2>
+<section>
+    <calcite-accordion-item icon="table" item-title="Aircrafts" item-subtitle="Planes, helicopters, and jets">
+        Example accordion item content
+    </calcite-accordion-item>
+    </calcite-accordion>
+</section>
+</calcite-tab>
+<!-- # -->
+<calcite-tab>
+    <h2></h2>
+<section>
+    <calcite-accordion-item icon="table" item-title="Aircrafts" item-subtitle="Planes, helicopters, and jets">
+        Example accordion item content
+    </calcite-accordion-item>
+    </calcite-accordion>
+</section>
+</calcite-tab>
+<!-- # -->
+<calcite-tab>
+    <h2></h2>
+<section>
+    <calcite-accordion-item icon="table" item-title="Aircrafts" item-subtitle="Planes, helicopters, and jets">
+        Example accordion item content
+    </calcite-accordion-item>
+    </calcite-accordion>
+</section>
+</calcite-tab>
+<!-- # -->
+<calcite-tab>
+    <h2></h2>
+<section>
+    <calcite-accordion-item icon="table" item-title="Aircrafts" item-subtitle="Planes, helicopters, and jets">
+        Example accordion item content
+    </calcite-accordion-item>
+    </calcite-accordion>
+</section>
+</calcite-tab>
+<!-- # -->
+<calcite-tab>
+    <h2></h2>
+<section>
+    <calcite-accordion-item icon="table" item-title="Aircrafts" item-subtitle="Planes, helicopters, and jets">
+        Example accordion item content
+    </calcite-accordion-item>
+    </calcite-accordion>
+</section>
+</calcite-tab>
+
+
+</calcite-tabs>
+</body>
+</html>

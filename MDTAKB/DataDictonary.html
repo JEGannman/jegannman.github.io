@@ -1,0 +1,887 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>DataDictionary</title>
+    <script
+      type="module"
+      src="https://js.arcgis.com/calcite-components/1.4.1/calcite.esm.js"
+    ></script>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://js.arcgis.com/calcite-components/1.4.1/calcite.css"
+    />
+  </head>
+  
+  <body>
+<h1>Data Dictionary</h1>
+<p>This page will highlight the feature classes and their schema in the Enterprise GIS.  This is a continual work and progress and will change whenever a feature class schema changes.</p>
+    <calcite-tabs>
+        <calcite-tab-nav slot="title-group">
+            <calcite-tab-title selected>
+                ITS
+            </calcite-tab-title>
+            <calcite-tab-title>Buildings</calcite-tab-title>
+            <calcite-tab-title>Aircrafts</calcite-tab-title>
+            <calcite-tab-title>Aircrafts</calcite-tab-title>
+            <calcite-tab-title>Aircrafts</calcite-tab-title>
+            <calcite-tab-title>Aircrafts</calcite-tab-title>
+            <calcite-tab-title>Aircrafts</calcite-tab-title>
+            <calcite-tab-title>Aircrafts</calcite-tab-title>
+            <calcite-tab-title>Aircrafts</calcite-tab-title>
+        </calcite-tab-nav>
+        <calcite-tab selected>
+            <calcite-notice icon="" open>
+                <div slot="message">
+                    <h2>ITS</h2>
+                    <calcite-accordion>
+                        <calcite-accordion-item description="ITS Schema" heading="ITS" icon-start="chevron-down">
+                            <calcite-notice open>
+                                <div slot="message">
+                                    <!---ITS Table-->
+<div class="row"><div class="col-md-12"><div class="panel panel-success"><div class="panel-heading "><h3 class="panel-title">ITS</h3></div>
+<table class="table table-striped table-bordered table-hover table-condensed" border="1">
+  <thead>
+  <tr>
+  <th title="Field #1">Field Name</th>
+  <th title="Field #2">Alias</th>
+  <th title="Field #3">Data Type</th>
+  <th title="Field #4">Allow Null</th>
+  <th title="Field #5">Domain</th>
+  <th title="Field #6">Default Value</th>
+  <th title="Field #7">Length</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+  <td>OBJECTID</td>
+  <td>OBJECTID</td>
+  <td>Object ID</td>
+  <td>FALSE</td>
+  <td>&nbsp;</td>
+  <td>&nbsp;</td>
+  <td align="right">&nbsp;</td>
+  </tr>
+  <tr>
+  <td>asset_id</td>
+  <td>ASSET ID</td>
+  <td>Text</td>
+  <td>TRUE</td>
+  <td>&nbsp;</td>
+  <td>&nbsp;</td>
+  <td align="right">20</td>
+  </tr>
+  <tr>
+  <td>barcode</td>
+  <td>BARCODE</td>
+  <td>Text</td>
+  <td>TRUE</td>
+  <td>&nbsp;</td>
+  <td>&nbsp;</td>
+  <td align="right">15</td>
+  </tr>
+  <tr>
+  <td>asset_group</td>
+  <td>ASSET GROUP</td>
+  <td>Long</td>
+  <td>FALSE</td>
+  <td>&nbsp;</td>
+  <td>3001</td>
+  <td align="right">&nbsp;</td>
+  </tr>
+  <tr>
+  <td>asset_type</td>
+  <td>ASSET TYPE</td>
+  <td>Text</td>
+  <td>TRUE</td>
+  <td>ElectricITS_UnknownAssetType</td>
+  <td>&nbsp;</td>
+  <td align="right">255</td>
+  </tr>
+  <tr>
+  <td>facility</td>
+  <td>FACILITY</td>
+  <td>Text</td>
+  <td>TRUE</td>
+  <td>Standard_Facility</td>
+  <td>&nbsp;</td>
+  <td align="right">20</td>
+  </tr>
+  <tr>
+  <td>location</td>
+  <td>LOCATION</td>
+  <td>Text</td>
+  <td>TRUE</td>
+  <td>Standard_Location</td>
+  <td>&nbsp;</td>
+  <td align="right">100</td>
+  </tr>
+  <tr>
+  <td>route_id</td>
+  <td>ROUTE ID</td>
+  <td>Text</td>
+  <td>TRUE</td>
+  <td>&nbsp;</td>
+  <td>&nbsp;</td>
+  <td align="right">32</td>
+  </tr>
+  <tr>
+  <td>milepoint</td>
+  <td>MILEPOINT</td>
+  <td>Double</td>
+  <td>TRUE</td>
+  <td>&nbsp;</td>
+  <td>&nbsp;</td>
+  <td align="right">&nbsp;</td>
+  </tr>
+  <tr>
+  <td>road_name</td>
+  <td>ROAD NAME</td>
+  <td>Text</td>
+  <td>TRUE</td>
+  <td>&nbsp;</td>
+  <td>&nbsp;</td>
+  <td align="right">100</td>
+  </tr>
+  <tr>
+  <td>road_direction</td>
+  <td>ROAD DIRECTION</td>
+  <td>Text</td>
+  <td>TRUE</td>
+  <td>Standard_RoadDirection</td>
+  <td>&nbsp;</td>
+  <td align="right">20</td>
+  </tr>
+  <tr>
+  <td>milemarker</td>
+  <td>MILEMARKER</td>
+  <td>Double</td>
+  <td>TRUE</td>
+  <td>&nbsp;</td>
+  <td>&nbsp;</td>
+  <td align="right">&nbsp;</td>
+  </tr>
+  <tr>
+  <td>service_status</td>
+  <td>SERVICE STATUS</td>
+  <td>Text</td>
+  <td>TRUE</td>
+  <td>Standard_ServiceStatus</td>
+  <td>&nbsp;</td>
+  <td align="right">50</td>
+  </tr>
+  <tr>
+  <td>install_date</td>
+  <td>INSTALL DATE</td>
+  <td>Date</td>
+  <td>TRUE</td>
+  <td>&nbsp;</td>
+  <td>&nbsp;</td>
+  <td align="right">&nbsp;</td>
+  </tr>
+  <tr>
+  <td>removed_date</td>
+  <td>RETIRE DATE</td>
+  <td>Date</td>
+  <td>TRUE</td>
+  <td>&nbsp;</td>
+  <td>&nbsp;</td>
+  <td align="right">&nbsp;</td>
+  </tr>
+  <tr>
+  <td>owner</td>
+  <td>OWNER</td>
+  <td>Text</td>
+  <td>TRUE</td>
+  <td>Standard_Organization</td>
+  <td>&nbsp;</td>
+  <td align="right">100</td>
+  </tr>
+  <tr>
+  <td>maintained_by</td>
+  <td>MAINTAINED BY</td>
+  <td>Text</td>
+  <td>TRUE</td>
+  <td>Standard_Organization</td>
+  <td>&nbsp;</td>
+  <td align="right">100</td>
+  </tr>
+  <tr>
+  <td>contract_no</td>
+  <td>CONTRACT NUMBER</td>
+  <td>Text</td>
+  <td>TRUE</td>
+  <td>&nbsp;</td>
+  <td>&nbsp;</td>
+  <td align="right">100</td>
+  </tr>
+  <tr>
+  <td>task_no</td>
+  <td>TASK NUMBER</td>
+  <td>Text</td>
+  <td>TRUE</td>
+  <td>&nbsp;</td>
+  <td>&nbsp;</td>
+  <td align="right">100</td>
+  </tr>
+  <tr>
+  <td>manufacturer</td>
+  <td>MANUFACTURER</td>
+  <td>Text</td>
+  <td>TRUE</td>
+  <td>&nbsp;</td>
+  <td>&nbsp;</td>
+  <td align="right">100</td>
+  </tr>
+  <tr>
+  <td>model_number</td>
+  <td>MODEL NUMBER</td>
+  <td>Text</td>
+  <td>TRUE</td>
+  <td>&nbsp;</td>
+  <td>&nbsp;</td>
+  <td align="right">100</td>
+  </tr>
+  <tr>
+  <td>serial_number</td>
+  <td>SERIAL NUMBER</td>
+  <td>Text</td>
+  <td>TRUE</td>
+  <td>&nbsp;</td>
+  <td>&nbsp;</td>
+  <td align="right">100</td>
+  </tr>
+  <tr>
+  <td>phase</td>
+  <td>PHASE</td>
+  <td>Text</td>
+  <td>TRUE</td>
+  <td>Standard_Phase</td>
+  <td>&nbsp;</td>
+  <td align="right">15</td>
+  </tr>
+  <tr>
+  <td>amperage</td>
+  <td>AMPERAGE (A)</td>
+  <td>Double</td>
+  <td>TRUE</td>
+  <td>&nbsp;</td>
+  <td>&nbsp;</td>
+  <td align="right">&nbsp;</td>
+  </tr>
+  <tr>
+  <td>wattage</td>
+  <td>WATTAGE (KW)</td>
+  <td>Double</td>
+  <td>TRUE</td>
+  <td>&nbsp;</td>
+  <td>&nbsp;</td>
+  <td align="right">&nbsp;</td>
+  </tr>
+  <tr>
+  <td>communication_type</td>
+  <td>COMMUNICATION TYPE</td>
+  <td>Text</td>
+  <td>TRUE</td>
+  <td>ElectricITS_CommTypeAssetType</td>
+  <td>&nbsp;</td>
+  <td align="right">50</td>
+  </tr>
+  <tr>
+  <td>legacy_id</td>
+  <td>LEGACY ID</td>
+  <td>Text</td>
+  <td>TRUE</td>
+  <td>&nbsp;</td>
+  <td>&nbsp;</td>
+  <td align="right">100</td>
+  </tr>
+  <tr>
+  <td>field_verified_by</td>
+  <td>FIELD VERIFIED BY</td>
+  <td>Text</td>
+  <td>TRUE</td>
+  <td>&nbsp;</td>
+  <td>&nbsp;</td>
+  <td align="right">100</td>
+  </tr>
+  <tr>
+  <td>field_verified_date</td>
+  <td>FIELD VERIFIED DATE</td>
+  <td>Date</td>
+  <td>TRUE</td>
+  <td>&nbsp;</td>
+  <td>&nbsp;</td>
+  <td align="right">&nbsp;</td>
+  </tr>
+  <tr>
+  <td>compilation_source</td>
+  <td>COMPILATION SOURCE</td>
+  <td>Text</td>
+  <td>TRUE</td>
+  <td>&nbsp;</td>
+  <td>&nbsp;</td>
+  <td align="right">255</td>
+  </tr>
+  <tr>
+  <td>plan_link</td>
+  <td>PLAN LINK</td>
+  <td>Text</td>
+  <td>TRUE</td>
+  <td>&nbsp;</td>
+  <td>No Link</td>
+  <td align="right">1000</td>
+  </tr>
+  <tr>
+  <td>plan_sheet</td>
+  <td>PLAN SHEET</td>
+  <td>Text</td>
+  <td>TRUE</td>
+  <td>&nbsp;</td>
+  <td>No Sheet</td>
+  <td align="right">50</td>
+  </tr>
+  <tr>
+  <td>photo_link</td>
+  <td>PHOTO LINK</td>
+  <td>Text</td>
+  <td>TRUE</td>
+  <td>&nbsp;</td>
+  <td>No Link</td>
+  <td align="right">1000</td>
+  </tr>
+  <tr>
+  <td>feed_link</td>
+  <td>FEED LINK</td>
+  <td>Text</td>
+  <td>TRUE</td>
+  <td>&nbsp;</td>
+  <td>No Link</td>
+  <td align="right">1000</td>
+  </tr>
+  <tr>
+  <td>folder_link</td>
+  <td>FOLDER LINK</td>
+  <td>Text</td>
+  <td>TRUE</td>
+  <td>&nbsp;</td>
+  <td>No Link</td>
+  <td align="right">1000</td>
+  </tr>
+  <tr>
+  <td>other_link</td>
+  <td>OTHER LINK</td>
+  <td>Text</td>
+  <td>TRUE</td>
+  <td>&nbsp;</td>
+  <td>No Link</td>
+  <td align="right">1000</td>
+  </tr>
+  <tr>
+  <td>asset_notes</td>
+  <td>ASSET NOTES</td>
+  <td>Text</td>
+  <td>TRUE</td>
+  <td>&nbsp;</td>
+  <td>&nbsp;</td>
+  <td align="right">1000</td>
+  </tr>
+  <tr>
+  <td>latitude</td>
+  <td>LATITUDE</td>
+  <td>Double</td>
+  <td>TRUE</td>
+  <td>&nbsp;</td>
+  <td>&nbsp;</td>
+  <td align="right">&nbsp;</td>
+  </tr>
+  <tr>
+  <td>longitude</td>
+  <td>LONGITUDE</td>
+  <td>Double</td>
+  <td>TRUE</td>
+  <td>&nbsp;</td>
+  <td>&nbsp;</td>
+  <td align="right">&nbsp;</td>
+  </tr>
+  <tr>
+  <td>created_by</td>
+  <td>CREATED BY</td>
+  <td>Text</td>
+  <td>TRUE</td>
+  <td>&nbsp;</td>
+  <td>&nbsp;</td>
+  <td align="right">100</td>
+  </tr>
+  <tr>
+  <td>created_date</td>
+  <td>CREATED DATE</td>
+  <td>Date</td>
+  <td>TRUE</td>
+  <td>&nbsp;</td>
+  <td>&nbsp;</td>
+  <td align="right">&nbsp;</td>
+  </tr>
+  <tr>
+  <td>last_edited_by</td>
+  <td>LAST EDITED BY</td>
+  <td>Text</td>
+  <td>TRUE</td>
+  <td>&nbsp;</td>
+  <td>&nbsp;</td>
+  <td align="right">100</td>
+  </tr>
+  <tr>
+  <td>last_edited_date</td>
+  <td>LAST EDITED DATE</td>
+  <td>Date</td>
+  <td>TRUE</td>
+  <td>&nbsp;</td>
+  <td>&nbsp;</td>
+  <td align="right">&nbsp;</td>
+  </tr>
+  <tr>
+  <td>GlobalID</td>
+  <td>GlobalID</td>
+  <td>Global ID</td>
+  <td>FALSE</td>
+  <td>&nbsp;</td>
+  <td>&nbsp;</td>
+  <td align="right">&nbsp;</td>
+  </tr>
+  <tr>
+  <td>voltage</td>
+  <td>VOLTAGE RATING (VAC)</td>
+  <td>Text</td>
+  <td>TRUE</td>
+  <td>&nbsp;</td>
+  <td>&nbsp;</td>
+  <td align="right">15</td>
+  </tr>
+  <tr>
+  <td>spur</td>
+  <td>SPUR</td>
+  <td>Text</td>
+  <td>TRUE</td>
+  <td>&nbsp;</td>
+  <td>&nbsp;</td>
+  <td align="right">50</td>
+  </tr>
+  <tr>
+  <td>county</td>
+  <td>COUNTY</td>
+  <td>Short</td>
+  <td>TRUE</td>
+  <td>Standard_County</td>
+  <td>&nbsp;</td>
+  <td align="right">&nbsp;</td>
+  </tr>
+  <tr>
+  <td>mounting_type</td>
+  <td>MOUNTING TYPE</td>
+  <td>Text</td>
+  <td>TRUE</td>
+  <td>Standard_MountingType</td>
+  <td>&nbsp;</td>
+  <td align="right">100</td>
+  </tr>
+  <tr>
+  <td>structure_type</td>
+  <td>STRUCTURE TYPE</td>
+  <td>Text</td>
+  <td>TRUE</td>
+  <td>ElectricITS_StructureType</td>
+  <td>&nbsp;</td>
+  <td align="right">100</td>
+  </tr>
+  <tr>
+  <td>abandoned_date</td>
+  <td>ABANDONED DATE</td>
+  <td>Date</td>
+  <td>TRUE</td>
+  <td>&nbsp;</td>
+  <td>&nbsp;</td>
+  <td align="right">&nbsp;</td>
+  </tr>
+  <tr>
+  <td>afm_date</td>
+  <td>ACCEPTED FOR MAINT DATE</td>
+  <td>Date</td>
+  <td>TRUE</td>
+  <td>&nbsp;</td>
+  <td>&nbsp;</td>
+  <td align="right">&nbsp;</td>
+  </tr>
+  <tr>
+  <td>data_owner</td>
+  <td>DATA OWNER</td>
+  <td>Text</td>
+  <td>TRUE</td>
+  <td>&nbsp;</td>
+  <td>&nbsp;</td>
+  <td align="right">255</td>
+  </tr>
+  <tr>
+  <td>editor_name</td>
+  <td>editor_name</td>
+  <td>Text</td>
+  <td>TRUE</td>
+  <td>&nbsp;</td>
+  <td>&nbsp;</td>
+  <td align="right">255</td>
+  </tr>
+  <tr>
+  <td>Shape</td>
+  <td>Shape</td>
+  <td>Geometry</td>
+  <td>TRUE</td>
+  <td>&nbsp;</td>
+  <td>&nbsp;</td>
+  <td align="right">&nbsp;</td>
+  </tr>
+  </tbody>
+  </table>
+</div></div></div>
+<!--End Table-->
+                                </div>
+                            </calcite-notice>
+                        </calcite-accordion-item>
+
+                    </calcite-accordion>
+                </div>
+            </calcite-notice>
+        </calcite-tab>
+        <calcite-tab>
+            <calcite-notice icon="" open>
+               
+                <div slot="message">
+                    <h2>Buildings</h2>
+                    <calcite-accordion>
+                        <calcite-accordion-item description="Buildings Schema" heading="Buildings" icon-start="chevron-down">
+                            <calcite-notice open>
+                                <div slot="message">
+                                    <!--Buildings Table-->
+<div class="row"><div class="col-md-12"><div class="panel panel-success"><div class="panel-heading "><h3 class="panel-title">Buildings Schema</h3></div>
+<table border=1 class="table table-striped table-bordered table-hover table-condensed">
+<thead><tr><th title="Field #1">Field Name</th>
+<th title="Field #2">Alias</th>
+<th title="Field #3">Data Type</th>
+<th title="Field #4">Allow Null</th>
+<th title="Field #5">Domain</th>
+<th title="Field #6">Default Value</th>
+<th title="Field #7">Length</th>
+</tr></thead>
+<tbody><tr><td>OBJECTID</td>
+<td>OBJECTID</td>
+<td>Object ID</td>
+<td>FALSE</td>
+<td> </td>
+<td> </td>
+<td align="right"></td>
+</tr>
+<tr><td>GlobalID</td>
+<td>GlobalID</td>
+<td>Global ID</td>
+<td>FALSE</td>
+<td> </td>
+<td> </td>
+<td align="right"></td>
+</tr>
+<tr><td>FLOORCOUNT</td>
+<td>Floor count</td>
+<td>Long</td>
+<td>TRUE</td>
+<td> </td>
+<td> </td>
+<td align="right"></td>
+</tr>
+<tr><td>LASTUPDATE</td>
+<td>Last Update</td>
+<td>Date</td>
+<td>TRUE</td>
+<td> </td>
+<td> </td>
+<td align="right"></td>
+</tr>
+<tr><td>LASTEDITOR</td>
+<td>Last Editor</td>
+<td>Text</td>
+<td>TRUE</td>
+<td> </td>
+<td> </td>
+<td align="right">40</td>
+</tr>
+<tr><td>MDOT_MAXIMO_ID</td>
+<td>MDOT_MAXIMO_ID</td>
+<td>Text</td>
+<td>TRUE</td>
+<td> </td>
+<td> </td>
+<td align="right">50</td>
+</tr>
+<tr><td>OWNER</td>
+<td>ORGANIZATION</td>
+<td>Text</td>
+<td>TRUE</td>
+<td> </td>
+<td> </td>
+<td align="right">250</td>
+</tr>
+<tr><td>FACILITY</td>
+<td>FACILITY</td>
+<td>Text</td>
+<td>TRUE</td>
+<td>Standard_Facility</td>
+<td> </td>
+<td align="right">255</td>
+</tr>
+<tr><td>BUILDING_ID</td>
+<td>BUILDING_ID</td>
+<td>Text</td>
+<td>TRUE</td>
+<td>Standard_BuildingID</td>
+<td> </td>
+<td align="right">255</td>
+</tr>
+<tr><td>YEAR_BUILT</td>
+<td>YEAR_BUILT</td>
+<td>Text</td>
+<td>TRUE</td>
+<td> </td>
+<td> </td>
+<td align="right">50</td>
+</tr>
+<tr><td>REPLACEMENT_COST</td>
+<td>REPLACEMENT_COST</td>
+<td>Long</td>
+<td>TRUE</td>
+<td> </td>
+<td> </td>
+<td align="right"></td>
+</tr>
+<tr><td>CAMPUS_GUID</td>
+<td>CAMPUS_GUID</td>
+<td>Guid</td>
+<td>TRUE</td>
+<td> </td>
+<td> </td>
+<td align="right"></td>
+</tr>
+<tr><td>SERVICE_STATUS</td>
+<td>STATUS</td>
+<td>Text</td>
+<td>TRUE</td>
+<td> </td>
+<td> </td>
+<td align="right">50</td>
+</tr>
+<tr><td>MAXIMO_ID</td>
+<td>MDTA Maximo ID</td>
+<td>Text</td>
+<td>TRUE</td>
+<td>Maximo_MxLOCATIONS</td>
+<td> </td>
+<td align="right">50</td>
+</tr>
+<tr><td>NAME</td>
+<td>Name</td>
+<td>Text</td>
+<td>TRUE</td>
+<td> </td>
+<td> </td>
+<td align="right">255</td>
+</tr>
+<tr><td>ASSET_ID</td>
+<td>Asset ID</td>
+<td>Text</td>
+<td>TRUE</td>
+<td> </td>
+<td> </td>
+<td align="right">255</td>
+</tr>
+<tr><td>ASSET_TYPE</td>
+<td>Asset Type</td>
+<td>Text</td>
+<td>TRUE</td>
+<td>Building_TSO_AssetType</td>
+<td> </td>
+<td align="right">255</td>
+</tr>
+<tr><td>ASSET_SUBTYPE</td>
+<td>Asset Subtype</td>
+<td>Text</td>
+<td>TRUE</td>
+<td>Building_TSO_AssetSubType</td>
+<td> </td>
+<td align="right">255</td>
+</tr>
+<tr><td>CLADDING_MATERIAL</td>
+<td>Cladding Material</td>
+<td>Text</td>
+<td>TRUE</td>
+<td> </td>
+<td> </td>
+<td align="right">255</td>
+</tr>
+<tr><td>ROOF_TYPE</td>
+<td>Roof Type</td>
+<td>Text</td>
+<td>TRUE</td>
+<td> </td>
+<td> </td>
+<td align="right">255</td>
+</tr>
+<tr><td>ADDRESS</td>
+<td>Address</td>
+<td>Text</td>
+<td>TRUE</td>
+<td> </td>
+<td> </td>
+<td align="right">255</td>
+</tr>
+<tr><td>ZIP</td>
+<td>Zip Code</td>
+<td>Text</td>
+<td>TRUE</td>
+<td> </td>
+<td> </td>
+<td align="right">255</td>
+</tr>
+<tr><td>COUNTY</td>
+<td>County</td>
+<td>Text</td>
+<td>TRUE</td>
+<td> </td>
+<td> </td>
+<td align="right">255</td>
+</tr>
+<tr><td>YEAR_RETIRED</td>
+<td>Year Retired</td>
+<td>Text</td>
+<td>TRUE</td>
+<td> </td>
+<td> </td>
+<td align="right">255</td>
+</tr>
+<tr><td>ASSET_NOTES</td>
+<td>Asset Notes</td>
+<td>Text</td>
+<td>TRUE</td>
+<td> </td>
+<td> </td>
+<td align="right">255</td>
+</tr>
+<tr><td>PLAN_LINK</td>
+<td>Plan Link</td>
+<td>Text</td>
+<td>TRUE</td>
+<td> </td>
+<td> </td>
+<td align="right">255</td>
+</tr>
+<tr><td>EVALUATION</td>
+<td>Evaluation</td>
+<td>Text</td>
+<td>TRUE</td>
+<td> </td>
+<td> </td>
+<td align="right">255</td>
+</tr>
+<tr><td>INSPECTION_REPORT</td>
+<td>Inspection Report</td>
+<td>Text</td>
+<td>TRUE</td>
+<td> </td>
+<td> </td>
+<td align="right">255</td>
+</tr>
+<tr><td>ESCAPE_PLAN</td>
+<td>Escape Plan</td>
+<td>Text</td>
+<td>TRUE</td>
+<td> </td>
+<td> </td>
+<td align="right">255</td>
+</tr>
+<tr><td>ENVCOMPLIANCE_LINKS</td>
+<td>Environmental Compliance Links</td>
+<td>Text</td>
+<td>TRUE</td>
+<td> </td>
+<td> </td>
+<td align="right">255</td>
+</tr>
+<tr><td>Shape</td>
+<td>Shape</td>
+<td>Geometry</td>
+<td>TRUE</td>
+<td> </td>
+<td> </td>
+<td align="right"></td>
+</tr>
+<tr><td>Shape.STArea()</td>
+<td>Shape.STArea()</td>
+<td>Double</td>
+<td>FALSE</td>
+<td> </td>
+<td> </td>
+<td align="right"></td>
+</tr>
+<tr><td>Shape.STLength()</td>
+<td>Shape.STLength()</td>
+<td>Double</td>
+<td>FALSE</td>
+<td> </td>
+<td> </td>
+<td align="right"></td>
+</tr>
+</tbody></table>
+</div></div></div>
+<!--End Table-->
+                                </div>
+                            </calcite-notice>
+                        </calcite-accordion-item>
+                    </calcite-accordion>
+                </div>
+            </calcite-notice>
+        </calcite-tab>
+        <calcite-tab>
+            <calcite-notice icon="plane" open>
+                <div slot="message">Cross continents quickly</div>
+            </calcite-notice>
+        </calcite-tab>
+        <calcite-tab>
+            <calcite-notice icon="car" open>
+                <div slot="message">A good choice for inland adventure</div>
+            </calcite-notice>
+        </calcite-tab>
+        <calcite-tab>
+            <calcite-notice icon="plane" open>
+                <div slot="message">Cross continents quickly</div>
+            </calcite-notice>
+        </calcite-tab>
+        <calcite-tab>
+            <calcite-notice icon="car" open>
+                <div slot="message">A good choice for inland adventure</div>
+            </calcite-notice>
+        </calcite-tab>
+        <calcite-tab>
+            <calcite-notice icon="plane" open>
+                <div slot="message">Cross continents quickly</div>
+            </calcite-notice>
+        </calcite-tab>
+        <calcite-tab>
+            <calcite-notice icon="car" open>
+                <div slot="message">A good choice for inland adventure</div>
+            </calcite-notice>
+        </calcite-tab>
+        <calcite-tab>
+            <calcite-notice icon="plane" open>
+                <div slot="message">Cross continents quickly</div>
+            </calcite-notice>
+        </calcite-tab>
+    </calcite-tabs>
+
+</body>
+
+</html> 
